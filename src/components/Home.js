@@ -7,6 +7,10 @@ import uber from "../images/Uber.png";
 import adani from "../images/Adani.png";
 import airbnb from "../images/Airbnb.png";
 import spotify from "../images/Spotify.png";
+import ActiveJoinerCard from "./cards/ActiveJoinerCard";
+import activejoinerData from "../components/cards/activeJoinerData";
+import HuntLocationCard from "./cards/HuntLocationCard";
+import locationCardData from '../components/cards/locationCardData'
 
 const Home = () => {
   return (
@@ -41,15 +45,40 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="active-joiners">
-        <div className="active-head">
-          <h2>
-            <span>Active</span> Joiners
-          </h2>
-          <p>(Can join withing 30days)</p>
+      <div className="avtivejoinerBox">
+        <div className="active-joiners">
+          <div className="active-head">
+            <h2>
+              Active <span>Joiners</span>
+            </h2>
+            <p>(Can join withing 30days)</p>
+          </div>
+          <div className="active-viewmore">
+            <a href="/">View More</a>
+          </div>
         </div>
-        <div className="active-viewmore">
-          <a href="/">View More</a>
+        <div className="activejoiner-cardbox">
+          {activejoinerData.map((item, index) => (
+            <ActiveJoinerCard
+              key={index}
+              image={item.image}
+              name={item.name}
+              role={item.role}
+              salary={item.salary}
+              experience={item.experience}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="huntByLocation">
+        <h2>
+          <span>Hunt By</span> Location
+        </h2>
+        <div className="locationCardBox">
+          {" "}
+          {locationCardData.map((item, index) => (
+            <HuntLocationCard key={index} locationName={item.locationName} />
+          ))}
         </div>
       </div>
     </>

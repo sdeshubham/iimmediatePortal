@@ -2,7 +2,7 @@
   height: 50vh;
   width: 100%;
   margin-top: 9vh;
-  border: 2px dotted green;
+  /* border: 2px dotted green; */
 }
 
 .main-section {
@@ -32,84 +32,113 @@
   width: 30%;
   text-align: center;
   margin-bottom: 10px;
-  font-size: .9em;
-  color: #A1A6B3;
+  font-size: 0.9em;
+  color: #a1a6b3;
 }
 
 .home-search input {
-    margin: 12px 0;
+  margin: 12px 0;
   padding: 10px 70px 10px 20px;
   border-radius: 20px;
   border: 1px solid #ccc;
 }
 
 .home-search button {
-    padding: 10px 20px;
-    background-color: #EA4232;
-    border: none;
-    color: #ffffff;
-    border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #ea4232;
+  border: none;
+  color: #ffffff;
+  border-radius: 20px;
 }
 
 .home-second-box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 70px 0;
-    border: 2px dotted green;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 70px 0;
+  /* border: 2px dotted green; */
 }
 
 .home-second-box h5 {
-    color: #727272;
-    font-weight: 400;
-    font-size: 1.2em;
+  color: #727272;
+  font-weight: 400;
+  font-size: 1.2em;
 }
 
 .home-second-box span {
-    color: #EA4232;
+  color: #ea4232;
 }
 
 .main-sec-brands {
-    border: 1px solid #EA4232;
-    border-radius: 30px;
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0 30px 0;
+  border: 1px solid #ea4232;
+  border-radius: 30px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 30px 0;
 }
 
 .main-sec-brands img {
-    height: 20px;
-    margin: 15px 35px;
-    border: 1px solid yellow;
+  height: 20px;
+  margin: 15px 35px;
+  /* border: 1px solid yellow; */
 }
 
 /* -------------------------------------------- */
 
 .active-joiners {
-    margin-top: 320px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 70px;
+  margin-top: 320px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 70px;
 }
 
 .active-head h2 {
-    font-weight: 500;
-    font-size: 1.7rem;
+  font-weight: 500;
+  font-size: 1.7rem;
 }
 
 .active-head h2 span {
-    color: #EA4232;
+  color: #000000;
 }
 
 .active-head p {
-    font-weight: 400;
-    font-size: .9rem;
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 
 .active-viewmore a {
-color: #012970;
+  color: #012970;
+}
+
+/* -------------------------------------------- */
+
+.huntByLocation {
+  height: 40vh;
+  margin: 30px 0;
+  border: 1px dotted firebrick;
+}
+
+.huntByLocation h2 {
+  padding-left: 70px;
+}
+
+.hunt-location {
+  display: flex;
+}
+
+.huntByLocation h2 span {
+  color: #000000;
+}
+
+.locationCardBox {
+  border: 1px dotted firebrick;
+  
+}
+
+.huntlocationBox p {
+  border: 1px solid green;
 }
