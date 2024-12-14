@@ -10,7 +10,13 @@ import spotify from "../images/Spotify.png";
 import ActiveJoinerCard from "./cards/ActiveJoinerCard";
 import activejoinerData from "../components/cards/activeJoinerData";
 import HuntLocationCard from "./cards/HuntLocationCard";
-import locationCardData from '../components/cards/locationCardData'
+import locationCardData from "../components/cards/locationCardData";
+import StackCard from "./cards/StackCard";
+import stackData from "./cards/stackData";
+import experienceData from './cards/experienceData'
+import HuntExperience from "./cards/HuntExperience";
+import HomeAbout from "./cards/HomeAbout";
+import BottomJoin from "./cards/BottomJoin";
 
 const Home = () => {
   return (
@@ -71,16 +77,60 @@ const Home = () => {
         </div>
       </div>
       <div className="huntByLocation">
-        <h2>
-          <span>Hunt By</span> Location
-        </h2>
-        <div className="locationCardBox">
-          {" "}
+        <div className="huntHeadBox">
+          <h2>
+            <span>Hunt By</span> Location
+          </h2>
+          <div className="active-viewmore">
+            <a href="/">View More</a>
+          </div>
+        </div>
+        <div className="huntlocationBox">
           {locationCardData.map((item, index) => (
             <HuntLocationCard key={index} locationName={item.locationName} />
           ))}
         </div>
       </div>
+
+      <div className="huntByLocation">
+        <div className="huntHeadBox">
+          <h2>
+            <span>Hunt By</span> Technology Stack
+          </h2>
+          <div className="active-viewmore">
+            <a href="/">View More</a>
+          </div>
+        </div>
+        <div className="huntstackBox">
+          {stackData.map((item, index) => (
+            <StackCard
+              key={index}
+              stackImg={item.stackImg}
+              stackName={item.stackName}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="huntByExperience">
+        <div className="experienceHeadBox">
+          <h2>
+            <span>Hunt By</span> Experience
+          </h2>
+        </div>
+        <div className="huntExperiemceBox">
+          {experienceData.map((item, index) => (
+            <HuntExperience
+              key={index}
+              heading={item.heading}
+              subheading={item.subheading}
+            />
+          ))}
+        </div>
+      </div>
+
+      <HomeAbout />
+      <BottomJoin />
     </>
   );
 };

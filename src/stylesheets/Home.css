@@ -2,7 +2,6 @@
   height: 50vh;
   width: 100%;
   margin-top: 9vh;
-  /* border: 2px dotted green; */
 }
 
 .main-section {
@@ -26,6 +25,7 @@
   font-weight: 500;
   font-size: 3em;
   margin-bottom: 10px;
+  color: #012970;
 }
 
 .main-section p {
@@ -58,7 +58,6 @@
   align-items: center;
   flex-direction: column;
   margin: 70px 0;
-  /* border: 2px dotted green; */
 }
 
 .home-second-box h5 {
@@ -83,10 +82,63 @@
 .main-sec-brands img {
   height: 20px;
   margin: 15px 35px;
-  /* border: 1px solid yellow; */
 }
 
 /* -------------------------------------------- */
+
+.activejoiner-cardbox {
+  width: 91%;
+  margin: 70px 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.activeCard {
+  border: 1px solid #ea4232;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.activejoiner-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.activejoiner-details-one {
+  margin-left: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stack-details-one img {
+  height: 30px;
+}
+
+.activejoiner-details-one h4,
+.activejoiner-details-one p {
+  margin: 0;
+  width: 60%;
+  font-size: 0.7rem;
+  text-align: left;
+  color: #012970;
+}
+
+.activejoiner-details-one h4 {
+  font-weight: 600;
+}
+
+.activeCardImg {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 .active-joiners {
   margin-top: 320px;
@@ -102,7 +154,7 @@
 }
 
 .active-head h2 span {
-  color: #000000;
+  color: #012970;
 }
 
 .active-head p {
@@ -116,29 +168,234 @@
 
 /* -------------------------------------------- */
 
-.huntByLocation {
-  height: 40vh;
-  margin: 30px 0;
-  border: 1px dotted firebrick;
-}
-
-.huntByLocation h2 {
-  padding-left: 70px;
-}
-
-.hunt-location {
+.huntHeadBox {
   display: flex;
+  justify-content: space-between;
+  margin: 0 70px;
+}
+
+.huntByLocation {
+  margin: 100px 0;
 }
 
 .huntByLocation h2 span {
-  color: #000000;
+  color: #012970;
 }
 
-.locationCardBox {
-  border: 1px dotted firebrick;
-  
+.huntlocationBox {
+  width: 91%;
+  margin: 50px 70px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  justify-content: space-between;
 }
 
-.huntlocationBox p {
-  border: 1px solid green;
+.huntlocationCard {
+  border: 1px solid #ea4232;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 5px;
+  width: 150px;
+}
+
+.huntlocation-details,
+.stack-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 190px;
+}
+
+.huntlocation-details-one,
+.stack-details-one {
+  width: 130px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border: 1px dotted purple; */
+}
+
+.huntlocation-details-one p,
+.stack-details-one p {
+  /* border: 1px solid red; */
+  width: 80%;
+  font-size: 0.8rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #012970;
+}
+
+.huntstackBox {
+  width: 91%;
+  margin: 50px 70px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.stackCard {
+  border: 1px solid #ea4232;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 5px;
+  width: 200px;
+}
+
+/* ----------------------------------------------------------- */
+
+.experienceHeadBox h2 {
+  margin-left: 70px;
+}
+
+.experienceHeadBox span {
+  color: #012970;
+}
+
+.huntExperiemceBox {
+  width: 91%;
+  margin: 50px 70px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.experience-details img {
+  height: 50px;
+}
+
+.experience-details h3 {
+  font-weight: 550;
+  padding: 5px 0;
+  font-size: 1.2rem;
+  color: #012970;
+}
+
+.experience-details p {
+  font-size: 0.9rem;
+  color: #012970;
+}
+
+.experienceCard {
+  border: 1px solid #d9d9d9;
+  padding: 30px 10px;
+  border-radius: 20px;
+}
+
+/* ----------------------------------------------------------- */
+
+.homeAboutBox {
+  height: 70vh;
+  background-color: #ea4232;
+  margin: 100px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutLeftBox {
+  height: 60vh;
+  width: 60%;
+  padding-left: 60px;
+  color: #fff;
+}
+.aboutLeftBox h3 {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.aboutLeftBox h1 {
+  margin: 20px 0 10px 0;
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+
+.leftBoxP1 {
+  margin: 20px 0;
+  font-weight: 400;
+}
+
+.leftBoxP2 {
+  margin: 20px 0;
+  font-weight: 300;
+}
+
+.empBtn {
+  padding: 5px 20px;
+  margin-right: 2px;
+  color: #fff;
+  background-color: #ea4232;
+  border: 1px solid #fff;
+}
+
+.jobseekerBtn {
+  padding: 5px 20px;
+  background-color: #fff;
+  color: #ea4232;
+  border: none;
+}
+
+.aboutRightBox {
+  object-fit: cover;
+}
+
+.aboutRightBox img {
+  height: 60vh;
+  border: 8px solid #fff;
+  border-right: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+/* ----------------------------------------------------------- */
+
+.bottomJoin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 70px 50px 70px;
+  position: relative;
+}
+
+.homeBottom {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ea4232;
+  position: relative;
+}
+
+.homeBottomBox {
+  height: 20vh;
+  padding: 30px;
+}
+
+.homeBottomBox p {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.bottomJoinBtn {
+  margin: 70px 0;
+  padding: 7px 35px;
+  background-color: #fff;
+  border: none;
+  color: #ea4232;
+}
+
+.homeBottom img {
+  height: 30vh;
+  position: absolute;
+  bottom: 0;
+  left: 84%;
+  transform: translateX(-70%);
 }

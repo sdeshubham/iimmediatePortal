@@ -29,6 +29,18 @@ const locationCardData = [
   {
     locationName: "Surat",
   },
+  {
+    locationName: "Mohali",
+  },
+  {
+    locationName: "Kochi",
+  },
+  {
+    locationName: "Jaipur",
+  },
+  {
+    locationName: "Kolkata",
+  },
 ];
 
-export default locationCardData;
+export default locationCardData
