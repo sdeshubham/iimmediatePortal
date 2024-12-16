@@ -1,0 +1,26 @@
+.privacyBox,
+.termsBox {
+    margin-top: 9vh;
+    background-color: rgb(252, 252, 252);
+}
+
+.privacy-content,
+.terms-content {
+    padding: 40px 70px 40px 70px;
+}
+
+.privacy-content h2,
+.terms-content h2 {
+    margin-bottom: 40px;
+}
+
+.privacy-content p,
+.terms-content p {
+    padding: 5px 0;
+    color: #727272;
+}
+
+.privacy-text,
+.terms-text {
+    margin-bottom: 70px;
+}

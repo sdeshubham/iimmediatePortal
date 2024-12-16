@@ -1,0 +1,112 @@
+.contactBox {
+  margin-top: 9vh;
+  height: 110vh;
+}
+
+.contactContainer {
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-head h1 {
+  color: #012970;
+  border-bottom: 2px solid #012970;
+}
+
+.contactTop {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contactTop a {
+  text-decoration: none;
+  color: #012970;
+}
+
+.contactTop a:hover {
+  color: #ea4232;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px;
+}
+
+.contact-left {
+    width: 50%;
+    padding: 20px;
+}
+
+.ContactleftContent {
+    padding: 10px 0;
+    color: #747070;
+}
+
+.contact-left h3 {
+    padding-bottom: 5px;
+    color: #747070;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.contact-details span {
+    background-color: #ea4232;
+    padding: 15px;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.contact-detail {
+    margin-left: 20px;
+}
+
+.contact-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+}
+
+.contactForm-input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 25vw;
+    padding: 0 20px;
+    background-color: #ea4232;
+    border-radius: 10px;
+}
+
+.contactForm-input input {
+    padding: 13px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contactForm-input button {
+    padding: 13px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #FA959D;
+    width: 99%;
+    transition: 0.3s ease-in;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.contactForm-input button:hover {
+    background-color: #fff;
+    color: #ea4232;
+    cursor: pointer;
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import "./ActiveJoiner.css";
 
 const ActiveJoinerCard = ({ image, name, role, salary, experience }) => {
   return (

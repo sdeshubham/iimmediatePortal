@@ -1,0 +1,106 @@
+.footer-top-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-container {
+  background-color: #ea4232;
+  padding: 0 70px;
+  height: 76vh;
+}
+
+.footer-col {
+  margin: 50px 0 10px 0;
+}
+
+.footer-col h3 {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #fff;
+}
+
+.footer-col ul li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.footer-col ul li a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.footer-col ul li a:hover::after {
+  width: 100%;
+}
+
+.footer-social-icon ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
+  list-style: none;
+}
+
+.footer-social-icon ul li a {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 70px;
+}
+
+.fbottom-left img {
+  height: 6vh;
+}
+
+.fbottom-left p {
+  margin: 5px 0;
+  font-size: small;
+}
+
+.fbottom-right ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding-top: 20px;
+  list-style: none;
+}
+
+.fbottom-right ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #012970;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.fbottom-right ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #ea4232;
+  transition: width 0.3s ease;
+}
+
+.fbottom-right ul li a:hover::after {
+  color: #ea4232;
+  width: 100%;
+}
