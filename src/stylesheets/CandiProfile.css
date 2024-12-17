@@ -32,7 +32,8 @@
     font-size: 1.6rem;
 }
 
-.cadidate-basicInfo h3, p {
+.cadidate-basicInfo h3, 
+.cadidate-basicInfo p {
     padding: 8px 0;
 }
 
