@@ -14,7 +14,9 @@ const CandiProfile = () => {
               cImg={item.cImg}
               cName={item.cName}
               cHeadline={item.cHeadline}
+              cCompany={item.cCompany}
               cLocation={item.cLocation}
+              cExperience={item.cExperience}
               cSalary={item.cSalary}
               cNoticePeriod={item.cNoticePeriod}
               cPhoneNumber={item.cPhoneNumber}

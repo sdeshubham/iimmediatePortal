@@ -1,3 +1,93 @@
-.candi-profile {
-    margin-top: 9vh;
+.profile-head {
+  margin: 97.2px 70px 50px 70px;
+  height: 40vh;
+  background-color: #ea4232;
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.profileCardHead {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+
+.profileCardHead img {
+    height: 23vh;
+    width: 13vw;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.cadidate-basicInfo {
+    height: 40vh;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px 0 30px;
+}
+
+.cadidate-basicInfo h3 {
+    font-size: 1.6rem;
+}
+
+.cadidate-basicInfo h3, p {
+    padding: 8px 0;
+}
+
+.candi-personalInfo {
+    display: flex;
+    margin: 20px 0;
+}
+
+.colOne-details,
+.colTwo-details {
+    display: flex;
+    align-items: center;
+}
+
+.colOne-details p,
+.colTwo-details p {
+    margin-left: 15px;
+}
+
+.personalInfo-colTwo {
+    margin-left: 150px;
+}
+
+.colTwo-details-view {
+    margin: 0 20px;
+    padding: 1px 8px;
+    font-size: .7rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.colTwo-details-view:hover {
+    cursor: pointer;
+}
+
+.profile-resume {
+    margin: 10px 0;
+}
+
+.profileResume {
+    width: 5vw;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* ------------------------------------- */
+
+.profile-secTwo {
+    height: 120vh;
+    margin-bottom: 100px;
+}
+
+.addMore-detailsBox {
+    height: 10vh;
+    border: 2px dotted wheat;
 }
