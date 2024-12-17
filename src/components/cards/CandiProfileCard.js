@@ -72,6 +72,7 @@ const CandiProfileCard = ({
               </div>
             </div>
           </div>
+          
           <div className="profile-secTwo">
             <div className="profile-more">
               <div className="profile-addMore">
