@@ -74,6 +74,7 @@ nav {
   border: 1px solid #ea4232;
   background: none;
   color: #012970;
+  transition: all 0.3s ease;
 }
 
 .sign-btn:hover {
@@ -85,12 +86,12 @@ nav {
   background-color: #ea4232;
   border: none;
   color: #fff;
+  transition: all 0.3s ease;
 }
 
 .signup-btn:hover {
   background-color: #fff;
   color: #ea4232;
-  border: 1px solid #ea4232;
 }
 
 .dropdown {
@@ -98,9 +99,21 @@ nav {
 }
 
 .head-dropdown {
+  position: relative;
   font-weight: 400;
   display: inline-block;
   cursor: pointer;
+}
+
+.head-dropdown a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #ea4232;
+  transition: width 0.3s ease;
 }
 
 .dropdown-content {
@@ -114,6 +127,7 @@ nav {
   border-radius: 4px;
   z-index: 1000;
   width: 150px;
+  transition: all 0.3s ease;
 }
 
 .dropdown-content a {
@@ -125,9 +139,10 @@ nav {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dropdown-content a:hover {
-  background-color: #ea4232;
-  color: #fff;
+.dropdown-content a:hover::after  {
+  /* background-color: #ea4232;
+  color: #fff; */
+  width: 100%;
 }
 
 .dropdown:hover .dropdown-content {

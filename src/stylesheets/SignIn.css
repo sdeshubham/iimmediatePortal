@@ -1,57 +1,178 @@
 .signinBox {
-  margin-top: 9vh;
-  height: 90vh;
-  border: 1px dotted sandybrown;
-}
-
-.signIn {
+  margin: 97.2px 0 50px 0;
+  height: 85vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
-.signin-left {
-    border: 1px solid palegreen;
-    background-color: #EA4232;
-    height: 90vh;
-    width: 50%;
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    flex-direction: column;
-    text-align: left;
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.signIn-toggle button {
+  border: none;
+  border-bottom: 4px solid #afa9a9;
+  padding: 5px 40px 5px 0;
+  margin-bottom: 30px;
+  background-color: transparent;
+  color: #afa9a9;
+  transition: all 0.5s ease;
+  font-size: 1.2rem;
+}
+
+.signIn-toggle button:hover {
+  cursor: pointer;
+}
+
+.signBtn {
+  text-align: left;
+}
+
+.signIn-toggle .active {
+  border: none;
+  border-bottom: 4px solid #ea4232;
+  background-color: transparent;
+  color: #ea4232;
+  text-align: left;
+}
+
+.left-box {
+  background-color: #ea4232;
+  height: 70vh;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  padding: 40px;
 }
 
 .signin-left img {
-    height: 55vh;
-    width: 30vw;
-    margin: 70px 0 0 80px;
+  width: 80%;
+  margin-top: 40px;
 }
 
-.signin-left h1 {
-    margin: 30px 0 0 80px;
-    color: #fff;
+.signin-left h3 {
+    font-size: 1.4rem;
+  margin: 80px 0 0 30px;
+  color: #fff;
 }
 
 .signin-left p {
-    margin: 10px 0 0 80px;
-    color: #fff;
+  margin: 10px 0 0 30px;
 }
 
-.signin-right {
-    border: 1px solid seagreen;
-    height: 65vh;
-    width: 65%;
-    display: flex;
-    justify-content: center;
+.right-form {
+  height: 76.1vh;
+  padding-top: 30px;
+  width: 65%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
-.signin-right-box {
-    border: 1px solid salmon;
-    width: 68%;
+.signInForm {
+  padding: 30px 70px 50px 70px;
 }
 
-.signin-right-box p {
-    margin: 15px 0;
-    /* font-weight: 400; */
+.right-form-head {
+  padding: 0 70px;
+}
+
+.right-form-head h2 {
+  padding: 10px 0;
+}
+
+.right-form-head p {
+  color: #292731;
+}
+
+.hello-icon {
+  color: #eba352;
+  font-size: 1.4rem;
+  display: block;
+  margin-top: 50px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #012970;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  background-color: #ececec;
+  width: 500px;
+}
+
+.input-otp {
+  justify-content: flex-start;
+  position: relative;
+}
+
+.input-otp button {
+  position: absolute;
+  left: 425px;
+  top: 0;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #ea4232;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.input-otp button:hover {
+  background-color: #ea4232;
+  color: #fff;
+}
+
+.login-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.login-btn button {
+  margin: 15px 0;
+  padding: 8px 40px;
+  background-color: #ea4232;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.login-btn button:hover {
+  background-color: #a6271b;
+}
+
+.login-btn button {
+  margin-left: 220px;
+}
+
+.login-btn p {
+  color: #012970;
+  margin-left: 150px;
+}
+
+.login-btn a {
+  color: #ea4232;
 }
