@@ -130,7 +130,7 @@ const Home = () => {
       </div>
 
       <HomeAbout />
-      <BottomJoin />
+      {/* <BottomJoin /> */}
     </>
   );
 };

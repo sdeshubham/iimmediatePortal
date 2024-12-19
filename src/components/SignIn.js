@@ -85,7 +85,10 @@ const SignIn = () => {
                       <div className="login-btn">
                         <button>Log In</button>
                         <p>
-                          Don't have an account <a href="" onClick={() => setIsLogin(<SignUp />)}>Register now</a>
+                          Don't have an account{" "}
+                          <a href="" onClick={() => setIsLogin(<SignUp />)}>
+                            Register now
+                          </a>
                         </p>
                       </div>
                     </div>

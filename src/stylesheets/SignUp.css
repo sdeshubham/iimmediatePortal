@@ -1,0 +1,83 @@
+/* .signUp-Box {
+  height: 100vh;
+  background-color: rgb(200, 209, 209);
+  padding-bottom: 40px;
+}
+
+.signUp-main {
+  margin-top: 9vh;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+}
+
+.signUpleft-box {
+  background-color: #ea4232;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-subBox {
+  width: 39%;
+}
+
+.signUp-left {
+  width: 80%;
+  height: auto;
+}
+
+.signUp-left img {
+  height: 50vh;
+  width: 30vw;
+}
+
+.signUp-left-content h3 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.signUp-left-content p {
+    color: #fff;
+}
+
+.right-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  height: 100vh;
+}
+
+.right-subBox {
+  margin-top: 40px;
+}
+
+.signUp-toggle button {
+  border: none;
+  border-bottom: 4px solid #afa9a9;
+  padding: 5px 40px 5px 0;
+  margin-bottom: 30px;
+  background-color: transparent;
+  color: #afa9a9;
+  transition: all 0.5s ease;
+  font-size: 1.2rem;
+}
+
+.signUp-toggle button:hover {
+  cursor: pointer;
+}
+
+.signUp-toggle .activeBtn {
+    border: none;
+    border-bottom: 4px solid #ea4232;
+    background-color: transparent;
+    color: #ea4232;
+    text-align: left;
+  }
+
+.signBtn {
+  text-align: left;
+} */

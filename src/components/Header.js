@@ -14,9 +14,9 @@ const Header = () => {
           <li>
             <Link to="/aboutus">About Us</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/pricing">Pricing</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/contactus">Contact Us</Link>
           </li>
@@ -25,7 +25,7 @@ const Header = () => {
           <Link to="/signin" className="sign-btn">
             Sign In
           </Link>
-          <Link to="/signup" className="signup-btn">
+          <Link to="#" className="signup-btn">
             Sign Up
           </Link>
         </div>

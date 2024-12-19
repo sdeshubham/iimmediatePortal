@@ -1,6 +1,7 @@
 .signinBox {
-  margin: 97.2px 0 50px 0;
-  height: 85vh;
+  margin-top: 75px;
+  padding-bottom: 40;
+  height: 90.6vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +11,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin: 20px 0;
+  height: 90.6vh;
+}
+
+.signIn-toggle {
+  display: flex;
 }
 
 .signIn-toggle button {
@@ -43,44 +49,42 @@
 
 .left-box {
   background-color: #ea4232;
-  height: 70vh;
-  width: 35%;
+  height: 90.6vh;
+  width: 39%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   color: #ffffff;
-  padding: 40px;
+  padding-left: 40px;
 }
 
 .signin-left img {
   width: 80%;
-  margin-top: 40px;
 }
 
 .signin-left h3 {
-    font-size: 1.4rem;
-  margin: 80px 0 0 30px;
+  font-size: 1.4rem;
+  padding-top: 80px;
   color: #fff;
 }
 
 .signin-left p {
-  margin: 10px 0 0 30px;
+  margin: 10px 0;
 }
 
 .right-form {
-  height: 76.1vh;
-  padding-top: 30px;
-  width: 65%;
+  height: 90.6vh;
+  width: 60%;
   background-color: #fff;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-.signInForm {
-  padding: 30px 70px 50px 70px;
-}
-
 .right-form-head {
-  padding: 0 70px;
+  padding: 30px;
+  width: 59%;
 }
 
 .right-form-head h2 {
@@ -96,6 +100,13 @@
   font-size: 1.4rem;
   display: block;
   margin-top: 50px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .form-group {
@@ -145,8 +156,8 @@
 
 .login-btn {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -164,13 +175,8 @@
   background-color: #a6271b;
 }
 
-.login-btn button {
-  margin-left: 220px;
-}
-
 .login-btn p {
   color: #012970;
-  margin-left: 150px;
 }
 
 .login-btn a {
