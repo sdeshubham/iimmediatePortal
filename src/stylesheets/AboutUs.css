@@ -81,6 +81,7 @@
 .team-card {
     height: 60vh;
     width: 25vw;
+    margin-bottom: 150px;
 }
 
 .team-card img {
@@ -106,9 +107,11 @@
 .team-social-media a {
  color: #747070;
  font-size: 1.4rem;
- transition: .4s;
+ transition: transform .4s ease;
+ padding: 5px;
 }
 
 .team-social-media a:hover {
     color: #ea4232;
+    transform: translateY(-5px);
 }

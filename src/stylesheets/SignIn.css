@@ -1,6 +1,6 @@
 .signinBox {
   margin-top: 75px;
-  padding-bottom: 40;
+  padding-bottom: 40px;
   height: 90.6vh;
   display: flex;
   justify-content: center;
@@ -18,16 +18,18 @@
 
 .signIn-toggle {
   display: flex;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .signIn-toggle button {
   border: none;
-  border-bottom: 4px solid #afa9a9;
-  padding: 5px 40px 5px 0;
+  border-bottom: 3px solid #afa9a9;
+  padding: 5px 5px 5px 0;
   margin-bottom: 30px;
   background-color: transparent;
   color: #afa9a9;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   font-size: 1.2rem;
 }
 
@@ -41,7 +43,7 @@
 
 .signIn-toggle .active {
   border: none;
-  border-bottom: 4px solid #ea4232;
+  border-bottom: 3px solid #ea4232;
   background-color: transparent;
   color: #ea4232;
   text-align: left;
@@ -50,26 +52,23 @@
 .left-box {
   background-color: #ea4232;
   height: 90.6vh;
-  width: 39%;
+  width: 40%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   color: #ffffff;
-  padding-left: 40px;
 }
 
 .signin-left img {
   width: 80%;
+  height: auto;
 }
 
 .signin-left h3 {
   font-size: 1.4rem;
   padding-top: 80px;
-  color: #fff;
-}
-
-.signin-left p {
-  margin: 10px 0;
+  margin-bottom: 15px;
 }
 
 .right-form {
@@ -84,22 +83,19 @@
 
 .right-form-head {
   padding: 30px;
-  width: 59%;
+  width: 60%;
 }
 
 .right-form-head h2 {
-  padding: 10px 0;
+  padding: 5px 0 20px 0;
 }
 
 .right-form-head p {
   color: #292731;
 }
 
-.hello-icon {
-  color: #eba352;
-  font-size: 1.4rem;
-  display: block;
-  margin-top: 50px;
+.right-form-head img {
+  height: 40px;
 }
 
 .form {
@@ -122,24 +118,24 @@
 }
 
 .form-group input {
-  padding: 10px;
+  padding: 13px;
   border: 1px solid #ddd;
   border-radius: 10px;
   outline: none;
-  background-color: #ececec;
   width: 500px;
 }
 
 .input-otp {
+  display: flex;
   justify-content: flex-start;
   position: relative;
 }
 
 .input-otp button {
   position: absolute;
-  left: 425px;
+  right: 0;
   top: 0;
-  padding: 10px 20px;
+  padding: 13px 20px;
   background-color: transparent;
   color: #ea4232;
   border: none;
@@ -162,9 +158,10 @@
 }
 
 .login-btn button {
-  margin: 15px 0;
-  padding: 8px 40px;
+  margin: 20px 0;
+  padding: 12px 50px;
   background-color: #ea4232;
+  list-style: none;
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -173,12 +170,14 @@
 
 .login-btn button:hover {
   background-color: #a6271b;
+  cursor: pointer;
 }
 
 .login-btn p {
-  color: #012970;
+  color: #404040;
 }
 
 .login-btn a {
   color: #ea4232;
 }
+

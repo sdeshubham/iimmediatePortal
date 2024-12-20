@@ -233,9 +233,10 @@
   /* border: 1px solid red; */
   width: 80%;
   font-size: 0.8rem;
-  text-align: center;
+  text-align: left;
   font-size: 1.1rem;
   color: #012970;
+  margin-left: 10px;
 }
 
 .huntstackBox {

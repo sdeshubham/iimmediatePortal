@@ -25,7 +25,7 @@ const Header = () => {
           <Link to="/signin" className="sign-btn">
             Sign In
           </Link>
-          <Link to="#" className="signup-btn">
+          <Link to="/signup" className="signup-btn">
             Sign Up
           </Link>
         </div>

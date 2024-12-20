@@ -1,11 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../stylesheets/SignIn.css";
 import signInEmp from "../images/signInEmp.png";
-import { FaHandsClapping } from "react-icons/fa6";
-import SignUp from "./SignUp";
+import wavinghand from "../images/waving-hand.png";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [otp, setOtp] = useState("");
+  const [countdown, setCountdown] = useState(0);
+  const navigate = useNavigate();
+
+  const handleRegister = () => {
+    // Perform validation or any logic here before navigating
+    if (otp.length === 6) {
+      navigate("/candi-profile");
+    } else {
+      alert("Please enter a valid 6-digit OTP.");
+    }
+  };
+
+  const handleOtpChange = (event) => {
+    const value = event.target.value;
+    // Allow only numeric values and restrict to 6 digits
+    if (/^\d{0,6}$/.test(value)) {
+      setOtp(value);
+    }
+  };
+
+  const handleSendOtp = () => {
+    setCountdown(60);
+  };
+
+  useEffect(() => {
+    let timer;
+    if (countdown > 0) {
+      // Decrease the countdown by 1 every second
+      timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }, 1000);
+    } else if (countdown === 0) {
+      // Stop the timer when countdown reaches 0
+      clearInterval(timer);
+    }
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(timer);
+  }, [countdown]);
 
   return (
     <>
@@ -16,10 +56,10 @@ const SignIn = () => {
               <>
                 <div className="signin-left">
                   <img src={signInEmp} alt="" />
-                  <h3>Let Job Find You</h3>
+                  <h3>Find Immediate Joiners for You</h3>
                   <p>
                     you will never know everything <br />
-                    But you will Konw more
+                    But you will Know more
                   </p>
                 </div>
               </>
@@ -27,10 +67,10 @@ const SignIn = () => {
               <>
                 <div className="signin-left">
                   <img src={signInEmp} alt="" />
-                  <h3>Find Immediate Joiners for You</h3>
+                  <h3>Let Job Find You</h3>
                   <p>
                     you will never know everything <br />
-                    But you will Konw more
+                    But you will Know more
                   </p>
                 </div>
               </>
@@ -38,8 +78,8 @@ const SignIn = () => {
           </div>
           <div className="right-form">
             <div className="right-form-head">
-              <FaHandsClapping className="hello-icon" />
-              <h2>WelCome back!</h2>
+              <img src={wavinghand} alt="" className="hello-icon" />
+              <h2>Welcome back!</h2>
               <p>Please login to access your account</p>
             </div>
             <div className="signInRight">
@@ -70,25 +110,27 @@ const SignIn = () => {
                               id="mobile"
                               placeholder="Enter your mobile number"
                             />
-                            <button>Send otp</button>
+                            <button onClick={handleSendOtp}>
+                              {countdown > 0 ? `${countdown}s` : "Send OTP"}
+                            </button>
                           </div>
                         </div>
                         <div className="form-group">
-                          <label htmlFor="mobile">OTP</label>
+                          <label htmlFor="otp">OTP</label>
                           <input
-                            type="number"
+                            type="text"
                             id="otp"
                             placeholder="Enter OTP"
+                            value={otp}
+                            onChange={handleOtpChange}
+                            maxLength={6} // Enforces 6 digits at the UI level
                           />
                         </div>
                       </div>
                       <div className="login-btn">
-                        <button>Log In</button>
+                        <button onClick={handleRegister}>Login</button>
                         <p>
-                          Don't have an account{" "}
-                          <a href="" onClick={() => setIsLogin(<SignUp />)}>
-                            Register now
-                          </a>
+                          Don't have an account? <a href="">Register Now</a>
                         </p>
                       </div>
                     </div>
@@ -104,17 +146,28 @@ const SignIn = () => {
                             id="mobile"
                             placeholder="Enter your mobile number"
                           />
-                          <button>Send otp</button>
-                        </div>{" "}
+                          <button onClick={handleSendOtp}>
+                            {countdown > 0 ? `${countdown}s` : "Send OTP"}
+                          </button>
+                        </div>
                       </div>
                       <div className="form-group">
-                        <label htmlFor="mobile">OTP</label>
-                        <input type="number" id="otp" placeholder="Enter OTP" />
+                        <label htmlFor="otp">OTP</label>
+                        <div className="input-otp">
+                          <input
+                            type="text"
+                            id="otp"
+                            placeholder="Enter OTP"
+                            value={otp}
+                            onChange={handleOtpChange}
+                            maxLength={6} // Enforces 6 digits at the UI level
+                          />
+                        </div>
                       </div>
                       <div className="login-btn">
-                        <button>Log In</button>
+                        <button onClick={handleRegister}>Login</button>
                         <p>
-                          Don't have an account <a href="#">Register now</a>
+                          Don't have an account? <a href="">Register Now</a>
                         </p>
                       </div>
                     </div>
