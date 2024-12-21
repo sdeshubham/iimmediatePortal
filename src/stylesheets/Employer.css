@@ -1,0 +1,143 @@
+.employer-box {
+  margin: 100px 70px 50px 70px;
+  height: 100%;
+}
+
+.prof-sectionOne {
+  background-color: #ea4232;
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px 40px 40px 90px;
+  height: 40vh;
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.prof-sectionOne img {
+  height: 24vh;
+  width: 13vw;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.emp-details {
+  margin-left: 70px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.emp-details h2 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.comp-call,
+.comp-mail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.emp-details p {
+  padding-right: 10px;
+}
+
+.emp-details button {
+  margin-top: 20px;
+  width: 180px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #fff;
+  border-radius: 7px;
+  list-style: none;
+}
+
+.emp-details button a {
+  text-decoration: none;
+  color: #ea4232;
+  font-weight: 500;
+}
+
+.prof-sectionTwo {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.emp-subheading h5 {
+  color: #727272;
+  font-weight: 700;
+}
+
+.company-site a {
+  color: #1f70c1;
+}
+
+.prof-sectionTwo p {
+  color: #727272;
+}
+
+/* ----------- Selectedprof Car ---------- */
+
+.prof-sectionThree {
+  min-height: 60vh;
+  border: 1px solid #ddd;
+  /* padding: 30px; */
+}
+
+.selectedprof {
+  border: 1px solid #ddd;
+  height: 50vh;
+}
+
+.prof-cardbox {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.selectedprof-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.selectedprof-card img {
+  height: 15vh;
+  width: 9vw;
+  border-radius: 50%;
+}
+
+.locat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  /* align-items: center; */
+}
+
+.box p {
+  font-size: 0.7rem;
+}
+
+.selecprof-detail h5 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.selecprof-detail p {
+  font-size: 0.9rem;
+}

@@ -13,7 +13,7 @@ const SignIn = () => {
   const handleRegister = () => {
     // Perform validation or any logic here before navigating
     if (otp.length === 6) {
-      navigate("/candi-profile");
+      navigate("/candidate");
     } else {
       alert("Please enter a valid 6-digit OTP.");
     }

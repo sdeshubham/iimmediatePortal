@@ -60,58 +60,58 @@
 }
 
 .aboutContentThree p {
-    width: 60%;
-    margin-top: 20px;
-    color: #747070;
+  width: 60%;
+  margin-top: 20px;
+  color: #747070;
 }
 
 /* --------------------------------- */
 
 .our-team-container {
-    margin: 50px #747070;
+  margin: 50px #747070;
 }
 
 .team-members {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 30px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px 0;
 }
 
 .team-card {
-    height: 60vh;
-    width: 25vw;
-    margin-bottom: 150px;
+  height: 60vh;
+  width: 25vw;
+  margin-bottom: 150px;
 }
 
 .team-card img {
-    height: 29vh;
+  height: 29vh;
 }
 
 .team-card h3 {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 
 .team-card p {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .team-social-media {
-    border-top: 2px solid #b1adad;
-    margin-top: 35px;
-    padding: 20px 0 15px 0;
-    display: flex;
-    justify-content: space-between;
+  border-top: 2px solid #b1adad;
+  margin-top: 35px;
+  padding: 20px 0 15px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .team-social-media a {
- color: #747070;
- font-size: 1.4rem;
- transition: transform .4s ease;
- padding: 5px;
+  color: #747070;
+  font-size: 1.4rem;
+  transition: transform 0.4s ease;
+  padding: 5px;
 }
 
 .team-social-media a:hover {
-    color: #ea4232;
-    transform: translateY(-5px);
+  color: #ea4232;
+  transform: translateY(-5px);
 }

@@ -32,11 +32,12 @@ const Header = () => {
 
         <li className="dropdown">
           <Link to="/" className="head-dropdown">
-            For Employee <FaAngleDown />
+            Select For
+            <FaAngleDown />
           </Link>
           <div className="dropdown-content">
-            <Link to="/candidate">Candidate</Link>
             <Link to="/employee">Employee</Link>
+            <Link to="/employer">Employer</Link>
           </div>
         </li>
       </nav>

@@ -14,7 +14,7 @@ const SignUp = () => {
 
   const handleRegister = () => {
     // Perform validation or any logic here before navigating
-    navigate("/candi-profile");
+    navigate("/candidate");
   };
 
   return (
@@ -67,7 +67,7 @@ const SignUp = () => {
                 {isLogin ? (
                   <>
                     <div className="signUpform">
-                      <h2>Register As a Employee</h2>
+                      {/* <h2>Register As a Employee</h2> */}
 
                       <div className="formCols">
                         {/* Column two */}
@@ -84,7 +84,7 @@ const SignUp = () => {
 
                             <div className="signUpform-group">
                               <label htmlFor="mobile">Mobile Number</label>
-                              <div className="send-otp">
+                              <div className="send-otp no-spinner">
                                 <input
                                   type="number"
                                   id="mobile"
@@ -97,7 +97,7 @@ const SignUp = () => {
                               <label htmlFor="mobile">OTP</label>
                               <div className="send-otp">
                                 <input
-                                  type="number"
+                                  type="password"
                                   id="verify-otp"
                                   placeholder="Enter OTP"
                                 />
@@ -157,10 +157,10 @@ const SignUp = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="checkBox">
+                      {/* <div className="checkBox">
                         <input type="checkbox" name="check" id="check-box" />{" "}
                         <p>I accept all terms and condition</p>
-                      </div>
+                      </div> */}
                       <div className="register-btn">
                         <div className="register-btns">
                           <button onClick={handleRegister}>Register Now</button>
@@ -171,7 +171,7 @@ const SignUp = () => {
                 ) : (
                   <>
                     <div className="signUpform">
-                      <h2>Register As a Job Seeker</h2>
+                      {/* <h2>Register As a Job Seeker</h2> */}
 
                       <div className="formCols">
                         {/* Column two */}
@@ -201,7 +201,7 @@ const SignUp = () => {
                               <label htmlFor="mobile">OTP</label>
                               <div className="send-otp">
                                 <input
-                                  type="number"
+                                  type="password"
                                   id="verify-otp"
                                   placeholder="Enter OTP"
                                 />
@@ -296,10 +296,10 @@ const SignUp = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="checkBox">
+                      {/* <div className="checkBox">
                         <input type="checkbox" name="check" id="check-box" />{" "}
                         <p>I accept all terms and condition</p>
-                      </div>
+                      </div> */}
                       <div className="register-btn">
                         <div className="register-btns">
                           <button onClick={handleRegister}>Register Now</button>

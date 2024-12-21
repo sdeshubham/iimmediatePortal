@@ -61,10 +61,11 @@ import Pricing from "./components/Pricing";
 import ContactUs from "./components/ContactUs";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import CandiProfile from "./components/CandiProfile";
-import EmpProfile from "./components/EmpProfile";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
+import Employee from "./components/Employee";
+import Employer from "./components/Employer";
+import CandiProfile from "./components/CandiProfile";
 
 const App = () => {
   return (
@@ -85,7 +86,10 @@ const App = () => {
 
         {/* Profile Pages */}
         <Route path="/candidate" element={<CandiProfile />} />
-        <Route path="/employee" element={<EmpProfile />} />
+        {/* <Route path="/employee" element={<EmpProfile />} /> */}
+
+        <Route path="/employee" element={<Employee />} />
+        <Route path="/employer" element={<Employer />} />
 
         {/* Authentication Routes */}
         <Route path="/signin" element={<SignIn />} />
