@@ -188,28 +188,29 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
-
-            <div className="footer-bottom">
-              <div className="fbottom-left">
-                <a href="/home"><img src={WebsiteLogo} alt="Logo" /></a>
-                <p>Copyright's &copy; 2024 SOV Technologies</p>
-              </div>
-              <div className="fbottom-right flex">
-                <ul>
-                  <li>
-                    <a href="/home">Home</a>
-                  </li>
-                  <li>
-                    <a href="/aboutus">About Us</a>
-                  </li>
-                  {/* <li>
+              <div className="footer-bottom">
+                <div className="fbottom-left">
+                  <a href="/home">
+                    <img src={WebsiteLogo} alt="Logo" />
+                  </a>
+                  <p>Copyright's &copy; 2024 SOV Technologies</p>
+                </div>
+                <div className="fbottom-right flex">
+                  <ul>
+                    <li>
+                      <a href="/home">Home</a>
+                    </li>
+                    <li>
+                      <a href="/aboutus">About Us</a>
+                    </li>
+                    {/* <li>
                     <a href="/pricing">Pricing</a>
                   </li> */}
-                  <li>
-                    <a href="/contactus">Contact Us</a>
-                  </li>
-                </ul>
+                    <li>
+                      <a href="/contactus">Contact Us</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </footer>

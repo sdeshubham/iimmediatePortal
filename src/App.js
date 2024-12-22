@@ -67,6 +67,7 @@ import Employee from "./components/Employee";
 import Employer from "./components/Employer";
 import CandiProfile from "./components/CandiProfile";
 import EmpFilter from "./components/cards/EmpFilter";
+import CandiProfileCard from "./components/cards/CandiProfileCard";
 
 const App = () => {
   return (

@@ -1,4 +1,4 @@
-import reactLogo from '../../images/reactjsLogo.png'
+import reactLogo from '../../images/reactLogoForHome.png'
 import javaLogo from '../../images/javalogo.png'
 import javascriptLogo from '../../images/JavascriptLogo.png'
 import angularLogo from '../../images/angularLogo.png'
