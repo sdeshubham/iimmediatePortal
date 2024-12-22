@@ -17,6 +17,7 @@ import experienceData from './cards/experienceData'
 import HuntExperience from "./cards/HuntExperience";
 import HomeAbout from "./cards/HomeAbout";
 import BottomJoin from "./cards/BottomJoin";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -60,7 +61,7 @@ const Home = () => {
             <p>(Can join withing 30days)</p>
           </div>
           <div className="active-viewmore">
-            <a href="/">View More</a>
+            <a href="/empfilter">View More</a>
           </div>
         </div>
         <div className="activejoiner-cardbox">
@@ -82,7 +83,7 @@ const Home = () => {
             <span>Hunt By</span> Location
           </h2>
           <div className="active-viewmore">
-            <a href="/">View More</a>
+            <a href="/empfilter">View More</a>
           </div>
         </div>
         <div className="huntlocationBox">
@@ -98,7 +99,7 @@ const Home = () => {
             <span>Hunt By</span> Technology Stack
           </h2>
           <div className="active-viewmore">
-            <a href="/">View More</a>
+            <Link to="/empfilter">View More</Link>
           </div>
         </div>
         <div className="huntstackBox">

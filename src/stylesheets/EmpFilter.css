@@ -1,0 +1,166 @@
+.emp-filterBox {
+    width: auto;
+    margin: 0 50px 100px 50px;
+  }
+  
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 100px;
+  }
+  
+  .filter-cards {
+    width: 75%;
+    overflow-y: auto;
+  }
+  
+  .filter-top {
+    padding: 0 20px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+  }
+  
+  .filter-top input {
+    padding: 15px 25px;
+    width: 325px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .filter-top button {
+    padding: 0 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ea4232;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-top button:hover {
+    cursor: pointer;
+    background-color: #ad291d;
+  }
+  
+  .input-with-icon {
+    position: relative;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  
+  .input-with-icon input {
+    padding-left: 40px;
+  }
+  
+  .all-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    width: 25%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .emp-filterBox {
+    margin-top: 10vh;
+  }
+  
+  .sidbar-filter-head {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .sidebar-heading {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-top: 15px;
+  }
+  
+  .empTypeOne {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .empTypeOne p {
+    font-size: .9rem;
+    color: #727272;
+  }
+  
+  .employment-filter {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .sidbar-filter-head button {
+    color: #727272;
+    font-size: 1rem;
+    padding: 2px 6px;
+    border: none;
+    background-color: transparent;
+    transition: all .3s ease;
+  }
+  
+  .sidbar-filter-head button:hover {
+    cursor: pointer;
+    color: #ea4232;
+  }
+  
+  .salary-filter-container {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .slider {
+    width: 100%;
+    height: 3px;
+    background: #727272;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .thumb {
+    height: 15px;
+    width: 15px;
+    background: #ea4232;
+    border-radius: 50%;
+    cursor: pointer;
+    top: -5px;
+    position: absolute;
+  }
+  
+  .track {
+    height: 3px;
+    background: #ea4232;
+    border-radius: 5px;
+  }
+  
+  .salary-range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: .8rem;
+  }
+  

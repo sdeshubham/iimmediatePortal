@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../stylesheets/CandiProfile.css";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaLaptopCode } from "react-icons/fa";
@@ -7,33 +7,20 @@ import { FaBusinessTime } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
-import AboutMe from "../../components/profileCards/AboutMe";
-import Experience from "../../components/profileCards/Experience";
-import Projects from "../../components/profileCards/Projects";
-import Skills from "../../components/profileCards/Skills";
-import Education from "../../components/profileCards/Education";
-import LicensCertficates from "../../components/profileCards/LicensCertficates";
-import Awads from "../../components/profileCards/Awads";
-
-const POPUP_TYPES = {
-  ABOUT_ME: "ABOUT_ME",
-  EXPERIENCE: "EXPERIENCE",
-  PROJECTS: "PROJECTS",
-  SKILLS: "SKILLS",
-  EDUCATION: "EDUCATION",
-  LICENSES: "LICENSES",
-  AWARDS: "AWARDS",
-};
-
-const popupComponents = {
-  [POPUP_TYPES.ABOUT_ME]: AboutMe,
-  [POPUP_TYPES.EXPERIENCE]: Experience,
-  [POPUP_TYPES.PROJECTS]: Projects,
-  [POPUP_TYPES.SKILLS]: Skills,
-  [POPUP_TYPES.EDUCATION]: Education,
-  [POPUP_TYPES.LICENSES]: LicensCertficates,
-  [POPUP_TYPES.AWARDS]: Awads,
-};
+import ProfAbout from "./ProfAbout";
+import aboutMeData from "./candiDetailsData/aboutMeData";
+import expCardData from "./candiDetailsData/expCardData";
+import ProfExperience from "./ProfExperience";
+import projectDetailData from "./candiDetailsData/projectDetailData";
+import ProfProject from "./ProfProject";
+import profSkillsData from "./candiDetailsData/profSkillsData";
+import ProfSkills from "./ProfSkills";
+import eduCardData from "./candiDetailsData/eduCardData";
+import ProfEducation from "./ProfEducation";
+import certiCardData from "./candiDetailsData/certiCardData";
+import ProfCertiCard from "./ProfCertiCard";
+import ProfAwardCard from "./ProfAwardCard";
+import awardCardData from "./candiDetailsData/awardCardData";
 
 const CandiProfileCard = ({
   cImg,
@@ -47,20 +34,8 @@ const CandiProfileCard = ({
   cPhoneNumber,
   cEmail,
 }) => {
-  const [popupType, setPopupType] = useState(null);
-
-  const openPopup = (type) => {
-    setPopupType(type);
-  };
-
-  const closePopup = () => {
-    setPopupType(null);
-  };
-
-  const PopupComponent = popupType ? popupComponents[popupType] : null;
-
   return (
-    <>
+    <div>
       <div className="profile-card">
         <div className="profileCard-box">
           <div className="profile-secOne">
@@ -82,7 +57,7 @@ const CandiProfileCard = ({
                     </div>
                     <div className="colOne-details">
                       <MdOutlineCurrencyRupee size={20} />
-                      <p>{cSalary}</p>
+                      <p>{cSalary} /-Year</p>
                     </div>
                   </div>
                   <div className="personalInfo-colTwo">
@@ -105,30 +80,144 @@ const CandiProfileCard = ({
           </div>
 
           <div className="profile-secTwo">
-            <div className="profile-more">
-              <div className="profile-addMore">
-                {Object.entries(POPUP_TYPES).map(([key, value]) => (
-                  <div className="addMore-detailsBox" key={key}>
-                    <h3>{key.replace("_", " ")}</h3>
-                    <button onClick={() => openPopup(value)}>
-                      <FaPlus size={25} />
-                    </button>
-                  </div>
+            <div className="profile-contentBox">
+              <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>About Me</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                <div className="about-card-box-details">
+                  {aboutMeData.map((item, index) => (
+                    <ProfAbout key={index} aboutText={item.aboutText} />
+                  ))}
+                </div>
+              </div>
+              <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>Experience</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                {expCardData.map((item, index) => (
+                  <ProfExperience
+                    key={index}
+                    expImgLogo={item.expImgLogo}
+                    expRole={item.expRole}
+                    expCompany={item.expCompany}
+                    expLocation={item.expLocation}
+                    expDuration={item.expDuration}
+                    expDesc={item.expDesc}
+                  />
+                ))}
+              </div>
+              <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>Projects</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                {projectDetailData.map((item, index) => (
+                  <ProfProject
+                    key={index}
+                    expImgLogo={item.expImgLogo}
+                    projRole={item.projRole}
+                    projDuration={item.projDuration}
+                    projOrg={item.projOrg}
+                    projDesc={item.projDesc}
+                  />
+                ))}
+              </div>
+              {/* <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>Skills</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                {profSkillsData.map((item, index) => (
+                  <ProfSkills
+                    key={index}
+                    skillListOne={item.skillListOne}
+                    skillListTwo={item.skillListTwo}
+                    skillListThree={item.skillListThree}
+                    skillListFour={item.skillListFour}
+                    skillListFive={item.skillListFive}
+                    skillListSix={item.skillListSix}
+                    skillListSeven={item.skillListSeven}
+                  />
+                ))}
+              </div> */}
+              <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>Education</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                {eduCardData.map((item, index) => (
+                  <ProfEducation
+                    key={index}
+                    eduImg={item.eduImg}
+                    instituteName={item.instituteName}
+                    graduation={item.graduation}
+                    eduLocation={item.eduLocation}
+                    eduYear={item.eduYear}
+                    eduCgpa={item.eduCgpa}
+                  />
+                ))}
+              </div>
+              <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>Licenses & certifications</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                {certiCardData.map((item, index) => (
+                  <ProfCertiCard
+                    key={index}
+                    certiImg={item.certiImg}
+                    certName={item.certName}
+                    certOrg={item.certOrg}
+                    certIssueDate={item.certIssueDate}
+                  />
+                ))}
+              </div>
+              <div className="content-boxes">
+                <div className="content-boxes-head">
+                  <h2>Honors & awards</h2>
+                  <button>
+                    <FaPlus size={20} />
+                  </button>
+                </div>
+                {awardCardData.map((item, index) => (
+                  <ProfAwardCard
+                    key={index}
+                    awardImgLogo={item.awardImgLogo}
+                    awardName={item.awardName}
+                    awardIssuedBy={item.awardIssuedBy}
+                    awardIssueDate={item.awardIssueDate}
+                    assosiate={item.assosiate}
+                  />
                 ))}
               </div>
             </div>
           </div>
+
+          {/* {PopupComponent && (
+            <div className="popup-overlay">
+              <div className="popup-container">
+                <PopupComponent onClose={closePopup} />
+              </div>
+            </div>
+          )} */}
         </div>
       </div>
-
-      {PopupComponent && (
-        <div className="popup-overlay">
-          <div className="popup-container">
-            <PopupComponent onClose={closePopup} />
-          </div>
-        </div>
-      )}
-    </>
+    </div>
   );
 };
 

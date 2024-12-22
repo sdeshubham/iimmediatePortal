@@ -66,6 +66,7 @@ import Privacy from "./components/Privacy";
 import Employee from "./components/Employee";
 import Employer from "./components/Employer";
 import CandiProfile from "./components/CandiProfile";
+import EmpFilter from "./components/cards/EmpFilter";
 
 const App = () => {
   return (
@@ -79,6 +80,8 @@ const App = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contactus" element={<ContactUs />} />
+
+        <Route path="/empfilter" element={<EmpFilter />}/>
 
         {/* Policy & Terms Routes */}
         <Route path="/privacy&policy" element={<Privacy />} />

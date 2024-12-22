@@ -1,0 +1,266 @@
+.profabout-box {
+  border-radius: 10px;
+  padding: 20px 30px 20px 20px;
+}
+
+.profabout-box p {
+  color: #727272;
+}
+
+.content-boxes {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* --------------------------- */
+
+.expBox-card {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.expBox-card img {
+  height: 8vh;
+  border-radius: 50%;
+}
+
+.exp-boxTwo {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.expRole,
+.projrole {
+  font-size: 1.3rem;
+  color: #444343;
+  font-weight: 500;
+}
+.expComp,
+.projDuration {
+  font-size: 0.9rem;
+  color: #444343;
+}
+
+.projOrg {
+  font-size: 0.9rem;
+  color: #727272;
+}
+
+.expLoact {
+  font-size: 0.8rem;
+  color: #727272;
+}
+
+.exp-boxThree {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exp-boxfour {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.expDuration {
+  padding: 5px 10px;
+  border: 1px solid #ea4232;
+  border-radius: 20px;
+  color: #012970;
+}
+
+.expDese,
+.projDese {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #727272;
+}
+
+/* --------------------------- */
+
+.proj-boxesOne {
+  padding: 0 20px 20px 20px;
+}
+
+.profproj-content {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.profproj-content img {
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.project-boxTwo {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profrole {
+  color: #444343;
+}
+
+/* --------------------------- */
+
+/* Skills */
+
+/* --------------------------- */
+
+.edu-boxes {
+  display: flex;
+  gap: 20px;
+  padding: 20px 20px 50px 20px;
+}
+
+.edu-boxes img {
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.edu-boxtwo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.edu-boxTwohead {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.instituteName {
+  color: #444343;
+  font-size: 1.2rem;
+}
+
+.edu-graduate {
+  font-size: 0.9rem;
+  color: #444343;
+}
+
+.edu-location {
+  font-size: 0.9rem;
+  color: #727272;
+}
+
+.edu-boxthree {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.edu-year {
+  border: 1px solid #ea4232;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.edu-cgpa {
+  background-color: #e6ffed;
+  color: #23783a;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+/* --------------------------- */
+
+.certi-boxOne {
+  display: flex;
+  gap: 20px;
+  padding: 20px 20px 50px 20px;
+}
+
+.certi-boxOne img {
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.certif-boxTwo button {
+  padding: 8px 15px;
+  background-color: #ea4232;
+  border: none;
+}
+
+.certi-box-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.certi-box-content button {
+  padding: 10px 20px;
+  margin-right: 30px;
+  background-color: #ea4232;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.certif-boxTwo {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.certiName {
+  color: #444343;
+  font-size: 1.2rem;
+}
+
+.certiOrg {
+  color: #444343;
+  font-size: 0.9rem;
+}
+
+.certiDate {
+  color: #727272;
+  font-size: 0.9rem;
+}
+/* ----------------------------- */
+
+.award-boxes {
+  display: flex;
+  gap: 20px;
+  padding: 20px 20px 50px 20px;
+}
+
+.award-boxes img {
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.awardName {
+  color: #444343;
+  font-size: 1.2rem;
+}
+
+.issuedBy {
+  color: #727272;
+  font-size: 0.9rem;
+}
+
+.certiDate,
+.issueDate,
+.assosiate {
+  color: #727272;
+  font-size: 0.9rem;
+}
+
+.award-subbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}

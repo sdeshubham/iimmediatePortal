@@ -20,32 +20,33 @@ const SelectedProfCard = ({
           <img src={selectprof} alt="" />
           <div className="selecprof-detail">
             <h5>{selProfname}</h5>
-            <p>{role}</p>
-            <p>{companyName}</p>
+            <p className="selecprof-role">{role}</p>
+            <p className="selecprof-compName">{companyName}</p>
             <div className="locat">
               <div className="box">
                 <IoLocationSharp />
-                <p>{location}</p>
+                <p className="box-p">{location}</p>
               </div>
               <div className="box">
                 <FaBusinessTime />
-                <p>{noticeday} Days</p>
+                <p className="box-p box-pNotice">{noticeday} Days</p>
               </div>
-            </div>
-            <div className="selectprof-desc">
-              <p>
-                We are looking for someone with experience using AI software to
-                create realistic product photos for our Etsy shop.
-              </p>
-            </div>
-            <div className="skills">
-              <p>{skillOne}</p>
-              <p>{skillTwo}</p>
-              <p>{skillThree}</p>
             </div>
           </div>
         </div>
-        <button>View more</button>
+        <div className="selectprof-desc">
+          <p>
+            We are looking for someone with experience using AI software to
+            create realistic product photos for our Etsy shop.
+          </p>
+        </div>
+        <div className="skills">
+          <p className="skills-heaad">Skills: </p>
+          <p className="skills-set">{skillOne}</p>
+          <p className="skills-set">{skillTwo}</p>
+          <p className="skills-set">{skillThree}</p>
+        </div>
+        <button className="profview-more">View more</button>
       </div>
     </>
   );

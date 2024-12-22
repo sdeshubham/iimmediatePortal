@@ -1,208 +1,213 @@
 .profile-head {
-    margin: 100px 70px 50px 70px;
-    height: 100%;
-  }
-  
-  .profile-secOne {
-    background-color: #ea4232;
-    color: #fff;
-    border-radius: 20px;
-    padding: 40px;
-  }
-  
-  .profileCardHead {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .profileCard-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .profileCardHead img {
-    height: 24vh;
-    width: 13vw;
-    background-color: #fff;
-    border-radius: 50%;
-  }
-  
-  .cadidate-basicInfo {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 30px;
-  }
-  
-  .cadidate-basicInfo h3 {
-    font-size: 1.8rem;
-  }
-  
-  .cadidate-basicInfo h3,
-  .cadidate-basicInfo p {
-    padding: 8px 0;
-  }
-  
-  .candi-personalInfo {
-    display: flex;
-    margin: 20px 0;
-  }
-  
-  .colOne-details,
-  .colTwo-details {
-    display: flex;
-    align-items: center;
-  }
-  
-  .colOne-details p,
-  .colTwo-details p {
-    margin-left: 15px;
-  }
-  
-  .personalInfo-colTwo {
-    margin-left: 150px;
-  }
-  
-  .colTwo-details-view {
-    margin: 0 20px;
-    padding: 1px 8px;
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .colTwo-details-view:hover {
-    cursor: pointer;
-  }
-  
-  .profile-resume {
-    position: relative;
-    width: 100%;
-  }
-  
-  .custom-label {
-    display: inline-block;
-    padding: 8px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    background-color: #fff;
-    color: #555;
-  }
-  
-  .custom-file-input {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
-  
-  .profile-secTwo {
-    margin: 50px 0 100px 0;
-  }
-  
-  .addMore-detailsBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
-  
-  .profile-addMore {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .profile-addMore h3 {
-    color: #ea4232;
-    font-weight: 500;
-    font-size: 1.3rem;
-  }
-  
-  .profile-addMore button {
-    background-color: transparent;
-    color: #ea4232;
-    padding: 10px;
-    border: none;
-    transition: all 0.3s ease;
-  }
-  
-  .profile-addMore button:hover {
-    cursor: pointer;
-    background-color: #ea4232;
-    color: #fff;
-    border-radius: 10px;
-  }
-  
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .popup-form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    position: relative;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .popup-input {
-    margin-top: 20px;
-  }
-  
-  .popup-input button {
-    cursor: pointer;
-  }
-  
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .popup-input button[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .popup-input button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
+  margin: 100px 70px 50px 70px;
+  height: 100%;
+}
+
+.profile-secOne {
+  background-color: #ea4232;
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.profileCardHead {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profileCard-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profileCardHead img {
+  height: 24vh;
+  width: 13vw;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.cadidate-basicInfo {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+
+.cadidate-basicInfo h3 {
+  font-size: 1.8rem;
+}
+
+.cadidate-basicInfo h3,
+.cadidate-basicInfo p {
+  padding: 8px 0;
+}
+
+.candi-personalInfo {
+  display: flex;
+  margin: 20px 0;
+}
+
+.colOne-details,
+.colTwo-details {
+  display: flex;
+  align-items: center;
+}
+
+.colOne-details p,
+.colTwo-details p {
+  margin-left: 15px;
+}
+
+.personalInfo-colTwo {
+  margin-left: 150px;
+}
+
+.colTwo-details-view {
+  margin: 0 20px;
+  padding: 1px 8px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.colTwo-details-view:hover {
+  cursor: pointer;
+}
+
+.profile-resume {
+  position: relative;
+  width: 100%;
+}
+
+.custom-label {
+  display: inline-block;
+  padding: 8px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #fff;
+  color: #555;
+}
+
+.custom-file-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+/* ------------------------- */
+
+.profile-secTwo {
+  min-height: 80vh;
+  margin: 50px 0;
+}
+
+.profile-contentBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-boxes {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.content-boxes-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  box-shadow: 0px 2px 5px rgba(155, 153, 153, 0.1);
+  border-radius: 10px;
+}
+
+.content-boxes-head h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.content-boxes-head button {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  color: #ea4232;
+  transition: all 0.3s ease-in;
+}
+
+.content-boxes-head button:hover {
+  background-color: #ea4232;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* ------------------------- */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-input {
+  margin-top: 20px;
+}
+
+.popup-input button {
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.popup-input button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.popup-input button[type="submit"]:hover {
+  background-color: #0056b3;
+}

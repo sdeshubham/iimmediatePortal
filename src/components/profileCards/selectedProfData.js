@@ -1,4 +1,4 @@
-import selectprof from "../../images/selectprof.jpg";
+import selectprof from "../../images/cProfileImg.png";
 
 const selectedProfData = [
     {
@@ -45,6 +45,7 @@ const selectedProfData = [
         skillTwo: "CSS3",
         skillThree: "JavaScript", 
     },
+    
 ]
 
 export default selectedProfData;

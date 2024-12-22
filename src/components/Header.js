@@ -36,7 +36,7 @@ const Header = () => {
             <FaAngleDown />
           </Link>
           <div className="dropdown-content">
-            <Link to="/employee">Employee</Link>
+            <Link to="/candidate">Employee</Link>
             <Link to="/employer">Employer</Link>
           </div>
         </li>
