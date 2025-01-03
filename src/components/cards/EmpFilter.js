@@ -11,14 +11,13 @@ const EmpFilter = () => {
     <>
       <div className="emp-filterBox">
         <div className="filter-container">
-          {/* Sidebar Section */}
           <div className="sidebar">
             <div className="sidebar-boxOne">
               <div className="sidbar-filter-head">
                 <p className="sidebar-heading">Filter</p>
                 <button>Reset</button>
               </div>
-              <div className="employment-filter">
+              {/* <div className="employment-filter">
                 <p className="sidebar-heading">Type Of Employment</p>
                 <div className="empTypeOne">
                   <input type="checkbox" />
@@ -36,10 +35,18 @@ const EmpFilter = () => {
                   <input type="checkbox" />
                   <p>Internship</p>
                 </div>
-              </div>
-              <div className="salary-range">
+              </div> */}
+              {/* <div className="salary-range">
                 <p className="sidebar-heading">Salary Range</p>
                 <SalaryFilterCard />
+              </div> */}
+              <div className="employment-filter stact-hunt">
+                <p className="sidebar-heading">Stack</p>
+                <input type="text" placeholder="Type Stack" />
+              </div>
+              <div className="employment-filter stact-hunt">
+                <p className="sidebar-heading">Location</p>
+                <input type="text" placeholder="Type Location" />
               </div>
               <div className="employment-filter">
                 <p className="sidebar-heading">Experience Level</p>

@@ -1,50 +1,6 @@
-// import React, { useState } from "react";
-// import "../../components/profileCards/ProfileCards.css";
-// import { RxCross2 } from "react-icons/rx";
-
-// import { setCandiProfileData } from "../../components/profileCards/CandiProfileData";
-
-// const AboutMe = () => {
-//   const [message, setMessage] = useState("");
-
-//   const handleInputChange = (e) => {
-//     setMessage(e.target.value);
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setCandiProfileData(message);
-//   };
-
-//   return (
-//     <>
-//       <div className="aboutme-box">
-//         <div className="about-card">
-//           <button>
-//             <RxCross2 />
-//           </button>
-//           <form onSubmit={handleSubmit}>
-//             <textarea
-//               id="message"
-//               name="message"
-//               rows="4"
-//               cols="50"
-//               value={message}
-//               onChange={handleInputChange}
-//             ></textarea>
-//             <input type="submit" value="submit" />
-//           </form>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default AboutMe;
-
-
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import "../../stylesheets/InputFields.css";
 
 const AboutMe = ({ onClose }) => {
   const [message, setMessage] = useState("");
@@ -65,6 +21,13 @@ const AboutMe = ({ onClose }) => {
         <button className="close-btn" onClick={onClose}>
           <RxCross2 />
         </button>
+        <div className="abouttext-head">
+          <h4>About Me</h4>
+          <p>
+            It is the first thing recruiters notice in your profile. Write and
+            introduce yourself to employers.
+          </p>
+        </div>
         <form onSubmit={handleSubmit}>
           <textarea
             id="message"
@@ -74,7 +37,11 @@ const AboutMe = ({ onClose }) => {
             value={message}
             onChange={handleInputChange}
           ></textarea>
-          <button type="submit">Submit</button>
+          <div className="details-submit-btn">
+            <button type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>

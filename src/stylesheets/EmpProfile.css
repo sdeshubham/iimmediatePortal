@@ -3,7 +3,18 @@
   padding: 20px 30px 20px 20px;
 }
 
+.about-card-box-details,
+.exp-card-box-details,
+.proj-card-box-details,
+.skills-card-box-details,
+.certi-card-box-details,
+.award-card-box-details {
+  display: flex;
+  justify-content: space-between;
+}
+
 .profabout-box p {
+  text-align: justify;
   color: #727272;
 }
 
@@ -113,6 +124,25 @@
 
 /* Skills */
 
+.skillsbox-card {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 30px 20px;
+  gap: 20px;
+  margin: 0 40px 0 110px;
+  width: 100%;
+  /* background-color: #23783a; */
+}
+
+.skillsection-boxTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ea4232;
+}
+
 /* --------------------------- */
 
 .edu-boxes {
@@ -163,7 +193,7 @@
 
 .edu-year {
   border: 1px solid #ea4232;
-  padding: 8px 15px;
+  padding: 6px 10px;
   border-radius: 20px;
 }
 

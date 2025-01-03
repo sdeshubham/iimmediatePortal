@@ -1,0 +1,33 @@
+.abouttext-head h4 {
+  font-weight: 600;
+  color: #ea4232;
+}
+
+.abouttext-head p {
+  color: #404040;
+  width: 60%;
+  font-size: 0.9rem;
+  padding: 10px 0;
+}
+
+.details-submit-btn {
+    display: flex;
+    justify-content: end;
+}
+
+.details-submit-btn button {
+    margin-top: 15px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #ea4232;
+    color: #fff;
+    transition: all .3s ease;
+    align-items: flex-end;
+}
+
+.details-submit-btn button:hover {
+    background-color: #ac3429;
+    cursor: pointer;
+}

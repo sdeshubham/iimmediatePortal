@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import "../stylesheets/SignUp.css";
 import signUpEmp from "../images/signupFromImg.png";
@@ -5,15 +7,29 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("");
   const navigate = useNavigate();
+  const [value, setValue] = useState('');
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  const immediate = [
+    { label: "Select", value: 1 },
+    { label: "Within 7 Days", value: 2 },
+    { label: "Withing 15 Days", value: 3 },
+    { label: "Withing 30 Days", value: 4 },
+    { label: "Withing 45 Days", value: 5 },
+  ];
+
+  const options = [
+    { label: "Select Gender", value: 1 },
+    { label: "Male", value: 2 },
+    { label: "Female", value: 3 },
+    { label: "Other", value: 4 },
+  ];
+
+  function handleSelect (event) {
+    setValue(event.target.value)
+  }
 
   const handleRegister = () => {
-    // Perform validation or any logic here before navigating
     navigate("/candidate");
   };
 
@@ -55,22 +71,19 @@ const SignUp = () => {
                     className={isLogin ? "active signUpBtn" : ""}
                     onClick={() => setIsLogin(true)}
                   >
-                    Employee
+                    Employer
                   </button>
                   <button
                     className={!isLogin ? "active signUpBtn" : ""}
                     onClick={() => setIsLogin(false)}
                   >
-                    Job seeker
+                    Employee
                   </button>
                 </div>
                 {isLogin ? (
                   <>
                     <div className="signUpform">
-                      {/* <h2>Register As a Employee</h2> */}
-
                       <div className="formCols">
-                        {/* Column two */}
                         <div className="formColOne">
                           <div className="signUpform-emp">
                             <div className="signUpform-group">
@@ -157,10 +170,6 @@ const SignUp = () => {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="checkBox">
-                        <input type="checkbox" name="check" id="check-box" />{" "}
-                        <p>I accept all terms and condition</p>
-                      </div> */}
                       <div className="register-btn">
                         <div className="register-btns">
                           <button onClick={handleRegister}>Register Now</button>
@@ -171,10 +180,7 @@ const SignUp = () => {
                 ) : (
                   <>
                     <div className="signUpform">
-                      {/* <h2>Register As a Job Seeker</h2> */}
-
                       <div className="formCols">
-                        {/* Column two */}
                         <div className="formColOne">
                           <div className="signUpform-emp">
                             <div className="signUpform-group">
@@ -226,18 +232,9 @@ const SignUp = () => {
                             </div>
                           </div>
                         </div>
-                        {/* Column two */}
+
                         <div className="formColTwo">
                           <div className="signUpform-emp">
-                            <div className="signUpform-group">
-                              <label htmlFor="companyname">Gender</label>
-                              <input
-                                type="text"
-                                id="gender"
-                                placeholder="Gender"
-                              />
-                            </div>
-
                             <div className="signUpform-group">
                               <label htmlFor="email">Email</label>
                               <div className="send-otp">
@@ -248,35 +245,34 @@ const SignUp = () => {
                                 />
                               </div>
                             </div>
-                            <div className="signUpform-group">
-                              <label htmlFor="immediateJoiner">
-                                Immediate Joiner
-                              </label>
-                              <div className="send-otp immBtn">
-                                <div className="immediate-check">
-                                  <input
-                                    type="radio"
-                                    id="immediatejoinerYes"
-                                    name="immediateJoiner"
-                                    value="yes"
-                                    checked={selectedOption === "yes"}
-                                    onChange={handleOptionChange}
-                                  />
-                                  <span>Yes</span>
-                                </div>
-                                <div className="immediate-check">
-                                  <input
-                                    type="radio"
-                                    id="immediatejoinerNo"
-                                    name="immediateJoiner"
-                                    value="no"
-                                    checked={selectedOption === "no"}
-                                    onChange={handleOptionChange}
-                                  />
-                                  <span>No</span>
-                                </div>
+
+                            <div className="signUpform-emp dropdown-main">
+                              <div className="dropdown">
+                                <label htmlFor="">Immediate Joiner</label> <br />
+                                <select className="form-select" onChange={handleSelect}>
+                                  {immediate.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                                </select>
                               </div>
                             </div>
+
+                            <div className="signUpform-emp dropdown-main">
+                              <div className="dropdown">
+                                <label htmlFor="">Gender</label> <br />
+                                <select className="form-select" onChange={handleSelect}>
+                                  {options.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                                </select>
+                              </div>
+                            </div>
+                            {/* -------------------------------- */}
+                            {/* -------------------------------- */}
                             <div className="signUpform-group">
                               <label htmlFor="name">Location</label>
                               <input
@@ -286,7 +282,7 @@ const SignUp = () => {
                               />
                             </div>
                             <div className="signUpform-group">
-                              <label htmlFor="name">Experiencw</label>
+                              <label htmlFor="name">Experience</label>
                               <input
                                 type="text"
                                 id="experience"
@@ -296,10 +292,6 @@ const SignUp = () => {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="checkBox">
-                        <input type="checkbox" name="check" id="check-box" />{" "}
-                        <p>I accept all terms and condition</p>
-                      </div> */}
                       <div className="register-btn">
                         <div className="register-btns">
                           <button onClick={handleRegister}>Register Now</button>

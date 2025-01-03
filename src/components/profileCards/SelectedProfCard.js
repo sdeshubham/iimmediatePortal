@@ -46,7 +46,7 @@ const SelectedProfCard = ({
           <p className="skills-set">{skillTwo}</p>
           <p className="skills-set">{skillThree}</p>
         </div>
-        <a href="/"><button className="profview-more">View more</button></a>
+        <a href="/"><button className="profview-more">Visit Profile</button></a>
       </div>
     </>
   );

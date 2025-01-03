@@ -236,3 +236,46 @@
 .register-btn a:hover {
   text-decoration: underline;
 }
+
+
+
+
+
+.dropdown select {
+  font-size: 15px;
+  color: #404040;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 160px;
+  margin: 5px 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.dropdown select option {
+  background-color: #fff;
+  color: #afa9a9;
+  font-size: 12px;
+  padding: 8px 12px;
+  outline: none;
+}
+
+.dropdown select options:hover {
+  background: #ea4232;
+  color: #afa9a9;
+}
+
+.dropdown select:focus {
+  outline: none;
+}
+
+.dropdown select::-ms-expand {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  z-index: 10;
+}

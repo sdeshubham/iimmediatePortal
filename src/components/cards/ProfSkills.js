@@ -1,4 +1,5 @@
 import React from "react";
+import "../../stylesheets/CandiProfile.css";
 
 const ProfSkills = ({
   skillListOne,
@@ -11,15 +12,16 @@ const ProfSkills = ({
 }) => {
   return (
     <>
-      <div className="skills-container">
-        <p>{skillListOne}</p>
-        <p>{skillListTwo}</p>
-        <p>{skillListThree}</p>
-        <p>{skillListFour}</p>
-        <p>{skillListFive}</p>
-        <p>{skillListSix}</p>
-        <p>{skillListSeven}</p>
+      <div className="skillscard-container">
+        <div className="skillsection-boxTwo">
+          <p className="skill-items">{skillListOne}</p>
+        </div>
       </div>
+      {/* <div className="prof-editBtn">
+        <button>
+          <FaRegEdit />
+        </button>
+      </div> */}
     </>
   );
 };

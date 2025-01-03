@@ -20,7 +20,7 @@ const HomeAbout = () => {
             generations can thrive.
           </p>
           <button className="empBtn">Employee</button>
-          <button className="jobseekerBtn">Job Seeker</button>
+          <button className="jobseekerBtn">Employer</button>
         </div>
         <div className="aboutRightBox">
           <img src={aboutGirl} alt="" />

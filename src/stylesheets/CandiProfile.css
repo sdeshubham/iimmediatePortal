@@ -144,6 +144,23 @@
   background-color: #ea4232;
   color: #fff;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.prof-editBtn button {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  color: #ea4232;
+  margin: 20px 20px 0 0;
+  transition: all 0.3s ease-in;
+}
+
+.prof-editBtn button:hover {
+  background-color: #ea4232;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* ------------------------- */
@@ -165,7 +182,8 @@
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
-  width: 400px;
+  min-width: 45vw;
+  min-height: 30vh;
   max-width: 90%;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -174,11 +192,12 @@
 .close-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 25px;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  color: #ea4232;
 }
 
 .popup-input {
@@ -196,6 +215,7 @@ textarea {
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
+  outline: none;
 }
 
 .popup-input button[type="submit"] {
