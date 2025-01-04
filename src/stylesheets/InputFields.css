@@ -31,3 +31,153 @@
     background-color: #ac3429;
     cursor: pointer;
 }
+
+/* --------------- Experience ----------------- */
+
+.exp-inp-box {
+  min-height: 50vh;
+  padding: 0 20px;
+}
+
+.experience-box {
+  width: 43vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.exp-radio-inp {
+  margin-top: 5px;
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: .9rem;
+  color: #515050;
+}
+
+.exp-fields {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.exp-inphead,
+.expjoin-date {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.exp-inphead h3 {
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+.inp-fieldbox {
+  width: 100%;
+}
+
+.exp-inp-fileds {
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 13px;
+  width: 95%;
+}
+
+.exp-inphead p {
+  color: #515050;
+  font-size: .8em;
+}
+
+.inp-fieldbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inp-fieldbox label,
+.expjoin-date label,
+.exp-desc-inp label {
+  font-weight: 500;
+  font-size: .9em;
+}
+
+.exp-durationBox {
+  width: 100%;
+}
+
+.year-month-inp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.year-month-inp select {
+  width: 48%;
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 13px;
+}
+
+.inp-fieldbox-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.exp-desc-inp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-desc-inp input {
+  outline: none;
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 10vh;
+  border-radius: 13px;
+}
+
+.expInp-btns {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.expInp-btns button {
+  padding: 6px 10px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.exp-deleteBtn {
+  border: 1px solid #ea4232;
+  color: #ea4232;
+  background: transparent;
+  margin-right: 30px;
+  transition: all .2s ease-in;
+}
+
+.exp-deleteBtn:hover {
+  background-color: #ea4232;
+  color: #fff;
+  cursor: pointer;
+}
+
+.exp-submitBtn {
+  background-color: #012970;
+  color: #fff;
+}
+
+.exp-submitBtn {
+  cursor: pointer;
+}

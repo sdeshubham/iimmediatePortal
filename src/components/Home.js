@@ -13,11 +13,11 @@ import HuntLocationCard from "./cards/HuntLocationCard";
 import locationCardData from "../components/cards/locationCardData";
 import StackCard from "./cards/StackCard";
 import stackData from "./cards/stackData";
-import experienceData from './cards/experienceData'
+import experienceData from "./cards/experienceData";
 import HuntExperience from "./cards/HuntExperience";
 import HomeAbout from "./cards/HomeAbout";
 import BottomJoin from "./cards/BottomJoin";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -64,7 +64,7 @@ const Home = () => {
             <a href="/empfilter">View More</a>
           </div>
         </div>
-        <div className="activejoiner-cardbox">
+        {/* <div className="activejoiner-cardbox">
           {activejoinerData.map((item, index) => (
             <ActiveJoinerCard
               key={index}
@@ -75,7 +75,21 @@ const Home = () => {
               experience={item.experience}
             />
           ))}
-        </div>
+        </div> */}
+        <a href="/candidate">
+          <div className="activejoiner-cardbox">
+            {activejoinerData.map((item, index) => (
+              <ActiveJoinerCard
+                key={index}
+                image={item.image}
+                name={item.name}
+                role={item.role}
+                salary={item.salary}
+                experience={item.experience}
+              />
+            ))}
+          </div>
+        </a>
       </div>
       <div className="huntByLocation">
         <div className="huntHeadBox">
