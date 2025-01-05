@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import "../../stylesheets/InputFields.css";
 import { IoMdClose } from "react-icons/io";
 
 const Experience = ({ onClose }) => {
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
+  const [endMonth, setEndMonth] = useState("");
+  const [endYear, setEndYear] = useState("");
   const [location, setLocation] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const [selectedOption, setSelectedOption] = useState();
+  const [selectedOption, setSelectedOption] = useState("option1");
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -35,6 +38,8 @@ const Experience = ({ onClose }) => {
 
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
   const handleYearChange = (e) => setSelectedYear(e.target.value);
+  const handleEndMonthChange = (e) => setEndMonth(e.target.value);
+  const handleEndYearChange = (e) => setEndYear(e.target.value);
   const handleLocationChange = (e) => setLocation(e.target.value);
   const handleJobTitleChange = (e) => setJobTitle(e.target.value);
   const handleCompanyNameChange = (e) => setCompanyName(e.target.value);
@@ -44,8 +49,12 @@ const Experience = ({ onClose }) => {
     console.log("Job Title:", jobTitle);
     console.log("Company Name:", companyName);
     console.log("Location:", location);
-    console.log("Month:", selectedMonth);
-    console.log("Year:", selectedYear);
+    console.log("Start Month:", selectedMonth);
+    console.log("Start Year:", selectedYear);
+    if (selectedOption === "option2") {
+      console.log("End Month:", endMonth);
+      console.log("End Year:", endYear);
+    }
     onClose();
   };
 
@@ -120,15 +129,15 @@ const Experience = ({ onClose }) => {
                   />
                 </div>
                 <div className="exp-durationBox">
-                  <div className="expjoin-date">
-                    <label htmlFor="Totalexperience">Total experience</label>
+                  <div className="expjoining-date">
+                    <label htmlFor="Totalexperience">Joining date</label>
                     <div className="year-month-inp">
                       <select
                         id="year"
                         value={selectedYear}
                         onChange={handleYearChange}
                       >
-                        <option value="">--Select Year--</option>
+                        <option value="">Select Year</option>
                         {years.map((year) => (
                           <option key={year} value={year}>
                             {year}
@@ -140,7 +149,7 @@ const Experience = ({ onClose }) => {
                         value={selectedMonth}
                         onChange={handleMonthChange}
                       >
-                        <option value="">--Select Month--</option>
+                        <option value="">Select Month</option>
                         {months.map((month, index) => (
                           <option key={index} value={month}>
                             {month}
@@ -149,19 +158,59 @@ const Experience = ({ onClose }) => {
                       </select>
                     </div>
                   </div>
+                  {selectedOption === "option2" && (
+                    <div className="exptotal-date">
+                      <label htmlFor="Totalexperience">Worked till</label>
+                      <div className="year-month-inp">
+                        <select
+                          id="year"
+                          value={endYear}
+                          onChange={handleEndYearChange}
+                        >
+                          <option value="">Select Year</option>
+                          {years.map((year) => (
+                            <option key={year} value={year}>
+                              {year}
+                            </option>
+                          ))}
+                        </select>
+                        <select
+                          id="month"
+                          value={endMonth}
+                          onChange={handleEndMonthChange}
+                        >
+                          <option value="">Select Month</option>
+                          {months.map((month, index) => (
+                            <option key={index} value={month}>
+                              {month}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  )}
                 </div>
-
                 <div className="inp-fieldbox-desc">
                   <div className="exp-desc-inp">
                     <label htmlFor="">Description</label>
-                    <input type="text" />
+                    {/* <input type="text" /> */}
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      cols="50"
+                    ></textarea>
                   </div>
                 </div>
               </div>
               <div className="expInp-btns">
                 <div>
-                  <button className="exp-deleteBtn" type="delete">Delete</button>
-                  <button className="exp-submitBtn" type="submit">Submit</button>
+                  <button className="exp-deleteBtn" type="button">
+                    Delete
+                  </button>
+                  <button className="exp-submitBtn" type="submit">
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>

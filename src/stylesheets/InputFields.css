@@ -1,37 +1,3 @@
-.abouttext-head h4 {
-  font-weight: 600;
-  color: #ea4232;
-}
-
-.abouttext-head p {
-  color: #404040;
-  width: 60%;
-  font-size: 0.9rem;
-  padding: 10px 0;
-}
-
-.details-submit-btn {
-    display: flex;
-    justify-content: end;
-}
-
-.details-submit-btn button {
-    margin-top: 15px;
-    padding: 5px 20px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    background-color: #ea4232;
-    color: #fff;
-    transition: all .3s ease;
-    align-items: flex-end;
-}
-
-.details-submit-btn button:hover {
-    background-color: #ac3429;
-    cursor: pointer;
-}
-
 /* --------------- Experience ----------------- */
 
 .exp-inp-box {
@@ -39,8 +5,11 @@
   padding: 0 20px;
 }
 
-.experience-box {
-  width: 43vw;
+.experience-box,
+.proj-inp-box,
+.skill-inpbox,
+.project-box {
+  width: 50vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -53,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #515050;
 }
 
@@ -66,13 +35,28 @@
 }
 
 .exp-inphead,
-.expjoin-date {
+.proj-inphead,
+.projwork-date,
+.skills-inphead,
+.abouttext-head,
+.skill-inphead,
+.award-inphead {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.exp-inphead h3 {
+.award-inphead {
+  padding-bottom: 20px;
+}
+
+.exp-inphead h3,
+.abouttext-head h3,
+.skills-inphead h3,
+.proj-inphead h3,
+.skills-inphead h3,
+.skill-inphead h3,
+.award-inphead h3 {
   font-weight: 600;
   font-size: 1.3em;
 }
@@ -89,25 +73,51 @@
   width: 95%;
 }
 
-.exp-inphead p {
-  color: #515050;
-  font-size: .8em;
+.pdf-inp-fileds {
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 13px;
+  width: 25%;
 }
 
-.inp-fieldbox {
+.exp-inphead p,
+.abouttext-head p,
+.proj-inphead p,
+.skills-inphead p,
+.skill-inphead p,
+.award-inphead p {
+  color: #515050;
+  font-size: 0.8em;
+}
+
+.inp-fieldbox,
+.course-duration {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .inp-fieldbox label,
-.expjoin-date label,
-.exp-desc-inp label {
+.projwork-date label,
+.expjoining-date label,
+.exp-desc-inp label,
+.exptotal-date label,
+.skills-inp label,
+.course-duration label {
   font-weight: 500;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .exp-durationBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.projwork-date,
+.skills-inp {
   width: 100%;
 }
 
@@ -117,7 +127,8 @@
   width: 100%;
 }
 
-.year-month-inp select {
+.year-month-inp select,
+.search-container input {
   width: 48%;
   border: 1px solid #ddd;
   outline: none;
@@ -125,10 +136,25 @@
   border-radius: 13px;
 }
 
+.search-container input {
+  width: 95%;
+  margin-top: 5px;
+}
+
 .inp-fieldbox-desc {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.exptotal-date {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-optionalBox {
   width: 100%;
 }
 
@@ -139,12 +165,13 @@
   gap: 8px;
 }
 
-.exp-desc-inp input {
+.exp-desc-inp textarea {
   outline: none;
   border: 1px solid #ddd;
-  width: 100%;
+  width: 97%;
   height: 10vh;
   border-radius: 13px;
+  /* text-align: justify; */
 }
 
 .expInp-btns {
@@ -160,11 +187,14 @@
 }
 
 .exp-deleteBtn {
-  border: 1px solid #ea4232;
+  /* border: 1px solid #ea4232; */
+  border: none;
+  outline: none;
+  text-decoration: underline;
   color: #ea4232;
   background: transparent;
   margin-right: 30px;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .exp-deleteBtn:hover {
@@ -178,6 +208,61 @@
   color: #fff;
 }
 
-.exp-submitBtn {
+.exp-submitBtn:hover {
   cursor: pointer;
+}
+
+/* --------------- About ----------------- */
+
+.aboutMe-inp {
+  width: 100%;
+}
+
+.about-inp-box {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-text-inp {
+  width: 95%;
+}
+
+/* --------------- Skills ----------------- */
+
+.search-container {
+  position: relative;
+}
+
+.search-container ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 40%;
+  background-color: white;
+  border-radius: 13px;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.search-container li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-container li:hover {
+  background-color: #f1f1f1;
+}
+
+/* --------------- Awards ----------------- */
+
+.award-btns {
+  margin-top: 25px;
 }

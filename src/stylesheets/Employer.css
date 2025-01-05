@@ -12,7 +12,18 @@
   display: flex;
 }
 
-.prof-sectionOne img {
+.empyr-btns {
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: #fff; */
+  width: 5%;
+}
+
+.empyr-profImg {
+  width: 15%;
+}
+
+.empyr-profImg img {
   height: 24vh;
   width: 13vw;
   background-color: #fff;
@@ -20,6 +31,7 @@
 }
 
 .emp-details {
+  width: 80%;
   margin-left: 70px;
   padding-top: 10px;
   display: flex;
@@ -58,6 +70,23 @@
   text-decoration: none;
   color: #ea4232;
   font-weight: 500;
+}
+
+.empyr-add-btn button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 1.5rem;
+  transition: all .2s ease-in;
+}
+
+.empyr-add-btn button:hover {
+  background-color: #fff;
+  color: #ea4232;
+  cursor: pointer;
 }
 
 .prof-sectionTwo {
@@ -202,3 +231,97 @@
   background-color: #ad291d;
 }
 
+/* ------------- Employer ------------- */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.empyr-box {
+  width: 50vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.empyr-inp-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.empyr-inphead {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 5px;
+}
+
+.empyr-inphead h3 {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.empyr-inphead p {
+  color: #515050;
+  font-size: 0.8em;
+}
+
+.empyr-inp-fieldbox label {
+  font-weight: 500;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.empyr-inp-fieldbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.empyr-inp-fieldbox input {
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 13px;
+  width: 95%;
+}
+
+.comp-desc-empyr {
+  height: 10vh;
+  width: 96%;
+}

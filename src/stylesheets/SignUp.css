@@ -87,6 +87,10 @@
   flex-direction: column;
 }
 
+.empyr-loca {
+  margin-top: 10px;
+}
+
 .signUpform {
   display: flex;
   flex-direction: column;
@@ -248,14 +252,15 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   cursor: pointer;
-  width: 160px;
+  /* width: 160px; */
+  width: 100%;
   margin: 5px 0 20px;
   position: relative;
   z-index: 10;
 }
 
 .dropdown select option {
-  background-color: #fff;
+  background-color: transparent;
   color: #afa9a9;
   font-size: 12px;
   padding: 8px 12px;

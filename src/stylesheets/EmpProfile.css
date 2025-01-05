@@ -238,6 +238,10 @@
   border-radius: 10px;
 }
 
+.certi-box-content button:hover {
+  cursor: pointer;
+}
+
 .certif-boxTwo {
   display: flex;
   gap: 4px;

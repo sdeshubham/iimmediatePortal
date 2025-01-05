@@ -12,7 +12,7 @@ const ProfCertiCard = ({ certiImg, certName, certOrg, certIssueDate }) => {
               <p className="certiOrg">{certOrg}</p>
               <p className="certiDate">Issued {" "}{certIssueDate}</p>
             </div>
-            <button>Show Credentials</button>
+            <button className="show-cred-btn">Show Credentials</button>
           </div>
         </div>
       </div>

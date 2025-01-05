@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import "../stylesheets/SignUp.css";
 import signUpEmp from "../images/signupFromImg.png";
@@ -13,9 +11,9 @@ const SignUp = () => {
   const immediate = [
     { label: "Select", value: 1 },
     { label: "Within 7 Days", value: 2 },
-    { label: "Withing 15 Days", value: 3 },
-    { label: "Withing 30 Days", value: 4 },
-    { label: "Withing 45 Days", value: 5 },
+    { label: "Within 15 Days", value: 3 },
+    { label: "Within 30 Days", value: 4 },
+    { label: "Within 45 Days", value: 5 },
   ];
 
   const options = [
@@ -273,7 +271,7 @@ const SignUp = () => {
                             </div>
                             {/* -------------------------------- */}
                             {/* -------------------------------- */}
-                            <div className="signUpform-group">
+                            <div className="signUpform-group empyr-loca">
                               <label htmlFor="name">Location</label>
                               <input
                                 type="text"
