@@ -33,6 +33,7 @@
 .aboutContentOne p {
   color: #747070;
   margin-top: 20px;
+  text-align: justify;
 }
 
 .contentTwoBox,
@@ -48,6 +49,7 @@
   width: 80%;
   color: #747070;
   margin-top: 20px;
+  text-align: justify;
 }
 
 .contentTwoBox-right,
@@ -63,6 +65,7 @@
   width: 60%;
   margin-top: 20px;
   color: #747070;
+  text-align: center;
 }
 
 /* --------------------------------- */

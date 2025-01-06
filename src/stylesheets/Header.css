@@ -141,8 +141,6 @@ nav {
 }
 
 .dropdown-content a:hover::after {
-  /* background-color: #ea4232;
-  color: #fff; */
   width: 100%;
 }
 
@@ -157,4 +155,40 @@ nav {
 .dropdown a {
   text-decoration: none;
   color: #012970;
+}
+
+/* ############################################ */
+
+/* Mobile Devices */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 9vh;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-btn.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
