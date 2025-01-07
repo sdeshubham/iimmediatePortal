@@ -81,8 +81,8 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <div className="hamburger" onClick={toggleMenu}>
-          <FaBars /> {/* Hamburger icon */}
+        <div className="" onClick={toggleMenu}>
+          {/* <FaBars /> */}
         </div>
         <ul className={`nav-list ${menuOpen ? "open" : ""}`}>
           <li>
@@ -95,9 +95,9 @@ const Header = () => {
             <Link to="/contactus">Contact Us</Link>
           </li>
         </ul>
-        <div className={`nav-btn ${menuOpen ? "open" : ""}`}>
+        <div className="nav-btn">   
           <Link to="/signin" className="sign-btn">
-            Sign In
+            Log In
           </Link>
           <Link to="/signup" className="signup-btn">
             Sign Up

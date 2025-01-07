@@ -8,6 +8,8 @@ import mysqlLogo from '../../images/mysqlLogo.webp'
 import mongoDbLogo from '../../images/mongoDbLogo.png'
 import nodeJsLogo from '../../images/mongoDbLogo.png'
 import flutterLogo from '../../images/flutterLogo.png'
+import RustLogo from "../../images/RustLogo.png"
+import CplusLogo from "../../images/CplusLogo.png"
 
 
 const stackData = [
@@ -50,6 +52,14 @@ const stackData = [
   {
     stackImg: flutterLogo,
     stackName: "Flutter",
+  },
+  {
+    stackImg: RustLogo,
+    stackName: "Rust",
+  },
+  {
+    stackImg: CplusLogo,
+    stackName: "C++",
   },
 ];
 

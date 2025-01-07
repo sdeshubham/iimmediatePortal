@@ -5,6 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  background-color: #d6dea4;
 }
 
 .signup-container {

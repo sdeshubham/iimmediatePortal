@@ -30,6 +30,8 @@ import ProfCertiCard from "./ProfCertiCard";
 import awardCardData from "./candiDetailsData/awardCardData";
 import ProfAwardCard from "./ProfAwardCard";
 import { RiEditBoxLine } from "react-icons/ri";
+import { FiDownload } from "react-icons/fi";
+import { IoEyeOutline } from "react-icons/io5";
 
 const CandiProfileCard = ({
   cImg,
@@ -50,6 +52,7 @@ const CandiProfileCard = ({
   const [showEducation, setShowEducation] = useState(false);
   const [showLicensCertificates, setShowLicensCertificates] = useState(false);
   const [showAwads, setShowAwads] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleAboutMePopup = () => setShowAboutMe(!showAboutMe);
   const toggleExperiencePopup = () => setShowExperience(!showExperience);
@@ -71,34 +74,60 @@ const CandiProfileCard = ({
                 <h3>{cName}</h3>
                 <p>{cHeadline}</p>
                 <p>{cCompany}</p>
-                <div className="candi-personalInfo">
-                  <div className="personalInfo-colOne">
-                    <div className="colOne-details">
-                      <FaLocationDot size={20} />
-                      <p>{cLocation}</p>
+                <div className="colOneInfoTwo">
+                  <div className="candi-personalInfo">
+                    <div className="personalInfo-colOne">
+                      <div className="colOne-details">
+                        <FaLocationDot size={20} />
+                        <p>{cLocation}</p>
+                      </div>
+                      <div className="colOne-details">
+                        <FaLaptopCode size={20} />
+                        <p>{cExperience}</p>
+                      </div>
+                      <div className="colOne-details">
+                        <MdOutlineCurrencyRupee size={20} />
+                        <p>{cSalary} /-Year</p>
+                      </div>
                     </div>
-                    <div className="colOne-details">
-                      <FaLaptopCode size={20} />
-                      <p>{cExperience}</p>
-                    </div>
-                    <div className="colOne-details">
-                      <MdOutlineCurrencyRupee size={20} />
-                      <p>{cSalary} /-Year</p>
+                    <div className="personalInfo-colTwo">
+                      <div className="colTwo-details">
+                        <FaBusinessTime size={20} />
+                        <p>{cNoticePeriod}</p>
+                      </div>
+                      <div className="colTwo-details">
+                        <IoCallSharp size={20} />
+                        <p>{cPhoneNumber}</p>
+                      </div>
+                      <div className="colTwo-details">
+                        <IoIosMail size={20} />
+                        <p>{cEmail}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="personalInfo-colTwo">
-                    <div className="colTwo-details">
-                      <FaBusinessTime size={20} />
-                      <p>{cNoticePeriod}</p>
-                    </div>
-                    <div className="colTwo-details">
-                      <IoCallSharp size={20} />
-                      <p>{cPhoneNumber}</p>
-                    </div>
-                    <div className="colTwo-details">
-                      <IoIosMail size={20} />
-                      <p>{cEmail}</p>
-                    </div>
+                  <div
+                    className="dropdown-container"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                  >
+                    {/* Button */}
+                    <button className="dropdown-button">Rusume</button>
+
+                    {/* Dropdown Menu */}
+                    {isHovered && (
+                      <div className="dropdown-menu">
+                        <ul>
+                          <li className="resume-action-btn">
+                            <FiDownload />
+                            Download
+                          </li>
+                          <li className="resume-action-btn">
+                            <IoEyeOutline />
+                            View
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

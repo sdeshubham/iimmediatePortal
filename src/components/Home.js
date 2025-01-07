@@ -18,6 +18,7 @@ import HuntExperience from "./cards/HuntExperience";
 import HomeAbout from "./cards/HomeAbout";
 import BottomJoin from "./cards/BottomJoin";
 import { Link } from "react-router-dom";
+import { IoIosSearch } from "react-icons/io";
 
 const Home = () => {
   return (
@@ -28,11 +29,14 @@ const Home = () => {
             <h4>#1 Job Portal</h4>
             <h1>Your Dream Career Starts here</h1>
             <p>
-              Job Hunting Made Easy: Get Instant Alerts For Jobs Matching Your
-              Skills & Innovative Job Finder
+              <span>Job Hunting Made Easy:</span> Get Instant Alerts <br /> For
+              Jobs Matching Your Skills & Innovative Job Finder
             </p>
             <form className="home-search">
-              <input type="text" placeholder="Job title keywords..." />
+              <div className="input-wrapper">
+                <IoIosSearch className="search-icon" />
+                <input type="text" placeholder="Job title keywords..." />
+              </div>
               <button type="submit">Find Now</button>
             </form>
             <img src={k5Img} alt="" />
@@ -76,9 +80,10 @@ const Home = () => {
             />
           ))}
         </div> */}
-        <a href="/candidate">
-          <div className="activejoiner-cardbox">
-            {activejoinerData.map((item, index) => (
+
+        <div className="activejoiner-cardbox">
+          {activejoinerData.map((item, index) => (
+            <a href="/candidate">
               <ActiveJoinerCard
                 key={index}
                 image={item.image}
@@ -87,9 +92,9 @@ const Home = () => {
                 salary={item.salary}
                 experience={item.experience}
               />
-            ))}
-          </div>
-        </a>
+            </a>  
+          ))}
+        </div>
       </div>
       <div className="huntByLocation">
         <div className="huntHeadBox">
@@ -102,7 +107,11 @@ const Home = () => {
         </div>
         <div className="huntlocationBox">
           {locationCardData.map((item, index) => (
-            <HuntLocationCard key={index} locationName={item.locationName} />
+            <HuntLocationCard
+              key={index}
+              honelocationIcons={item.honelocationIcons}
+              locationName={item.locationName}
+            />
           ))}
         </div>
       </div>

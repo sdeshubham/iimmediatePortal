@@ -36,18 +36,37 @@
   color: #a1a6b3;
 }
 
-.home-search input {
+.main-section p span {
+  font-weight: 500;
+}
+
+.home-search {
+  /* background-color: antiquewhite; */
+}
+
+/* .home-search input {
+  width: 250px;
   margin: 12px 5px 12px 0;
-  padding: 15px 80px 15px 30px;
+  padding: 10px 80px 10px 30px;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   outline: none;
 }
 
+.home-search .search-icon {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #ea4232;
+}
+
 .home-search button {
-  padding: 15px 30px;
+  padding: 10px 30px;
   background-color: #ea4232;
+  box-shadow: 0px 2px 5px rgba(234, 5, 5, 0.31);
   border: none;
   color: #ffffff;
   border-radius: 20px;
@@ -60,6 +79,68 @@
   color: #ea4232;
   border: 1px solid #ea4232;
   cursor: pointer;
+} */
+
+/* Wrapper for input and icon */
+.home-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input field container with the icon */
+.input-wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.home-search input {
+  margin: 12px 5px 12px 0;
+  padding: 10px 15px 10px 35px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  width: 250px;
+}
+
+/* Search icon inside the input field */
+.home-search .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Vertically center the icon */
+  transform: translateY(-50%); /* Fix vertical alignment */
+  font-size: 1.2rem;
+  color: #a8b3c8;
+}
+
+.home-search input::placeholder {
+  color: #a8b3c8; /* Placeholder color */
+  font-size: 0.9rem; /* Placeholder font size */
+}
+
+/* Button styles */
+.home-search button {
+  padding: 10px 30px;
+  background-color: #ea4232;
+  border: none;
+  color: #ffffff;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 5px;
+  border: none;
+}
+
+.home-search button:hover {
+  background-color: #fff;
+  color: #ea4232;
+  border: 1px solid #ea4232;
+}
+
+.home-search button:focus {
+  outline: none;
 }
 
 .home-second-box {
@@ -92,7 +173,7 @@
 
 .main-sec-brands img {
   height: 20px;
-  margin: 15px 35px;
+  margin: 15px 40px;
 }
 
 /* -------------------------------------------- */
@@ -116,7 +197,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
+  padding: 8px 0;
+}
+
+.activeCard:hover {
+  /* cursor: pointer; */
 }
 
 .activejoiner-details {
@@ -136,17 +221,21 @@
   width: 40px;
 }
 
-.activejoiner-details-one h4,
-.activejoiner-details-one p {
+.activejoiner-details-one h4 {
   margin: 0;
   width: 60%;
   font-size: 0.7rem;
   text-align: left;
   color: #012970;
+  font-weight: 600;
 }
 
-.activejoiner-details-one h4 {
-  font-weight: 600;
+.activejoiner-details-one p {
+  margin: 0;
+  width: 60%;
+  font-size: 0.7rem;
+  text-align: left;
+  color: #727272;
 }
 
 .activeCardImg {
@@ -165,7 +254,7 @@
 }
 
 .active-head h2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.7rem;
 }
 
@@ -176,10 +265,12 @@
 .active-head p {
   font-weight: 400;
   font-size: 0.9rem;
+  color: #727272;
 }
 
 .active-viewmore a {
   color: #012970;
+  text-decoration: underline;
 }
 
 /* -------------------------------------------- */
@@ -196,6 +287,7 @@
 
 .huntByLocation h2 span {
   color: #012970;
+  font-weight: 600;
 }
 
 .huntlocationBox {
@@ -217,13 +309,25 @@
   width: 150px;
 }
 
-.huntlocation-details,
-.stack-details {
+.huntlocationCard:hover {
+  cursor: pointer;
+}
+
+.huntlocation-details {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  width: 190px;
+  width: 100%;
+}
+
+.stack-details {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  width: 100%;
 }
 
 .huntlocation-details-one {
@@ -236,7 +340,7 @@
 .stack-details-one {
   width: 130px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -264,24 +368,29 @@
   width: 91%;
   margin: 50px 70px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .stackCard {
   border: 1px solid #ea4232;
   border-radius: 40px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 8px 5px;
-  width: 200px;
+  width: 180px;
+}
+
+.stackCard:hover {
+  cursor: pointer;
 }
 
 /* ----------------------------------------------------------- */
 
 .experienceHeadBox h2 {
+  font-weight: 600;
   margin-left: 70px;
 }
 
@@ -290,11 +399,11 @@
 }
 
 .huntExperiemceBox {
-  width: 91%;
+  width: 90%;
   margin: 50px 70px;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
   text-align: center;
   align-items: center;
 }
@@ -319,6 +428,16 @@
   border: 1px solid #d9d9d9;
   padding: 30px 10px;
   border-radius: 20px;
+  height: 120px;
+  width: 230px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.experienceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 /* ----------------------------------------------------------- */
@@ -347,6 +466,18 @@
   margin: 20px 0 10px 0;
   font-weight: 600;
   font-size: 2.2rem;
+}
+
+.aboutLeftBox p {
+  font-weight: 300;
+}
+
+.aboutLeftBox button {
+  border-radius: 3px;
+}
+
+.aboutLeftBox button:hover {
+  cursor: pointer;
 }
 
 .leftBoxP1 {
@@ -437,7 +568,6 @@
 /* Mobile Devices */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   body {
-    
   }
 }
 
@@ -446,7 +576,6 @@
 /* Tablets */
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
   body {
-
   }
 }
 
@@ -455,6 +584,5 @@
 /* Laptops and Desktops */
 @media only screen and (min-width: 1025px) and (max-width: 1920px) {
   body {
-    
   }
 }

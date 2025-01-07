@@ -13,10 +13,15 @@ header {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.hamburger {
+  display: none;
+}
+
 nav {
   margin: 0 70px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .nav-list {
@@ -118,7 +123,7 @@ nav {
 }
 
 .dropdown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 100%;
   left: 0;
@@ -158,37 +163,3 @@ nav {
 }
 
 /* ############################################ */
-
-/* Mobile Devices */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-  .nav-list {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 9vh;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-list.open {
-    display: flex;
-  }
-
-  .nav-btn {
-    display: none;
-  }
-
-  .nav-btn.open {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-}

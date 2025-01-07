@@ -99,6 +99,70 @@
   height: 100%;
   cursor: pointer;
 }
+
+/* Container to wrap both the button and the dropdown */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #ea4232;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+/* Dropdown menu with transition */
+.dropdown-menu {
+  position: absolute;
+  top: 43px;
+  left: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  width: 150px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+  z-index: 1000;
+}
+
+.dropdown-container:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0s;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 8px;
+  cursor: pointer;
+  color: #ea4232;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.resume-action-btn {
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
 /* ------------------------- */
 
 .profile-secTwo {
@@ -130,6 +194,7 @@
 .content-boxes-head h2 {
   font-size: 1.2rem;
   font-weight: 500;
+  text-transform: uppercase;
 }
 
 .content-boxes-head button {

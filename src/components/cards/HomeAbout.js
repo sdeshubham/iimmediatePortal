@@ -1,5 +1,6 @@
 import React from "react";
 import aboutGirl from "../../images/homePageGirl.png";
+import { Link } from "react-router-dom";
 
 const HomeAbout = () => {
   return (
@@ -19,8 +20,12 @@ const HomeAbout = () => {
             mission, we're creating an environment where current and future
             generations can thrive.
           </p>
-          <button className="empBtn">Employee</button>
-          <button className="jobseekerBtn">Employer</button>
+          <Link to="/candidate">
+            <button className="empBtn">Employee</button>
+          </Link>
+          <Link to="/employer">
+            <button className="jobseekerBtn">Employer</button>
+          </Link>
         </div>
         <div className="aboutRightBox">
           <img src={aboutGirl} alt="" />
