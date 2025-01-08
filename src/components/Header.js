@@ -86,22 +86,22 @@ const Header = () => {
         </div>
         <ul className={`nav-list ${menuOpen ? "open" : ""}`}>
           <li>
-            <Link to="/home">Home</Link>
+            <a href="/home">Home</a>
           </li>
           <li>
-            <Link to="/aboutus">About Us</Link>
+            <a href="/aboutus">About Us</a>
           </li>
           <li>
-            <Link to="/contactus">Contact Us</Link>
+            <a href="/contactus">Contact Us</a>
           </li>
         </ul>
         <div className="nav-btn">   
-          <Link to="/signin" className="sign-btn">
+          <a href="/signin" className="sign-btn">
             Log In
-          </Link>
-          <Link to="/signup" className="signup-btn">
+          </a>
+          <a href="/signup" className="signup-btn">
             Sign Up
-          </Link>
+          </a>
         </div>
       </nav>
     </header>

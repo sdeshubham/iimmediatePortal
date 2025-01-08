@@ -19,22 +19,22 @@ const Footer = () => {
                   <h3>Company</h3>
                   <ul>
                     <li>
-                      <Link to="/aboutus">About Us</Link>
+                      <a href="/aboutus">About Us</a>
                     </li>
                     <li>
-                      <Link to="/contactus">Contact Us</Link>
+                      <a href="/contactus">Contact Us</a>
                     </li>
                     <li>
-                      <Link to="/privacy&policy">Privacy Policy</Link>
+                      <a href="/privacy&policy">Privacy Policy</a>
                     </li>
                     <li>
-                      <Link to="/terms&condition">Terms & Conditions</Link>
+                      <a href="/terms&condition">Terms & Conditions</a>
                     </li>
                     <li>
-                      <Link to="/contactus">Help Center</Link>
+                      <a href="/contactus">Help Center</a>
                     </li>
                     <li>
-                      <Link to="#">FAQ's</Link>
+                      <a href="#">FAQ's</a>
                     </li>
                   </ul>
                 </div>
@@ -144,10 +144,10 @@ const Footer = () => {
                   <h3>Contact Us</h3>
                   <ul>
                     <li>
-                      <a href="#">+91 8879881***</a>
+                      <a href="#">+91 77383 11925</a>
                     </li>
                     <li>
-                      <a href="#">+91 7738311***</a>
+                      <a href="#">+91 9717569519</a>
                     </li>
                     <li>
                       <a href="#">

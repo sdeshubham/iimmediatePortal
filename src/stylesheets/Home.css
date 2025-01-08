@@ -175,7 +175,7 @@
 /* -------------------------------------------- */
 
 .activejoiner-cardbox {
-  width: 91%;
+  width: 90%;
   margin: 70px 70px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -446,7 +446,7 @@
 .aboutLeftBox {
   height: 60vh;
   width: 60%;
-  padding-left: 60px;
+  padding: 60px 0 0 60px;
   color: #fff;
 }
 .aboutLeftBox h3 {
@@ -464,9 +464,9 @@
   font-weight: 300;
 }
 
-.aboutLeftBox button {
+/* .aboutLeftBox button {
   border-radius: 3px;
-}
+} */
 
 .aboutLeftBox button:hover {
   cursor: pointer;
@@ -507,6 +507,10 @@
   border-right: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+
+.aboutLeftBox, .aboutRightBox {
+  flex: 1;
 }
 
 /* ----------------------------------------------------------- */

@@ -1,12 +1,12 @@
 .signup-box {
   margin-top: 75px;
-  padding-bottom: 40px;
-  height: 90.6vh;
+  /* padding-bottom: 40px; */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   
-  background-color: #d6dea4;
+  /* background-color: #d6dea4; */
 }
 
 .signup-container {
@@ -14,13 +14,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   height: 100vh;
 }
 
 .leftBox {
+  /* margin-top: 15vh; */
   background-color: #ea4232;
-  height: 90.6vh;
+  height: 100%;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -49,8 +50,15 @@
   margin-bottom: 15px;
 }
 
+.signUpRight {
+  margin-top: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .signUp-toggle {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   display: flex;
   justify-content: flex-start;
   gap: 20px;
@@ -81,7 +89,8 @@
 }
 
 .rightForm {
-  height: 90.6vh;
+  /* background-color: #b5dcc4; */
+  height: 100%;
   width: 60%;
   display: flex;
   justify-content: flex-start;

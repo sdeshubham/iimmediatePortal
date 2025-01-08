@@ -109,6 +109,7 @@ const SignIn = () => {
                               type="number"
                               id="mobile"
                               placeholder="Enter your mobile number"
+                              maxLength={10}
                             />
                             <button onClick={handleSendOtp}>
                               {countdown > 0 ? `${countdown}s` : "Send OTP"}
@@ -118,7 +119,7 @@ const SignIn = () => {
                         <div className="form-group">
                           <label htmlFor="otp">OTP</label>
                           <input
-                            type="text"
+                            type="password"
                             id="otp"
                             placeholder="Enter OTP"
                             value={otp}
@@ -145,6 +146,7 @@ const SignIn = () => {
                             type="number"
                             id="mobile"
                             placeholder="Enter your mobile number"
+                            maxLength={10}
                           />
                           <button onClick={handleSendOtp}>
                             {countdown > 0 ? `${countdown}s` : "Send OTP"}
@@ -155,7 +157,7 @@ const SignIn = () => {
                         <label htmlFor="otp">OTP</label>
                         <div className="input-otp">
                           <input
-                            type="text"
+                            type="password"
                             id="otp"
                             placeholder="Enter OTP"
                             value={otp}

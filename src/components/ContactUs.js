@@ -43,6 +43,7 @@ const ContactUs = () => {
               <div className="contact-detail">
                 <h3>Contact Number</h3>
                 <p>+91 77383 11925</p>
+                <p>+91 9717569519</p>
               </div>
             </div>
             <div className="contact-details">

@@ -20,12 +20,12 @@ const HomeAbout = () => {
             mission, we're creating an environment where current and future
             generations can thrive.
           </p>
-          <Link to="/candidate">
+          <a href="/candidate">
             <button className="empBtn">Employee</button>
-          </Link>
-          <Link to="/employer">
+          </a>
+          <a href="/employer">
             <button className="jobseekerBtn">Employer</button>
-          </Link>
+          </a>
         </div>
         <div className="aboutRightBox">
           <img src={aboutGirl} alt="" />
