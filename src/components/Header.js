@@ -62,17 +62,16 @@
 //     </header>
 //   );
 // };
-
+//
 // export default Header;
-
 
 import React, { useState } from "react";
 import "../stylesheets/Header.css";
-import { FaBars } from "react-icons/fa"; // Hamburger Icon
+import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false); // State for toggling menu
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -95,7 +94,7 @@ const Header = () => {
             <a href="/contactus">Contact Us</a>
           </li>
         </ul>
-        <div className="nav-btn">   
+        <div className="nav-btn">
           <a href="/signin" className="sign-btn">
             Log In
           </a>

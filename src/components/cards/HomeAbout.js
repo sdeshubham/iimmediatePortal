@@ -28,7 +28,9 @@ const HomeAbout = () => {
           </a>
         </div>
         <div className="aboutRightBox">
-          <img src={aboutGirl} alt="" />
+          <div className="homeAboutImg">
+            <img src={aboutGirl} alt="" />
+          </div>
         </div>
       </div>
     </>

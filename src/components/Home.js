@@ -122,7 +122,7 @@ const Home = () => {
             <span>Hunt By</span> Technology Stack
           </h2>
           <div className="active-viewmore">
-            <Link to="/empfilter">View More</Link>
+            <a href="/empfilter">View More</a>
           </div>
         </div>
         <div className="huntstackBox">

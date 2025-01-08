@@ -1,6 +1,7 @@
 import React from "react";
-import { IoLocationSharp } from "react-icons/io5";
-import { FaBusinessTime } from "react-icons/fa";
+import { MdOutlineLocationOn } from "react-icons/md";
+// import { FaBusinessTime } from "react-icons/fa";
+import { IoMdTime } from "react-icons/io";
 
 const SelectedProfCard = ({
   selectprof,
@@ -24,11 +25,11 @@ const SelectedProfCard = ({
             <p className="selecprof-compName">{companyName}</p>
             <div className="locat">
               <div className="box">
-                <IoLocationSharp />
+                <MdOutlineLocationOn color="#727272" />
                 <p className="box-p">{location}</p>
               </div>
               <div className="box">
-                <FaBusinessTime />
+                <IoMdTime color="#727272" />
                 <p className="box-p box-pNotice">{noticeday} Days</p>
               </div>
             </div>
@@ -53,3 +54,4 @@ const SelectedProfCard = ({
 };
 
 export default SelectedProfCard;
+

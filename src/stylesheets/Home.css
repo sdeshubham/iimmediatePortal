@@ -446,7 +446,7 @@
 .aboutLeftBox {
   height: 60vh;
   width: 60%;
-  padding: 60px 0 0 60px;
+  padding: 60px 0 0 100px;
   color: #fff;
 }
 .aboutLeftBox h3 {
@@ -498,10 +498,19 @@
 }
 
 .aboutRightBox {
+  /* background-color: #1f70c1; */
+  width: 40%;
   object-fit: cover;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.aboutRightBox img {
+.homeAboutImg {
+  margin-right: 8px;
+}
+
+.homeAboutImg img {
+  width: 100%;
   height: 60vh;
   border: 8px solid #fff;
   border-right: none;
