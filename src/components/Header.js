@@ -69,6 +69,7 @@ import React, { useState } from "react";
 import "../stylesheets/Header.css";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import HeaderLogo from "../images/mainLogo.svg"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,6 +80,9 @@ const Header = () => {
 
   return (
     <header>
+      <div className="header-logo">
+        <img src={HeaderLogo} alt="" />
+      </div>
       <nav>
         <div className="" onClick={toggleMenu}>
           {/* <FaBars /> */}

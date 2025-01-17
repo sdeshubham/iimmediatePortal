@@ -88,6 +88,31 @@
   color: #ea4232;
 }
 
+/* Remove number input spinner by targeting the class */
+.send-otp input[type="number"] {
+  -webkit-appearance: none; /* Chrome, Safari, Opera */
+  -moz-appearance: textfield; /* Firefox */
+  appearance: none; /* Generic, for all browsers that support it */
+}
+
+/* Ensure the spinner doesn't appear when hovering */
+.send-otp input[type="number"]::-webkit-outer-spin-button,
+.send-otp input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox workaround */
+.send-otp input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Optional: To prevent the cursor from changing to a number type when focused */
+.send-otp input[type="number"]:focus {
+  cursor: text; /* Keeps the cursor as text */
+}
+
+
 .rightForm {
   /* background-color: #b5dcc4; */
   height: 100%;
