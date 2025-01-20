@@ -4,7 +4,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import WebsiteLogo from "../images/WebsiteLogo.png";
+import WebsiteLogo from "../images/mainLogo.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

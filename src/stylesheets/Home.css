@@ -40,51 +40,12 @@
   font-weight: 500;
 }
 
-/* .home-search input {
-  width: 250px;
-  margin: 12px 5px 12px 0;
-  padding: 10px 80px 10px 30px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  outline: none;
-}
-
-.home-search .search-icon {
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  color: #ea4232;
-}
-
-.home-search button {
-  padding: 10px 30px;
-  background-color: #ea4232;
-  box-shadow: 0px 2px 5px rgba(234, 5, 5, 0.31);
-  border: none;
-  color: #ffffff;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-.home-search button:hover {
-  background-color: #fff;
-  color: #ea4232;
-  border: 1px solid #ea4232;
-  cursor: pointer;
-} */
-
-/* Wrapper for input and icon */
 .home-search {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Input field container with the icon */
 .input-wrapper {
   position: relative;
   width: 300px;
@@ -104,8 +65,8 @@
 .home-search .search-icon {
   position: absolute;
   left: 10px;
-  top: 50%; /* Vertically center the icon */
-  transform: translateY(-50%); /* Fix vertical alignment */
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 1.2rem;
   color: #a8b3c8;
 }
@@ -115,7 +76,6 @@
   font-size: 0.9rem;
 }
 
-/* Button styles */
 .home-search button {
   padding: 10px 30px;
   background-color: #ea4232;
@@ -203,7 +163,8 @@
 
 .activejoiner-details-one {
   margin-left: 10px;
-  width: 200px;
+  width: 220px;
+  background-color: #1f70c1;
   display: flex;
   justify-content: space-between;
 }
@@ -215,7 +176,7 @@
 
 .activejoiner-details-one h4 {
   margin: 0;
-  width: 60%;
+  width: 50%;
   font-size: 0.7rem;
   text-align: left;
   color: #012970;
@@ -224,7 +185,7 @@
 
 .activejoiner-details-one p {
   margin: 0;
-  width: 60%;
+  width: 50%;
   font-size: 0.7rem;
   text-align: left;
   color: #727272;

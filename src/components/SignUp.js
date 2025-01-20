@@ -398,7 +398,7 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            mobileNumber: formData.mobile, // Use the actual mobile number
+            mobileNumber: formData.mobile,
             type: 1,
             isForLogin: 0,
           }),
@@ -677,9 +677,9 @@ const SignUp = () => {
                                   placeholder="Enter OTP"
                                   value={formData.otp}
                                   onChange={handleChange}
-                                  maxLength="6"
+                                  maxLength="4"
                                   onInput={(e) => {
-                                    if (e.target.value.length > 6) {
+                                    if (e.target.value.length > 4) {
                                       e.target.value = e.target.value.slice(
                                         0,
                                         10
