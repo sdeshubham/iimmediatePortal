@@ -158,13 +158,14 @@
 
 .activejoiner-details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  /* background-color: #b8e7ad; */
 }
 
 .activejoiner-details-one {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   width: 220px;
-  background-color: #1f70c1;
+  /* background-color: #e7e7ad; */
   display: flex;
   justify-content: space-between;
 }

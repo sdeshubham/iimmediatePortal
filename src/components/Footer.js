@@ -6,6 +6,8 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import WebsiteLogo from "../images/mainLogo.svg";
 import { Link } from "react-router-dom";
+import ITTeamLogoOne from "../images/ITTeamLogoOne.png"
+import ITTeamLogoTwo from "../images/ITTeamLogoTwo.png"  
 
 const Footer = () => {
   return (
@@ -164,7 +166,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="footer-social-icon">
+              {/* <div className="footer-social-icon">
                 <ul>
                   <li>
                     <a href="#">
@@ -187,15 +189,15 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
               <div className="footer-bottom">
                 <div className="fbottom-left">
                   <a href="/home">
-                    <img src={WebsiteLogo} alt="Logo" />
+                    {/* <img src={ITTeamLogoTwo} alt="Logo" /> */}
                   </a>
-                  <p>Copyright's &copy; 2024 SOV Technologies</p>
+                  <p>Copyright's &copy; 2025 IT Team</p>
                 </div>
-                <div className="fbottom-right flex">
+                {/* <div className="fbottom-right flex">
                   <ul>
                     <li>
                       <a href="/home">Home</a>
@@ -203,14 +205,11 @@ const Footer = () => {
                     <li>
                       <a href="/aboutus">About Us</a>
                     </li>
-                    {/* <li>
-                    <a href="/pricing">Pricing</a>
-                  </li> */}
                     <li>
                       <a href="/contactus">Contact Us</a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
           </footer>

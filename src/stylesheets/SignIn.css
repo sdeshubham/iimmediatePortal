@@ -146,7 +146,7 @@
 
 /* Optional: To prevent the cursor from changing to a number type when focused */
 .input-otp input[type="number"]:focus {
-  cursor: text; /* Keeps the cursor as text */
+  cursor: text;
 }
 
 .input-otp {

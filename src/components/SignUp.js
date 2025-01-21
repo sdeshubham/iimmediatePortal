@@ -314,10 +314,13 @@ import React, { useState } from "react";
 import "../stylesheets/SignUp.css";
 import signUpEmp from "../images/signupFromImg.png";
 import { useNavigate } from "react-router-dom";
+import { Dropdown } from "primereact/dropdown";
 
 const SignUp = () => {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  const [selectDay, setSelectDay] = useState(null);
+  const [selectSkills, setSelectSkills] = useState(null);
   const [value, setValue] = useState("");
   const [formData, setFormData] = useState({
     fullname: "",
@@ -389,7 +392,7 @@ const SignUp = () => {
         alert("Please enter a valid 10-digit mobile number.");
         return;
       }
-  
+
       const response = await fetch(
         "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api/mobileNumberVerificationSendOtp",
         {
@@ -404,7 +407,7 @@ const SignUp = () => {
           }),
         }
       );
-  
+
       const data = await response.json();
       alert(data.message || "OTP sent successfully!");
     } catch (error) {
@@ -412,7 +415,6 @@ const SignUp = () => {
       alert("Failed to send OTP.");
     }
   };
-  
 
   const verifyOtp = async () => {
     try {
@@ -730,7 +732,7 @@ const SignUp = () => {
                               />
                             </div>
 
-                            <div className="signUpform-emp dropdown-main">
+                            {/* <div className="signUpform-emp dropdown-main">
                               <div className="dropdown">
                                 <label htmlFor="">Immediate Joiner</label>{" "}
                                 <br />
@@ -749,9 +751,20 @@ const SignUp = () => {
                                   ))}
                                 </select>
                               </div>
+                            </div> */}
+                            <div className="signUpform-group dropdown-main">
+                              <label htmlFor="skills">Immediate Joiner
+                              </label>
+                              <Dropdown
+                                name="technicalSkills"
+                                placeholder="Select Skill"
+                                className="w-full p-dropdown custom-dropdown-menu"
+                                options={["7 Days", "15 Days", "30 Days", "45 Days"]}
+                                value={selectDay}
+                                onChange={(e) => setSelectDay(e.value)}
+                              />
                             </div>
-
-                            <div className="signUpform-emp dropdown-main">
+                            {/* <div className="signUpform-emp dropdown-main">
                               <div className="dropdown">
                                 <label htmlFor="">Gender</label> <br />
                                 <select
@@ -769,6 +782,17 @@ const SignUp = () => {
                                   ))}
                                 </select>
                               </div>
+                            </div> */}
+                            <div className="signUpform-group dropdown-main">
+                              <label htmlFor="skills">Gender</label>
+                              <Dropdown
+                                name="technicalSkills"
+                                placeholder="Select Gender"
+                                className="w-full p-dropdown custom-dropdown-menu"
+                                options={["Male", "Female"]}
+                                value={selectSkills}
+                                onChange={(e) => setSelectSkills(e.value)}
+                              />
                             </div>
                             <div className="signUpform-group empyr-loca">
                               <label htmlFor="location">Location</label>

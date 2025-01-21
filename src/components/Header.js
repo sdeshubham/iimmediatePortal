@@ -69,7 +69,7 @@ import React, { useState } from "react";
 import "../stylesheets/Header.css";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import HeaderLogo from "../images/mainLogo.svg";
+import HeaderLogo from "../images/headerLogo.svg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
