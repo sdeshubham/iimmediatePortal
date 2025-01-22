@@ -82,23 +82,23 @@ const EmpFilter = () => {
                 <p className="sidebar-heading">Experience Level</p>
                 <div className="empTypeOne">
                   <input type="checkbox" />
-                  <p>Fresher Level</p>
+                  <p>Fresher (1 year experience)</p>
                 </div>
                 <div className="empTypeOne">
                   <input type="checkbox" />
-                  <p>Junior</p>
+                  <p>Junior (2 year experience)</p>
                 </div>
                 <div className="empTypeOne">
                   <input type="checkbox" />
-                  <p>Assosiate</p>
+                  <p>Assosiate (2-5 year experience)</p>
                 </div>
                 <div className="empTypeOne">
                   <input type="checkbox" />
-                  <p>Mid Level</p>
+                  <p>Mid Level (5-10 year experience)</p>
                 </div>
                 <div className="empTypeOne">
                   <input type="checkbox" />
-                  <p>Senior Level</p>
+                  <p>Senior (10+ year experience)</p>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@ const EmpFilter = () => {
                 </div>
               </div>
               <button className="filter-search-btn">
-                <IoIosSearch className="search-icon" size={20} />
+                {/* <IoIosSearch className="search-icon" size={20} /> */}
                 Search
               </button>
             </div>

@@ -124,6 +124,13 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transition: all .3s ease;
+}
+
+.filter-search-btn:hover {
+  background-color: #fff;
+  border: 1px solid #ea4232;
+  color: #ea4232;
 }
 
 .topfilt-details {

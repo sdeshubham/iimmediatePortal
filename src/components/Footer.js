@@ -80,7 +80,7 @@ const Footer = () => {
                       <a href="#">Kochi</a>
                     </li>
                     <li>
-                      <a href="#">jaipur</a>
+                      <a href="#">Jaipur</a>
                     </li>
                     <li>
                       <a href="#">Kolkata</a>
@@ -126,19 +126,19 @@ const Footer = () => {
                   <h3>Hunt By Experience</h3>
                   <ul>
                     <li>
-                      <a href="#">Fresher</a>
+                      <a href="#">Fresher (1 year experience)</a>
                     </li>
                     <li>
-                      <a href="#">Junior</a>
+                      <a href="#">Junior (2 year experience)</a>
                     </li>
                     <li>
-                      <a href="#">Assosiate</a>
+                      <a href="#">Assosiate (2-5 year experience)</a>
                     </li>
                     <li>
-                      <a href="#">Mid-Level</a>
+                      <a href="#">Mid-Level (5-10 year experience)</a>
                     </li>
                     <li>
-                      <a href="#">senior</a>
+                      <a href="#">Senior (10+ year experience)</a>
                     </li>
                   </ul>
                 </div>

@@ -321,6 +321,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [selectDay, setSelectDay] = useState(null);
   const [selectSkills, setSelectSkills] = useState(null);
+  const [selectExperience, setSelectExperience] = useState(null);
   const [value, setValue] = useState("");
   const [formData, setFormData] = useState({
     fullname: "",
@@ -753,13 +754,17 @@ const SignUp = () => {
                               </div>
                             </div> */}
                             <div className="signUpform-group dropdown-main">
-                              <label htmlFor="skills">Immediate Joiner
-                              </label>
+                              <label htmlFor="skills">Immediate Joiner</label>
                               <Dropdown
                                 name="technicalSkills"
-                                placeholder="Select Skill"
+                                placeholder="Select Days"
                                 className="w-full p-dropdown custom-dropdown-menu"
-                                options={["7 Days", "15 Days", "30 Days", "45 Days"]}
+                                options={[
+                                  "Within 7 Days",
+                                  "Within 15 Days",
+                                  "Within 30 Days",
+                                  "Within 45 Days",
+                                ]}
                                 value={selectDay}
                                 onChange={(e) => setSelectDay(e.value)}
                               />
@@ -804,7 +809,7 @@ const SignUp = () => {
                                 onChange={handleChange}
                               />
                             </div>
-                            <div className="signUpform-group">
+                            {/* <div className="signUpform-group">
                               <label htmlFor="experience">Experience</label>
                               <input
                                 type="text"
@@ -812,6 +817,23 @@ const SignUp = () => {
                                 placeholder="Experience"
                                 value={formData.experience}
                                 onChange={handleChange}
+                              />
+                            </div> */}
+                            <div className="signUpform-group dropdown-main">
+                              <label htmlFor="skills">Experience</label>
+                              <Dropdown
+                                name="technicalSkills"
+                                placeholder="Select Experience"
+                                className="w-full p-dropdown custom-dropdown-menu"
+                                options={[
+                                  "Fresher (1 year experience)",
+                                  "Junior (2 year experience)",
+                                  "Assosiate (2-5 year experience)",
+                                  "Mid-Level (5-10 year experience)",
+                                  "Senior (10+ year experience)",
+                                ]}
+                                value={selectExperience}
+                                onChange={(e) => setSelectExperience(e.value)}
                               />
                             </div>
                           </div>
