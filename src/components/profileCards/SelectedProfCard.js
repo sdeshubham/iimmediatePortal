@@ -1,6 +1,5 @@
 import React from "react";
 import { MdOutlineLocationOn } from "react-icons/md";
-// import { FaBusinessTime } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 
 const SelectedProfCard = ({
