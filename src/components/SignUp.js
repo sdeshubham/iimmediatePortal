@@ -31,6 +31,7 @@
 //     navigate("/candidate");
 //   };
 
+
 //   return (
 //     <>
 //       <div className="signup-box">

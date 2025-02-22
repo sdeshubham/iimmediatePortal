@@ -6,8 +6,8 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import WebsiteLogo from "../images/mainLogo.svg";
 import { Link } from "react-router-dom";
-import ITTeamLogoOne from "../images/ITTeamLogoOne.png"
-import ITTeamLogoTwo from "../images/ITTeamLogoTwo.png"  
+import ITTeamLogoOne from "../images/ITTeamLogoOne.png";
+import ITTeamLogoTwo from "../images/ITTeamLogoTwo.png";
 
 const Footer = () => {
   return (
@@ -56,13 +56,13 @@ const Footer = () => {
                       <a href="#">Delhi</a>
                     </li>
                     <li>
-                      <a href="#">Banglore</a>
+                      <a href="#">Bengaluru</a>
                     </li>
                     <li>
-                      <a href="#">Hydrabad</a>
+                      <a href="#">Hyderabad</a>
                     </li>
                     <li>
-                      <a href="#">Ahmdabad</a>
+                      <a href="#">Ahmedabad</a>
                     </li>
                     <li>
                       <a href="#">Indore</a>

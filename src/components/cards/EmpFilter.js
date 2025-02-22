@@ -161,7 +161,6 @@ const EmpFilter = () => {
                 </div>
               </div>
               <button className="filter-search-btn">
-                {/* <IoIosSearch className="search-icon" size={20} /> */}
                 Search
               </button>
             </div>

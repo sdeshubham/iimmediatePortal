@@ -530,26 +530,4 @@
   transform: translateX(-70%);
 }
 
-/* ############################################ */
 
-/* Mobile Devices */
-/* @media only screen and (min-width: 320px) and (max-width: 480px) {
-  body {
-  }
-} */
-
-/* ############################################ */
-
-/* Tablets */
-/* @media only screen and (min-width: 481px) and (max-width: 1024px) {
-  body {
-  }
-} */
-
-/* ############################################ */
-
-/* Laptops and Desktops */
-/* @media only screen and (min-width: 1025px) and (max-width: 1920px) {
-  body {
-  }
-} */

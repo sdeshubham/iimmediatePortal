@@ -1,6 +1,6 @@
 // components/common/Popup.js
 import React from "react";
-import "../../stylesheets/Popup.css"; // Import your styles
+import "../../stylesheets/Popup.css";
 
 const Popup = ({ isVisible, content, onClose }) => {
   if (!isVisible) return null; // If the popup is not visible, render nothing

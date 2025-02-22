@@ -150,8 +150,6 @@
 
 
 
-
-
 import React from "react";
 import "../stylesheets/Home.css";
 import k5Img from "../images/Group 2.png";

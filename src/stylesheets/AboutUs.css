@@ -41,7 +41,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding-left: 100px; */
   margin: 100px 0;
 }
 
@@ -117,4 +116,16 @@
 .team-social-media a:hover {
   color: #ea4232;
   transform: translateY(-5px);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .aboutus-top {
+    margin-top: 10vh;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: green;
+  }
 }

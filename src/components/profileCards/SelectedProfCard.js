@@ -53,4 +53,3 @@ const SelectedProfCard = ({
 };
 
 export default SelectedProfCard;
-
