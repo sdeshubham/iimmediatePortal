@@ -1,28 +1,28 @@
-// import React from "react";
+import React from "react";
 
-// const ActiveJoinerCard = ({ image, name, role, salary, experience }) => {
-//   return (
-//     <>
-//       <div className="activeCard">
-//         {image && (
-//           <img className="activeCardImg" src={image} alt="Activejoin img" />
-//         )}
-//         <div className="avctivejoiner-details">
-//           <div className="activejoiner-details-one">
-//             <h4 className="activejoiner-name">{name}</h4>
-//             <p className="activejoiner-name">{salary}</p>
-//           </div>
-//           <div className="activejoiner-details-one">
-//             <p className="activejoiner-role">{role}</p>
-//             <p className="activejoiner-role">{experience}</p>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => {
+  return (
+    <>
+      <div className="activeCard">
+        {image && (
+          <img className="activeCardImg" src={image} alt="" />
+        )}
+        <div className="avctivejoiner-details">
+          <div className="activejoiner-details-one">
+            <h4 className="activejoiner-name">{name}</h4>
+            <p className="activejoiner-name">{salary}</p>
+          </div>
+          <div className="activejoiner-details-one">
+            <p className="activejoiner-role">{currentPosition}</p>
+            <p className="activejoiner-role">{expYear}</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-// export default ActiveJoinerCard;
+export default ActiveJoinerCard;
 
 
 
@@ -113,47 +113,50 @@
 // export default ActiveJoinerCard;
 
 
-import React from "react";
-import PropTypes from "prop-types";
+// ________------------________------__________-------__________-------_______
 
-const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => {
-  return (
-    <div className="activeCard">
-      {image ? (
-        <img className="activeCardImg" src={image} alt={name || "Active Joiner"} />
-      ) : (
-        <div className="placeholder-img">NoImg</div>
-      )}
-      <div className="activejoiner-details">
-        <div className="activejoiner-details-one">
-          <h4 className="activejoiner-name">{name}</h4>
-          <p className="activejoiner-salary">{salary}</p>
-        </div>
-        <div className="activejoiner-details-one">
-          <p className="activejoiner-role">{currentPosition}</p>
-          <p className="activejoiner-exp">{expYear} experience</p>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-// PropTypes for validation
-ActiveJoinerCard.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  currentPosition: PropTypes.string,
-  salary: PropTypes.string,
-  expYear: PropTypes.number,
-};
+// import React from "react";
+// import PropTypes from "prop-types";
 
-// Default values to avoid undefined data
-ActiveJoinerCard.defaultProps = {
-  image: "",
-  name: "Unknown",
-  currentPosition: "No Position",
-  salary: "N/A",
-  expYear: 0,
-};
+// const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => {
+//   return (
+//     <div className="activeCard">
+//       {image ? (
+//         <img className="activeCardImg" src={image} alt={name || "Active Joiner"} />
+//       ) : (
+//         <div className="placeholder-img">NoImg</div>
+//       )}
+//       <div className="activejoiner-details">
+//         <div className="activejoiner-details-one">
+//           <h4 className="activejoiner-name">{name}</h4>
+//           <p className="activejoiner-salary">{salary}</p>
+//         </div>
+//         <div className="activejoiner-details-one">
+//           <p className="activejoiner-role">{currentPosition}</p>
+//           <p className="activejoiner-exp">{expYear} experience</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default ActiveJoinerCard;
+
+// ActiveJoinerCard.propTypes = {
+//   image: PropTypes.string,
+//   name: PropTypes.string.isRequired,
+//   currentPosition: PropTypes.string,
+//   salary: PropTypes.string,
+//   expYear: PropTypes.number,
+// };
+
+
+// ActiveJoinerCard.defaultProps = {
+//   image: "",
+//   name: "Unknown",
+//   currentPosition: "No Position",
+//   salary: "N/A",
+//   expYear: 0,
+// };
+
+// export default ActiveJoinerCard;
