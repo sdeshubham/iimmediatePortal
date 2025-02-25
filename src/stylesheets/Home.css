@@ -248,8 +248,8 @@
   width: 91%;
   margin: 50px 70px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px 15px;
   justify-content: space-between;
 }
 
@@ -259,8 +259,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 8px 5px;
-  width: 150px;
+  width: 100%;
 }
 
 .huntlocationCard:hover {
@@ -285,34 +284,35 @@
 }
 
 .huntlocation-details-one {
-  width: 130px;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  margin: 12px 8px;
 }
 
 .stack-details-one {
-  width: 130px;
+  width: 190px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 15px 8px;
 }
 
 .stack-details-one p {
   width: 80%;
-  font-size: 0.8rem;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 16px;
   color: #012970;
-  margin-left: 15px;
+  margin-left: 10px;
   text-align: left;
 }
 
 .huntlocation-details-one p {
   width: 80%;
-  font-size: 0.8rem;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 16px;
   color: #012970;
   margin-left: 10px;
   text-align: left;
@@ -322,7 +322,7 @@
   width: 91%;
   margin: 50px 70px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   justify-content: space-between;
 }
@@ -333,8 +333,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 5px;
-  width: 180px;
+  /* padding: 8px 5px; */
+  width: 100%;
 }
 
 .stackCard:hover {
