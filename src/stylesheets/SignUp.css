@@ -124,7 +124,7 @@
 }
 
 .empyr-loca {
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .signUpform {
@@ -318,4 +318,20 @@
   border: 0.5px solid #ddd;
   background-color: #ffffff !important;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* .dropdown-optns {
+  margin-top: 30px;
+}
+
+.dropdown-optns input {
+  margin-top: 5px;
+} */
+
+.dropdown-main {
+  margin-top: 25px;
+}
+
+.dropdown-main label {
+  margin-bottom: 5px;
 }

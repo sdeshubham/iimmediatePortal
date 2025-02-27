@@ -1,3 +1,10 @@
+1. 9876786545
+2. 9878675434
+3. 9887677512
+
+
+// ________------------________------__________-------__________-------_________++++++++++__________==========_________
+
 This code is manifest.json 
 
 {
@@ -25,15 +32,6 @@ This code is manifest.json
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
-
-
-
-
-
-
-
-
-
 
 // ________------------________------__________-------__________-------_________++++++++++__________==========_________
 
@@ -185,3 +183,156 @@ This code is manifest.json
 // export default Home;
 
 // ________------------________------__________-------__________-------_______
+
+
+
+
+
+
+
+
+import { useState } from "react";
+import axios from "axios";
+
+const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/employer";
+
+const EmployerSignup = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    mobileNumber: "",
+    otp: "",
+    currentRole: "",
+    companyName: "",
+    email: "",
+    location: "",
+    companySize: "",
+    userId: "",
+    otpVerified: false,
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const sendOtp = async () => {
+    if (!formData.mobileNumber) {
+      alert("Please enter a mobile number");
+      return;
+    }
+    setLoading(true);
+    try {
+      const response = await axios.post(`${BASE_URL}/mobileNumberVerificationSendOtp`, {
+        mobileNumber: formData.mobileNumber,
+        isForLogin: 0,
+      });
+      if (response.data.status === 200) {
+        alert("OTP Sent Successfully");
+        setFormData((prev) => ({ ...prev, userId: response.data.result }));
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+      alert("Failed to send OTP");
+    }
+    setLoading(false);
+  };
+
+  const verifyOtp = async () => {
+    if (!formData.otp) {
+      alert("Please enter the OTP");
+      return;
+    }
+    setLoading(true);
+    try {
+      const response = await axios.post(`${BASE_URL}/mobileNumberVerificationSetup`, {
+        mobileNumber: formData.mobileNumber,
+        otp: formData.otp,
+        userId: formData.userId,
+      });
+      if (response.data.status === 200) {
+        alert("OTP Verified Successfully");
+        setFormData((prev) => ({ ...prev, otpVerified: true }));
+      }
+    } catch (error) {
+      console.error("OTP verification failed:", error);
+      alert("OTP verification failed");
+    }
+    setLoading(false);
+  };
+
+  const handleRegister = async () => {
+    if (!formData.otpVerified) {
+      alert("Please verify OTP first");
+      return;
+    }
+    setLoading(true);
+    try {
+      const response = await axios.post(`${BASE_URL}/register`, formData);
+      if (response.data.status === 200) {
+        alert("Registration Successful");
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
+      alert("Registration failed");
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div className="signUpform">
+      <div className="formCols">
+        <div className="formColOne">
+          <div className="signUpform-emp">
+            <div className="signUpform-group">
+              <label>Full Name</label>
+              <input type="text" id="fullName" onChange={handleChange} placeholder="Your Full Name" />
+            </div>
+            <div className="signUpform-group">
+              <label>Mobile Number</label>
+              <div className="send-otp">
+                <input type="number" id="mobileNumber" onChange={handleChange} placeholder="Mobile Number" />
+                <button onClick={sendOtp}>Send OTP</button>
+              </div>
+            </div>
+            <div className="signUpform-group">
+              <label>OTP</label>
+              <div className="send-otp">
+                <input type="password" id="otp" onChange={handleChange} placeholder="Enter OTP" />
+                <button onClick={verifyOtp}>Verify OTP</button>
+              </div>
+            </div>
+            <div className="signUpform-group">
+              <label>Your Current Role</label>
+              <input type="text" id="currentRole" onChange={handleChange} placeholder="Your Current Role" />
+            </div>
+          </div>
+        </div>
+        <div className="formColTwo">
+          <div className="signUpform-emp">
+            <div className="signUpform-group">
+              <label>Company Name</label>
+              <input type="text" id="companyName" onChange={handleChange} placeholder="Company Name" />
+            </div>
+            <div className="signUpform-group">
+              <label>Email</label>
+              <input type="email" id="email" onChange={handleChange} placeholder="Email" />
+            </div>
+            <div className="signUpform-group">
+              <label>Location</label>
+              <input type="text" id="location" onChange={handleChange} placeholder="Location" />
+            </div>
+            <div className="signUpform-group">
+              <label>Company Size</label>
+              <input type="text" id="companySize" onChange={handleChange} placeholder="Company Size" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="register-btn">
+        <button onClick={handleRegister}>Register Now</button>
+      </div>
+    </div>
+  );
+};
+
+export default EmployerSignup;
