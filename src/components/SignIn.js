@@ -5,67 +5,10 @@ import wavinghand from "../images/waving-hand.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
+const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/prod";
 
 const SignIn = () => {
   const [isLogin, setIsLogin] = useState(true);
-
-  // const [mobileNumber, setMobileNumber] = useState("");
-  // const [otp, setOtp] = useState("");
-  // const [otpSent, setOtpSent] = useState(false);
-  // const [error, setError] = useState("");
-
-  // const handleSendOtp = async () => {
-  //   try {
-  //     const usersResponse = await axios.get(`${baseUrl}/api/getAllUserDetails`);
-  //     const users = usersResponse.data;
-  //     const user = users.find((u) => u.mobile === mobileNumber);
-
-  //     if (!user) {
-  //       setError("You are not registered. Please register first.");
-  //       return;
-  //     }
-
-  //     const otpResponse = await axios.post(
-  //       `${baseUrl}/api/mobileNumberVerificationSendOtp`,
-  //       {
-  //         mobileNumber,
-  //       }
-  //     );
-
-  //     if (otpResponse.status === 200) {
-  //       setOtpSent(true);
-  //       setError("");
-  //     } else {
-  //       setError("Failed to send OTP. Try again.");
-  //     }
-  //   } catch (err) {
-  //     console.error("Error sending OTP", err);
-  //     setError("Failed to send OTP. Try again.");
-  //   }
-  // };
-
-  // const handleVerifyOtp = async () => {
-  //   try {
-  //     if (otp !== "1234") {
-  //       setError("Invalid OTP");
-  //       return;
-  //     }
-
-  //     const usersResponse = await axios.get(`${baseUrl}/api/getAllUserDetails`);
-  //     const users = usersResponse.data;
-  //     const user = users.find((u) => u.mobile === mobileNumber);
-
-  //     if (user) {
-  //       console.log("Login Successful", user);
-  //     } else {
-  //       setError("User not found. Please register.");
-  //     }
-  //   } catch (err) {
-  //     console.error("Error verifying OTP", err);
-  //     setError("Verification failed. Try again.");
-  //   }
-  // };
 
   const [mobileNumber, setMobileNumber] = useState("");
   const [otp, setOtp] = useState("");
@@ -73,23 +16,29 @@ const SignIn = () => {
   const [error, setError] = useState("");
 
   const handleSendOtp = async () => {
+    if (mobileNumber.length !== 10) {
+      setError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+  
     try {
       const usersResponse = await axios.get(`${baseUrl}/api/getAllUserDetails`);
       const users = usersResponse.data;
       const user = users.find((u) => u.mobile === mobileNumber);
-
+      
       if (!user) {
         setError("You are not registered. Please register first.");
         return;
       }
-
+      
       const otpResponse = await axios.post(
-        `${baseUrl}/api/mobileNumberVerificationSendOtp`,
+        "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api/mobileNumberVerificationSendOtp",
         {
           mobileNumber,
+          isForLogin: 1,
         }
-      );
-
+      );      
+      
       if (otpResponse.status === 200) {
         setOtpSent(true);
         setError("");
@@ -97,29 +46,27 @@ const SignIn = () => {
         setError("Failed to send OTP. Try again.");
       }
     } catch (err) {
-      console.error(
-        "Error sending OTP",
-        err.response ? err.response.data : err.message
-      );
-      setError("Failed to send OTP. Try again.");
+      console.error("Error sending OTP:", err);
+      setError("Failed to send OTP. Check console for details.");
     }
+    
   };
+  
 
   const handleVerifyOtp = async () => {
     try {
-      if (otp !== "1234") {
-        setError("Invalid OTP");
-        return;
-      }
-
-      const usersResponse = await axios.get(`${baseUrl}/api/getAllUserDetails`);
-      const users = usersResponse.data;
-      const user = users.find((u) => u.mobile === mobileNumber);
-
-      if (user) {
-        console.log("Login Successful", user);
+      const verifyResponse = await axios.post(
+        `${baseUrl}/api/verifyOtp`,
+        {
+          mobileNumber,
+          otp,
+        }
+      );
+  
+      if (verifyResponse.status === 200) {
+        console.log("Login Successful", verifyResponse.data);
       } else {
-        setError("User not found. Please register.");
+        setError("Invalid OTP. Try again.");
       }
     } catch (err) {
       console.error(
@@ -129,6 +76,8 @@ const SignIn = () => {
       setError("Verification failed. Try again.");
     }
   };
+  
+
   return (
     <>
       <div className="signinBox">
@@ -182,7 +131,7 @@ const SignIn = () => {
                 </div>
                 {isLogin ? (
                   <>
-                    <div className="form">
+                    {/* <div className="form">
                       <div className="form-emp">
                         <div className="form-group">
                           <label htmlFor="mobile">Mobile Number</label>
@@ -213,7 +162,7 @@ const SignIn = () => {
                           <Link to="/signup">Register Now</Link>
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                   </>
                 ) : (
                   <>
@@ -252,45 +201,6 @@ const SignIn = () => {
                     </div> */}
                     {/* ////////////////////////// */}
 
-                    {/* <div className="form">
-                      <div className="form-group">
-                        <label htmlFor="mobile">Mobile Number</label>
-                        <div className="input-otp">
-                          <input
-                            type="number"
-                            id="mobile"
-                            placeholder="Enter your mobile number"
-                            maxLength={10}
-                            value={mobileNumber}
-                            onChange={(e) => setMobileNumber(e.target.value)}
-                          />
-                          <button onClick={handleSendOtp}>Send OTP</button>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="otp">OTP</label>
-                        <div className="input-otp">
-                          <input
-                            type="password"
-                            id="otp"
-                            placeholder="Enter OTP"
-                            maxLength={4}
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <div className="login-btn">
-                        <button onClick={handleVerifyOtp}>Login</button>
-                        <p>
-                          Don't have an account?{" "}
-                          <Link to="/signup">Register Now</Link>
-                        </p>
-                      </div>
-                      {error && <p style={{ color: "red" }}>{error}</p>}
-                    </div> */}
-
-                    {/* ////////////////////////// */}
                     <div className="form">
                       <div className="form-group">
                         <label htmlFor="mobile">Mobile Number</label>
