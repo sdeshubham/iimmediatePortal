@@ -16,6 +16,7 @@ import HomeAbout from "./cards/HomeAbout";
 import { IoIosSearch } from "react-icons/io";
 import experienceData from "./cards/experienceData";
 import honelocationIcon from "../images/honelocationIcons.png";
+import LearnApi from "./LearnApi";
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
@@ -357,6 +358,7 @@ const Home = () => {
       </div> */}
 
       <HomeAbout />
+      {/* <LearnApi /> */}
     </>
   );
 };

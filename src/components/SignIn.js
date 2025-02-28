@@ -1,251 +1,445 @@
+// import React, { useState, useEffect } from "react";
+// import "../stylesheets/SignIn.css";
+// import signInEmp from "../images/signInEmp.png";
+// import wavinghand from "../images/waving-hand.png";
+// import { Link } from "react-router-dom";
+// import axios from "axios";
+
+// const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api";
+
+// const SignIn = () => {
+//   const [isLogin, setIsLogin] = useState(true);
+
+//   const [loading, setLoading] = useState(false);
+//   const [formData, setFormData] = useState({
+//     fullName: "",
+//     mobileNumber: "",
+//     otp: "",
+//     email: "",
+//     currentPosition: "",
+//     specialization: "",
+//     location: "",
+//     experience: "",
+//     gender: "",
+//     isImmediateJoiner: false,
+//     otpVerified: false,
+//     userId: "",
+//   });
+
+//   const sendOtp = async () => {
+//     if (!formData.mobileNumber) {
+//       alert("Please enter a mobile number");
+//       return;
+//     }
+//     setLoading(true);
+//     try {
+//       const response = await axios.post(
+//         `${baseUrl}/mobileNumberVerificationSendOtp`,
+//         {
+//           mobileNumber: formData.mobileNumber,
+//           isForLogin: 1,
+//         }
+//       );
+
+//       if (response.data.status === 200) {
+//         alert(response.data.message);
+//         setFormData((prev) => ({
+//           ...prev,
+//           userId: response.data.result,
+//         }));
+//       }
+//     } catch (error) {
+//       console.error("Error sending OTP:", error);
+//       alert("Failed to send OTP");
+//     }
+//     setLoading(false);
+//   };
+
+//   const checkMobileNumber = async () => {
+//     if (!formData.mobileNumber) {
+//       alert("Please enter a mobile number");
+//       return;
+//     }
+
+//     setLoading(true);
+//     try {
+//       const response = await axios.post(`${baseUrl}/register`, { mobileNumber: formData.mobileNumber });
+
+//       if (response.data.registered) {
+//         console.log("Mobile number is registered, proceed with OTP verification");
+//         verifyOtp();
+//       } else {
+//         console.log("Register your mobile number first");
+//       }
+//     } catch (error) {
+//       console.error("Error checking mobile number:", error);
+//       alert("Failed to check mobile number");
+//     }
+//     setLoading(false);
+//   };
+
+//   const verifyOtp = async () => {
+//     console.log("Verifying OTP with:", {
+//       mobileNumber: formData.mobileNumber,
+//       otp: formData.otp,
+//       userId: formData.userId,
+//     });
+
+//     if (!formData.otp) {
+//       alert("Please enter the OTP");
+//       return;
+//     }
+
+//     setLoading(true);
+//     try {
+//       if (formData.otp === "1234") {
+//         console.log("OTP Verified Successfully, Login Successful");
+//         alert("Login Successful");
+//         setFormData((prev) => ({ ...prev, otpVerified: true }));
+//       } else {
+//         console.log("Wrong OTP");
+//         alert("Wrong OTP");
+//       }
+//     } catch (error) {
+//       console.error("OTP verification failed:", error);
+//       alert("OTP verification failed");
+//     }
+//     setLoading(false);
+//   };
+
+//   return (
+//     <>
+//       <div className="signinBox">
+//         <div className="signin-container">
+//           <div className="left-box">
+//             {isLogin ? (
+//               <>
+//                 <div className="signin-left">
+//                   <img src={signInEmp} alt="" />
+//                   <h3>Find Immediate Joiners for You</h3>
+//                   <p>
+//                     you will never know everything <br />
+//                     But you will Know more
+//                   </p>
+//                 </div>
+//               </>
+//             ) : (
+//               <>
+//                 <div className="signin-left">
+//                   <img src={signInEmp} alt="" />
+//                   <h3>Let Job Find You</h3>
+//                   <p>
+//                     you will never know everything <br />
+//                     But you will Know more
+//                   </p>
+//                 </div>
+//               </>
+//             )}
+//           </div>
+//           <div className="right-form">
+//             <div className="right-form-head">
+//               <img src={wavinghand} alt="" className="hello-icon" />
+//               <h2>Welcome back!</h2>
+//               <p>Please login to access your account</p>
+//             </div>
+//             <div className="signInRight">
+//               <div className="signInForm">
+//                 <div className="signIn-toggle">
+//                   <button
+//                     className={isLogin ? "active signBtn" : ""}
+//                     onClick={() => setIsLogin(true)}
+//                   >
+//                     Employer
+//                   </button>
+//                   <button
+//                     className={!isLogin ? "active signBtn" : ""}
+//                     onClick={() => setIsLogin(false)}
+//                   >
+//                     Employee
+//                   </button>
+//                 </div>
+//                 {isLogin ? (
+//                   <>
+//                     <div className="form">
+//                       <div className="form-emp">
+//                         <div className="form-group">
+//                           <label htmlFor="mobile">Mobile Number</label>
+//                           <div className="input-otp">
+//                             <input
+//                               type="number"
+//                               id="mobile"
+//                               placeholder="Enter your mobile number"
+//                               maxLength={10}
+//                             />
+//                             <button>Send OTP</button>
+//                           </div>
+//                         </div>
+//                         <div className="form-group">
+//                           <label htmlFor="otp">OTP</label>
+//                           <input
+//                             type="password"
+//                             id="otp"
+//                             placeholder="Enter OTP"
+//                             maxLength={4}
+//                           />
+//                         </div>
+//                       </div>
+//                       <div className="login-btn">
+//                         <button>Login</button>
+//                         <p>
+//                           Don't have an account?{" "}
+//                           <Link to="/signup">Register Now</Link>
+//                         </p>
+//                       </div>
+//                     </div>
+//                   </>
+//                 ) : (
+//                   <>
+//                     <div className="form">
+//                       <div className="form-group">
+//                         <label htmlFor="mobile">Mobile Number</label>
+//                         <div className="input-otp">
+//                           <input
+//                             type="number"
+//                             id="mobile"
+//                             placeholder="Enter your mobile number"
+//                             maxLength={10}
+//                             value={formData.mobileNumber}
+//                             onChange={(e) =>
+//                               setFormData((prev) => ({
+//                                 ...prev,
+//                                 mobileNumber: e.target.value,
+//                               }))
+//                             }
+//                           />
+//                           <button onClick={sendOtp}>Send OTP</button>
+//                         </div>
+//                       </div>
+//                       <div className="form-group">
+//                         <label htmlFor="otp">OTP</label>
+//                         <div className="input-otp">
+//                           <input
+//                             type="password"
+//                             id="otp"
+//                             placeholder="Enter OTP"
+//                             maxLength={4}
+//                           />
+//                         </div>
+//                       </div>
+//                       <div className="login-btn">
+//                         <button onClick={checkMobileNumber} >Login</button>
+//                         <p>
+//                           Don't have an account?{" "}
+//                           <Link to="/signup">Register Now</Link>
+//                         </p>
+//                       </div>
+//                     </div>
+//                   </>
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default SignIn;
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import "../stylesheets/SignIn.css";
 import signInEmp from "../images/signInEmp.png";
 import wavinghand from "../images/waving-hand.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/prod";
+const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    mobileNumber: "",
+    otp: "",
+    otpVerified: false,
+    userId: "",
+  });
 
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [otp, setOtp] = useState("");
-  const [otpSent, setOtpSent] = useState(false);
-  const [error, setError] = useState("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleSendOtp = async () => {
-    if (mobileNumber.length !== 10) {
-      setError("Please enter a valid 10-digit mobile number.");
+  const sendOtp = async () => {
+    if (!formData.mobileNumber) {
+      alert("Please enter a mobile number");
       return;
     }
-  
+
+    setLoading(true);
     try {
-      const usersResponse = await axios.get(`${baseUrl}/api/getAllUserDetails`);
-      const users = usersResponse.data;
-      const user = users.find((u) => u.mobile === mobileNumber);
-      
-      if (!user) {
-        setError("You are not registered. Please register first.");
-        return;
-      }
-      
-      const otpResponse = await axios.post(
-        "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api/mobileNumberVerificationSendOtp",
+      console.log("Sending OTP to:", formData.mobileNumber);
+      const response = await axios.post(
+        `${baseUrl}/mobileNumberVerificationSendOtp`,
         {
-          mobileNumber,
+          mobileNumber: formData.mobileNumber,
           isForLogin: 1,
         }
-      );      
-      
-      if (otpResponse.status === 200) {
-        setOtpSent(true);
-        setError("");
-      } else {
-        setError("Failed to send OTP. Try again.");
-      }
-    } catch (err) {
-      console.error("Error sending OTP:", err);
-      setError("Failed to send OTP. Check console for details.");
-    }
-    
-  };
-  
+      );
 
-  const handleVerifyOtp = async () => {
-    try {
-      const verifyResponse = await axios.post(
-        `${baseUrl}/api/verifyOtp`,
-        {
-          mobileNumber,
-          otp,
-        }
-      );
-  
-      if (verifyResponse.status === 200) {
-        console.log("Login Successful", verifyResponse.data);
-      } else {
-        setError("Invalid OTP. Try again.");
+      console.log("OTP Send Response:", response.data);
+      if (response.data.status === 200) {
+        alert(response.data.message);
+        setFormData((prev) => ({
+          ...prev,
+          userId: response.data.result,
+        }));
       }
-    } catch (err) {
-      console.error(
-        "Error verifying OTP",
-        err.response ? err.response.data : err.message
-      );
-      setError("Verification failed. Try again.");
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+      alert("Failed to send OTP");
     }
+    setLoading(false);
   };
-  
+
+  const verifyOtp = async () => {
+    if (!formData.otp) {
+      alert("Please enter the OTP");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      console.log("Verifying OTP:", formData.otp);
+      if (formData.otp === "1234") {
+        alert("Login Successful");
+        setFormData((prev) => ({ ...prev, otpVerified: true }));
+      } else {
+        alert("Wrong OTP");
+      }
+    } catch (error) {
+      console.error("OTP verification failed:", error);
+      alert("OTP verification failed");
+    }
+    setLoading(false);
+  };
+
+  const checkMobileNumber = async () => {
+    if (!formData.mobileNumber) {
+      alert("Please enter a mobile number");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      console.log(`Checking mobile number: ${formData.mobileNumber}`);
+      const response = await axios.post(`${baseUrl}/register`, {
+        mobileNumber: formData.mobileNumber,
+      });
+
+      console.log("Check Mobile Response:", response.data);
+
+      if (response.data.message === "Registration Successfully") {
+        console.log("Mobile is registered, verifying OTP...");
+        verifyOtp();
+      } else {
+        alert("Number not registered, please sign up!");
+      }
+    } catch (error) {
+      console.error("Error checking mobile number:", error);
+      alert("Failed to check mobile number");
+    }
+    setLoading(false);
+  };
 
   return (
-    <>
-      <div className="signinBox">
-        <div className="signin-container">
-          <div className="left-box">
-            {isLogin ? (
-              <>
-                <div className="signin-left">
-                  <img src={signInEmp} alt="" />
-                  <h3>Find Immediate Joiners for You</h3>
-                  <p>
-                    you will never know everything <br />
-                    But you will Know more
-                  </p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="signin-left">
-                  <img src={signInEmp} alt="" />
-                  <h3>Let Job Find You</h3>
-                  <p>
-                    you will never know everything <br />
-                    But you will Know more
-                  </p>
-                </div>
-              </>
-            )}
+    <div className="signinBox">
+      <div className="signin-container">
+        <div className="left-box">
+          <div className="signin-left">
+            <img src={signInEmp} alt="Sign In" />
+            <h3>
+              {isLogin ? "Find Immediate Joiners for You" : "Let Job Find You"}
+            </h3>
+            <p>
+              you will never know everything <br /> But you will Know more
+            </p>
           </div>
-          <div className="right-form">
-            <div className="right-form-head">
-              <img src={wavinghand} alt="" className="hello-icon" />
-              <h2>Welcome back!</h2>
-              <p>Please login to access your account</p>
-            </div>
-            <div className="signInRight">
-              <div className="signInForm">
-                <div className="signIn-toggle">
-                  <button
-                    className={isLogin ? "active signBtn" : ""}
-                    onClick={() => setIsLogin(true)}
-                  >
-                    Employer
-                  </button>
-                  <button
-                    className={!isLogin ? "active signBtn" : ""}
-                    onClick={() => setIsLogin(false)}
-                  >
-                    Employee
-                  </button>
-                </div>
-                {isLogin ? (
-                  <>
-                    {/* <div className="form">
-                      <div className="form-emp">
-                        <div className="form-group">
-                          <label htmlFor="mobile">Mobile Number</label>
-                          <div className="input-otp">
-                            <input
-                              type="number"
-                              id="mobile"
-                              placeholder="Enter your mobile number"
-                              maxLength={10}
-                            />
-                            <button>Send OTP</button>
-                          </div>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="otp">OTP</label>
-                          <input
-                            type="password"
-                            id="otp"
-                            placeholder="Enter OTP"
-                            maxLength={4}
-                          />
-                        </div>
-                      </div>
-                      <div className="login-btn">
-                        <button>Login</button>
-                        <p>
-                          Don't have an account?{" "}
-                          <Link to="/signup">Register Now</Link>
-                        </p>
-                      </div>
-                    </div> */}
-                  </>
-                ) : (
-                  <>
-                    {/* <div className="form">
-                      <div className="form-group">
-                        <label htmlFor="mobile">Mobile Number</label>
-                        <div className="input-otp">
-                          <input
-                            type="number"
-                            id="mobile"
-                            placeholder="Enter your mobile number"
-                            maxLength={10}
-                          />
-                          <button>
-                            Send OTP
-                          </button>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="otp">OTP</label>
-                        <div className="input-otp">
-                          <input
-                            type="password"
-                            id="otp"
-                            placeholder="Enter OTP"
-                            maxLength={4}
-                          />
-                        </div>
-                      </div>
-                      <div className="login-btn">
-                        <button>Login</button>
-                        <p>
-                          Don't have an account? <Link to="/signup">Register Now</Link>
-                        </p>
-                      </div>
-                    </div> */}
-                    {/* ////////////////////////// */}
+        </div>
 
-                    <div className="form">
-                      <div className="form-group">
-                        <label htmlFor="mobile">Mobile Number</label>
-                        <div className="input-otp">
-                          <input
-                            type="number"
-                            id="mobile"
-                            placeholder="Enter your mobile number"
-                            maxLength={10}
-                            value={mobileNumber}
-                            onChange={(e) => setMobileNumber(e.target.value)}
-                          />
-                          <button onClick={handleSendOtp}>Send OTP</button>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="otp">OTP</label>
-                        <div className="input-otp">
-                          <input
-                            type="password"
-                            id="otp"
-                            placeholder="Enter OTP"
-                            maxLength={4}
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <div className="login-btn">
-                        <button onClick={handleVerifyOtp}>Login</button>
-                        <p>
-                          Don't have an account?{" "}
-                          <Link to="/signup">Register Now</Link>
-                        </p>
-                      </div>
-                      {error && <p style={{ color: "red" }}>{error}</p>}
-                    </div>
-                  </>
-                )}
+        <div className="right-form">
+          <div className="right-form-head">
+            <img src={wavinghand} alt="Hello" className="hello-icon" />
+            <h2>Welcome back!</h2>
+            <p>Please login to access your account</p>
+          </div>
+
+          <div className="signInRight">
+            <div className="signInForm">
+              <div className="signIn-toggle">
+                <button
+                  className={isLogin ? "active signBtn" : ""}
+                  onClick={() => setIsLogin(true)}
+                >
+                  Employer
+                </button>
+                <button
+                  className={!isLogin ? "active signBtn" : ""}
+                  onClick={() => setIsLogin(false)}
+                >
+                  Employee
+                </button>
+              </div>
+
+              <div className="form">
+                <div className="form-group">
+                  <label htmlFor="mobile">Mobile Number</label>
+                  <div className="input-otp">
+                    <input
+                      type="number"
+                      name="mobileNumber"
+                      placeholder="Enter your mobile number"
+                      maxLength={10}
+                      value={formData.mobileNumber}
+                      onChange={handleChange}
+                    />
+                    <button onClick={sendOtp}>Send OTP</button>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="otp">OTP</label>
+                  <input
+                    type="password"
+                    name="otp"
+                    placeholder="Enter OTP"
+                    maxLength={4}
+                    value={formData.otp}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="login-btn">
+                  <button onClick={checkMobileNumber}>Login</button>
+                  <p>
+                    Don't have an account?{" "}
+                    <Link to="/signup">Register Now</Link>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
