@@ -24,22 +24,22 @@ const Header = () => {
         </div>
         <ul className={`nav-list ${menuOpen ? "open" : ""}`}>
           <li>
-            <a href="/home">Home</a>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <a href="/aboutus">About Us</a>
+            <Link to="/aboutus">About Us</Link>
           </li>
           <li>
-            <a href="/contactus">Contact Us</a>
+            <Link to="/contactus">Contact Us</Link>
           </li>
         </ul>
         <div className="nav-btn">
-          <a href="/signin" className="sign-btn">
+          <Link to="/signin" className="sign-btn">
             Log In
-          </a>
-          <a href="/signup" className="signup-btn">
+          </Link>
+          <Link to="/signup" className="signup-btn">
             Sign Up
-          </a>
+          </Link>
         </div>
       </nav>
     </header>

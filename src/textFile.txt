@@ -336,3 +336,145 @@ const EmployerSignup = () => {
 };
 
 export default EmployerSignup;
+
+////////////////===========================/////////////////////////============================/////////////////////////////
+
+import { useState } from "react";
+import axios from "axios";
+
+const SignUpForm = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    contactNumber: "",
+    otp: "",
+    designationName: "",
+    companyName: "",
+    email: "",
+    location: "",
+    company_SizeMin: "",
+  });
+  
+  const [otpId, setOtpId] = useState(null);
+  const [isOtpVerified, setIsOtpVerified] = useState(false);
+  
+  const baseUrl = "{{baseUrl}}/employer";
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendOtp = async () => {
+    try {
+      const response = await axios.post(`${baseUrl}/mobileNumberVerificationSendOtp`, {
+        contactNumber: formData.contactNumber,
+      });
+      if (response.data.status === 200) {
+        setOtpId(response.data.result);
+        alert("OTP sent successfully");
+      }
+    } catch (error) {
+      console.error("Error sending OTP", error);
+    }
+  };
+
+  const verifyOtp = async () => {
+    try {
+      const response = await axios.post(`${baseUrl}/mobileNumberVerificationSetup`, {
+        otp: formData.otp,
+        id: otpId,
+      });
+      if (response.data.status === 200) {
+        setIsOtpVerified(true);
+        alert("OTP Verified Successfully");
+      }
+    } catch (error) {
+      console.error("Error verifying OTP", error);
+    }
+  };
+
+  const handleRegister = async () => {
+    if (!isOtpVerified) {
+      alert("Please verify OTP first");
+      return;
+    }
+    try {
+      const response = await axios.post(`${baseUrl}/register`, {
+        name: formData.fullName,
+        contactNumber: formData.contactNumber,
+        designationName: formData.designationName,
+        companyName: formData.companyName,
+        email: formData.email,
+        location: formData.location,
+        company_SizeMin: formData.company_SizeMin,
+      });
+      if (response.data.status === 200) {
+        alert("Registration Successful");
+      }
+    } catch (error) {
+      console.error("Error registering user", error);
+    }
+  };
+
+  return (
+    <div className="signUpform">
+      <div className="formCols">
+        <div className="formColOne">
+          <div className="signUpform-emp">
+            <div className="signUpform-group">
+              <label htmlFor="fullname">Full Name</label>
+              <input type="text" id="fullname" name="fullName" placeholder="Your Full Name" onChange={handleChange} />
+            </div>
+
+            <div className="signUpform-group">
+              <label htmlFor="mobile">Mobile Number</label>
+              <div className="send-otp no-spinner">
+                <input type="number" id="mobile" name="contactNumber" placeholder="Mobile Number" onChange={handleChange} />
+                <button onClick={sendOtp}>Send OTP</button>
+              </div>
+            </div>
+            <div className="signUpform-group">
+              <label htmlFor="verify-otp">OTP</label>
+              <div className="send-otp">
+                <input type="password" id="verify-otp" name="otp" placeholder="Enter OTP" onChange={handleChange} />
+                <button onClick={verifyOtp}>Verify OTP</button>
+              </div>
+            </div>
+            <div className="signUpform-group">
+              <label htmlFor="currentrole">Your Current Role</label>
+              <input type="text" id="currentrole" name="designationName" placeholder="Your Current Role" onChange={handleChange} />
+            </div>
+          </div>
+        </div>
+
+        <div className="formColTwo">
+          <div className="signUpform-emp">
+            <div className="signUpform-group">
+              <label htmlFor="company">Company Name</label>
+              <input type="text" id="company" name="companyName" placeholder="Company Name" onChange={handleChange} />
+            </div>
+
+            <div className="signUpform-group">
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" onChange={handleChange} />
+            </div>
+            <div className="signUpform-group">
+              <label htmlFor="location">Location</label>
+              <input type="text" id="location" name="location" placeholder="Location" onChange={handleChange} />
+            </div>
+            <div className="signUpform-group">
+              <label htmlFor="companysize">Company Size</label>
+              <input type="text" id="companysize" name="company_SizeMin" placeholder="Company Size" onChange={handleChange} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="register-btn">
+        <div className="register-btns">
+          <button onClick={handleRegister}>Register Now</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SignUpForm;
