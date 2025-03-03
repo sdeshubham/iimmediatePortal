@@ -69,6 +69,10 @@ const Employer = () => {
               <h5>Industry</h5>
               <p>IT Services and Consultant</p>
             </div>
+            <div className="company-found emp-subheading">
+              <h5>Company size</h5>
+              <p>11-20 employees</p>
+            </div>
             <div className="company-contact emp-subheading">
               <h5>Contact</h5>
               <p>+91-7979937896</p>

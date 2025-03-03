@@ -156,7 +156,7 @@ const LicensCertficates = ({ onClose }) => {
               )}
             </div>
             <div className="inp-fieldbox">
-              <label htmlFor="">Grade</label>
+              <label htmlFor="">Choose file</label>
               <input
                 className="pdf-inp-fileds"
                 type="file"

@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../components/AuthContext";
+
 import "../../stylesheets/CandiProfile.css";
 import "../../stylesheets/EmpProfile.css";
 import { FaLocationDot } from "react-icons/fa6";
@@ -63,6 +66,17 @@ const CandiProfileCard = ({
     setShowLicensCertificates(!showLicensCertificates);
   const toggleAwadsPopup = () => setShowAwads(!showAwads);
 
+  const navigate = useNavigate();
+  const { user, setUser } = useAuth();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/signin");
+    }
+  }, [user, navigate]);
+
+  if (!user) return <h2>Loading...</h2>;
+
   return (
     <div>
       <div className="profile-card">
@@ -71,7 +85,7 @@ const CandiProfileCard = ({
             <div className="profileCardHead">
               <img src={cImg} alt="" />
               <div className="cadidate-basicInfo">
-                <h3>{cName}</h3>
+                <h3>{user.cName}</h3>
                 <p>{cHeadline}</p>
                 <p>{cCompany}</p>
                 <div className="colOneInfoTwo">
@@ -79,7 +93,7 @@ const CandiProfileCard = ({
                     <div className="personalInfo-colOne">
                       <div className="colOne-details">
                         <FaLocationDot size={20} />
-                        <p>{cLocation}</p>
+                        <p>{user.cLocation}</p>
                       </div>
                       <div className="colOne-details">
                         <FaLaptopCode size={20} />
@@ -97,7 +111,7 @@ const CandiProfileCard = ({
                       </div>
                       <div className="colTwo-details">
                         <IoCallSharp size={20} />
-                        <p>{cPhoneNumber}</p>
+                        <p>{user.cPhoneNumber}</p>
                       </div>
                       <div className="colTwo-details">
                         <IoIosMail size={20} />
