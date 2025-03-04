@@ -213,7 +213,6 @@ const SignIn = () => {
   const { setUser } = useAuth();
 
   const [formData, setFormData] = useState({
-    mobileNumber: "",
     otp: "",
     otpVerified: false,
     userId: "",
@@ -303,31 +302,35 @@ const SignIn = () => {
       } else {
         alert("Wrong OTP, please try again.");
       }
+
+
+
   
-      /*
-      const apiUrl = `${baseUrl}/api/mobileNumberVerificationSetup`;  
-      console.log("OTP API URL:", apiUrl);
+      // const apiUrl = `${baseUrl}/api/mobileNumberVerificationSetup`;  
+      // console.log("OTP API URL:", apiUrl);
   
-      const response = await axios.post(apiUrl, {
-        userId: formData.userId,
-        otp: formData.otp
-      });
+      // const response = await axios.post(apiUrl, {
+      //   userId: formData.userId,
+      //   otp: formData.otp
+      // });
   
-      if (response.data.status === 200) {
-        alert("Login Successful");
+      // if (response.data.status === 200) {
+      //   alert("Login Successful");
   
-        const userResponse = await axios.get(`${baseUrl}/getUser/${formData.userId}`);
+      //   const userResponse = await axios.get(`${baseUrl}/getUser/${formData.userId}`);
   
-        if (userResponse.data.status === 200) {
-          setUser(userResponse.data.user);
-          navigate("/employee");
-        } else {
-          alert("User data fetch failed!");
-        }
-      } else {
-        alert("Invalid OTP, please try again.");
-      }
-      */
+      //   if (userResponse.data.status === 200) {
+      //     setUser(userResponse.data.user);
+      //     navigate("/employee");
+      //   } else {
+      //     alert("User data fetch failed!");
+      //   }
+      // } else {
+      //   alert("Invalid OTP, please try again.");
+      // }
+
+
+
   
     } catch (error) {
       console.error("OTP verification failed:", error);

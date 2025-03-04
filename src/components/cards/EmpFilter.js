@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../../stylesheets/EmpFilter.css";
 import SalaryFilterCard from "./SalaryFilterCard";
 import SelectedProfCard from "../profileCards/SelectedProfCard";
-import EmpAllCardData from "./EmpAllCardData";
-// import { IoIosSearch } from "react-icons/io";
-// import { IoLocationSharp } from "react-icons/io5";
 import { TbMinusVertical } from "react-icons/tb";
 import { FaAngleDown } from "react-icons/fa6";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 
 const EmpFilter = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [profiles, setProfiles] = useState([]);
+  const [filteredProfiles, setFilteredProfiles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({
+    jobType: "",
+    designation: "",
+    location: "",
+  });
+
+  const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
+
+  const cardsPerPage = 18;
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = filteredProfiles.slice(
+    indexOfFirstCard,
+    indexOfLastCard
+  );
 
   const handleNextClick = () => {
     setCurrentPage((prevPage) => prevPage + 1);
@@ -22,6 +39,55 @@ const EmpFilter = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      try {
+        setIsLoading(true);
+        const response = await axios.get(`${baseUrl}/api/userFilter`);
+        if (response.data.status === 200) {
+          setProfiles(response.data.result);
+          setFilteredProfiles(response.data.result);
+        } else {
+          setError("Failed to fetch data");
+        }
+      } catch (err) {
+        setError("Error fetching profile data");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProfiles();
+  }, []);
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
+  };
+
+  useEffect(() => {
+    let filtered = profiles;
+    if (filters.jobType) {
+      filtered = filtered.filter((profile) =>
+        profile.jobType?.toLowerCase().includes(filters.jobType.toLowerCase())
+      );
+    }
+    if (filters.designation) {
+      filtered = filtered.filter((profile) => {
+        console.log("Checking Profile:", profile.currentPosition);
+        return profile.currentPosition
+          ?.toLowerCase()
+          .includes(filters.designation.toLowerCase());
+      });
+    }
+    if (filters.location) {
+      filtered = filtered.filter((profile) =>
+        profile.location?.toLowerCase().includes(filters.location.toLowerCase())
+      );
+    }
+    setFilteredProfiles(filtered);
+  }, [filters, profiles]);
+
   return (
     <>
       <div className="emp-filterBox">
@@ -32,25 +98,6 @@ const EmpFilter = () => {
                 <p className="sidebar-heading">Filter</p>
                 <button>Reset</button>
               </div>
-              {/* <div className="employment-filter">
-                <p className="sidebar-heading">Type Of Employment</p>
-                <div className="empTypeOne">
-                  <input type="checkbox" />
-                  <p>Full Time</p>
-                </div>
-                <div className="empTypeOne">
-                  <input type="checkbox" />
-                  <p>Part Time</p>
-                </div>
-                <div className="empTypeOne">
-                  <input type="checkbox" />
-                  <p>Remote</p>
-                </div>
-                <div className="empTypeOne">
-                  <input type="checkbox" />
-                  <p>Internship</p>
-                </div>
-              </div> */}
               <div className="employment-filter">
                 <p className="sidebar-heading">Work mode</p>
                 <div className="empTypeOne">
@@ -70,14 +117,6 @@ const EmpFilter = () => {
                 <p className="sidebar-heading">Salary Range</p>
                 <SalaryFilterCard />
               </div>
-              {/* <div className="employment-filter stact-hunt">
-                <p className="sidebar-heading">Stack</p>
-                <input type="text" placeholder="Type Stack" />
-              </div> */}
-              {/* <div className="employment-filter stact-hunt">
-                <p className="sidebar-heading">Location</p>
-                <input type="text" placeholder="Type Location" />
-              </div> */}
               <div className="employment-filter">
                 <p className="sidebar-heading">Experience Level</p>
                 <div className="empTypeOne">
@@ -128,21 +167,6 @@ const EmpFilter = () => {
           {/* Filter Cards Section */}
           <div className="filter-cards">
             {/* <div className="filter-top">
-              <div className="input-with-icon">
-                <IoIosSearch className="search-icon" />
-                <input
-                  type="text"
-                  placeholder="Job title, stack or company..."
-                />
-              </div>
-              <div className="input-with-icon">
-                <IoLocationSharp className="search-icon" />
-                <input type="text" placeholder="Location" />
-              </div>
-              <button>Find Employee</button>
-            </div> */}
-
-            <div className="filter-top">
               <div className="top-filters">
                 <div className="input-with-icon">
                   <input type="text" placeholder="Job type" />
@@ -160,32 +184,82 @@ const EmpFilter = () => {
                   <input type="text" placeholder="Enter location" />
                 </div>
               </div>
-              <button className="filter-search-btn">
-                Search
-              </button>
+              <button className="filter-search-btn">Search</button>
+            </div> */}
+            <div className="filter-top">
+              <div className="top-filters">
+                <div className="input-with-icon">
+                  <input
+                    type="text"
+                    name="jobType"
+                    placeholder="Job type"
+                    value={filters.jobType}
+                    onChange={handleFilterChange}
+                  />
+                </div>
+                <div className="filter-topverti-icon">
+                  <TbMinusVertical size={30} color="#ddd" />
+                </div>
+                <div className="input-with-icon">
+                  <input
+                    type="text"
+                    name="designation"
+                    placeholder="Keyword / Designation"
+                    value={filters.designation}
+                    onChange={handleFilterChange}
+                  />
+                </div>
+                <div className="filter-topverti-icon">
+                  <TbMinusVertical size={30} color="#ddd" />
+                </div>
+                <div className="input-with-icon">
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="Enter location"
+                    value={filters.location}
+                    onChange={handleFilterChange}
+                  />
+                </div>
+              </div>
+              <button className="filter-search-btn">Search</button>
             </div>
+
             <div className="topfilt-details">
-              <p>1- 18 of 689 Frontend Developer Candidates</p>
+              <p>{profiles.length} Frontend Developer Candidates</p>
               <a href="#">Send me jobs like these</a>
               <p>
                 <span>Sort by:</span> Recommended <FaAngleDown />
               </p>
             </div>
-
             <div className="all-cards">
-              {EmpAllCardData.map((profile) => (
-                <SelectedProfCard key={profile.id} {...profile} />
-              ))}
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : error ? (
+                <p>{error}</p>
+              ) : (
+                currentCards.map((profile) => (
+                  <SelectedProfCard
+                    key={profile.id}
+                    selectprof={
+                      profile.image ||
+                      "https://img.freepik.com/free-photo/asian-woman-posing-looking-camera_23-2148255359.jpg?ga=GA1.1.1365218698.1716962795&semt=ais_hybrid"
+                    }
+                    selProfname={profile.name || "Tony Stark"}
+                    role={profile.currentPosition || "Software Engineer"}
+                    companyName={profile.currentCompanyName || "Tech Corp"}
+                    location={profile.location || "Mumbai"}
+                    noticeday={profile.noticePeriod || 30}
+                    skillOne={profile.skillName?.[0] || "JavaScript"}
+                    skillTwo={profile.skillName?.[1] || "React"}
+                    skillThree={profile.skillName?.[2] || "Node.js"}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>
-        {/* <div className="nextpage-btns">
-          <div className="filtPageBtns">
-            <button className="previousfiltBtn"><GoArrowLeft size={25} color="#ea4232" />{" "} Previous</button>
-            <button className="currentpagefiltBtn">1</button>
-            <button className="nextfiltBtn">Next {" "} <GoArrowRight size={30} color="#ea4232" /></button>
-          </div>
-        </div> */}
+
         <div className="nextpage-btns">
           <div className="filtPageBtns">
             <button
@@ -193,13 +267,13 @@ const EmpFilter = () => {
               onClick={handlePreviousClick}
               disabled={currentPage === 1}
             >
-              <GoArrowLeft size={25} color="#ea4232" />{" "} Previous
+              <GoArrowLeft size={22} color="#ea4232" className="nextIconBottom" /> Previous
             </button>
 
             <button className="currentpagefiltBtn">{currentPage}</button>
 
             <button className="nextfiltBtn" onClick={handleNextClick}>
-              Next {" "} <GoArrowRight size={25} color="#ea4232" />
+              Next <GoArrowRight size={22} color="#ea4232" className="previewIconBottom" />
             </button>
           </div>
         </div>

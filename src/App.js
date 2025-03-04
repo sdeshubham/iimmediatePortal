@@ -19,11 +19,12 @@ import Employee from "./components/Employee";
 import Employer from "./components/Employer";
 import CandiProfile from "./components/CandiProfile";
 import EmpFilter from "./components/cards/EmpFilter";
-import { AuthProvider } from "./components/AuthContext";
+
+import { CandidateProvider } from "./components/CandidateContext";
 
 const App = () => {
   return (
-    <AuthProvider>
+    <CandidateProvider>
       <Router>
         <Header />
 
@@ -55,7 +56,7 @@ const App = () => {
 
         <Footer />
       </Router>
-    </AuthProvider>
+      </CandidateProvider>
   );
 };
 

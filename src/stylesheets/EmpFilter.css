@@ -162,8 +162,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
-  /* max-height: calc(100vh - 150px);
-    overflow-y: auto; */
 }
 
 .sidebar {
@@ -263,7 +261,7 @@
 .nextpage-btns {
   display: flex;
   justify-content: flex-end;
-  margin: 20px 20px 0 0;
+  margin: 50px 20px 0 0;
 }
 
 .nextpage-btns button {
@@ -285,7 +283,7 @@
 .previousfiltBtn {
   background: transparent;
   padding: 4px 0;
-  margin-right: 20px;
+  margin-right: 10px;
   display: flex;
   align-items: center;
   color: #727272;
@@ -293,21 +291,49 @@
 }
 
 .currentpagefiltBtn {
-  font-size: 18px;
-  padding: 4px 10px;
+  font-size: 14px;
+  padding:  8px 18px;
   background-color: #ea4232;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 50px;
 }
 
 .nextfiltBtn {
   background: transparent;
   font-size: 15px;
   padding: 4px 0;
-  margin-left: 20px;
+  margin-left: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   color: #727272;
+}
+
+.nextIconBottom {
+  padding-right: 5px;
+}
+
+.previewIconBottom {
+  padding-left: 5px;
+}
+
+.all-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
