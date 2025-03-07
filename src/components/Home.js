@@ -226,7 +226,7 @@ const Home = () => {
         <div className="activejoiner-cardbox">
           {activeJoiners && activeJoiners.length > 0 ? (
             [...activeJoiners, ...allJoiners].map((item) => (
-              <a href="/candidate" key={item._id}>
+              <a href="/employee" key={item._id}>
                 <ActiveJoinerCard
                   image={item.image ? item.image : "profile.png"}
                   name={item.name ? item.name : "Name NA"}

@@ -230,7 +230,6 @@ const SignUp = () => {
                             </div>
                           </div>
                         </div>
-
                         <div className="formColTwo">
                           <div className="signUpform-emp">
                             <div className="signUpform-group">
