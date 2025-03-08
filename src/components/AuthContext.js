@@ -1,16 +1,12 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-// Create Context
 const AuthContext = createContext();
 
-// Custom Hook
 export const useAuth = () => useContext(AuthContext);
 
-// AuthProvider Component
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Debugging
   useEffect(() => {
     console.log("AuthContext User Updated:", user);
   }, [user]);
@@ -21,3 +17,16 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+
+// import { AuthProvider } from "./AuthContext"; 
+
+// const AppProvider = ({ children }) => {
+//   return (
+//     <AuthProvider>
+//       {children}
+//     </AuthProvider>
+//   );
+// };
+
+// export default AppProvider;
