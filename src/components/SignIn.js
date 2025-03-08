@@ -35,11 +35,13 @@ const SignIn = () => {
 
     setLoading(true);
     try {
-      console.log("Sending OTP to:", formData.mobileNumber);
+      let NumberedMobile = Number(formData.mobileNumber); // converted the mobile number to number type to make it compatible with the API
+      console.log("Sending OTP to:", formData.mobileNumber, typeof NumberedMobile); 
+
       const response = await axios.post(
         `${baseUrl}/mobileNumberVerificationSendOtp`,
         {
-          mobileNumber: formData.mobileNumber,
+          mobileNumber: NumberedMobile,
           isForLogin: 1,
         }
       );
@@ -49,7 +51,7 @@ const SignIn = () => {
         alert(response.data.message);
         setFormData((prev) => ({
           ...prev,
-          userId: response.data.resp,
+          userId: response.data.result, // result has the id to get the user details
         }));
       }
     } catch (error) {
@@ -68,8 +70,9 @@ const SignIn = () => {
     setLoading(true);
     try {
       console.log(`Checking mobile number: ${formData.mobileNumber}`);
+       let NumberedMobile = Number(formData.mobileNumber); // converted the mobile number to number type to make it compatible with the API
       const response = await axios.post(`${baseUrl}/register`, {
-        mobileNumber: formData.mobileNumber,
+        mobileNumber: NumberedMobile,
       });
 
       console.log("Check Mobile Response:", response.data);
@@ -122,27 +125,18 @@ const SignIn = () => {
         alert("Login Successful");
   
         // ✅ API se users ka data fetch karna
-        const response = await axios.get(`${baseUrl}/api/getAllUserDetails`);
+        const response = await axios.post(`${baseUrl}/getAllUserDetails`, {
+          userId: formData.userId,
+        });
         console.log("All Users Data:", response.data);
-  
-        if (response.data && Array.isArray(response.data)) {
-          // ✅ Mobile Number match kar ke user find karna
-          const matchedUser = response.data.find(
-            (user) => user.phoneNumber === formData.mobileNumber
-          );
-  
-          if (matchedUser) {
-            console.log("Matched User:", matchedUser);
-  
-            // ✅ User ko AuthContext me set karna
-            setUser(matchedUser);
-  
-            // ✅ Dashboard ya profile page pe redirect karna
-            navigate("/dashboard");
-          } else {
-            alert("User not found! Try again.");
-          }
-        }
+
+        const matchedUser = response.data
+
+        setUser(matchedUser);
+
+        navigate("/employee");
+
+        // there was a validation check below whether user exists or not but it is not needed as the user is already registered that we know for sure through checkMobileNumber function
       } else {
         alert("Wrong OTP");
       }
