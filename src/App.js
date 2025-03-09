@@ -15,11 +15,11 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
-import Employee from "./components/Employee";
 import Employer from "./components/Employer";
 import CandiProfile from "./components/CandiProfile";
 import EmpFilter from "./components/cards/EmpFilter";
 import { AuthProvider } from "./components/AuthContext"
+import UserDetails from "./components/UserDetails";
 
 const App = () => {
   return (
@@ -47,6 +47,7 @@ const App = () => {
 
           {/* <Route path="/employee" element={<Employee />} /> */}
           <Route path="/employer" element={<Employer />} />
+          <Route path="/user-details/:userId" element={<UserDetails />} />
 
           {/* Authentication Routes */}
           <Route path="/signin" element={<SignIn />} />

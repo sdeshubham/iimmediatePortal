@@ -35,24 +35,19 @@ const CandiProfile = () => {
   );
 };
 
-CandiProfile.propTypes = {
-  
-}
-
 export default CandiProfile;
+
+
 
 // import React from "react";
 // import "../stylesheets/CandiProfile.css";
-// import { useAuth } from "./AuthContext";
+// import { useLocation } from "react-router-dom";
 
 // const CandiProfile = () => {
-//   const { user } = useAuth();
+//   const location = useLocation();
+//   const { user, token } = location.state || {};
 
-//   console.log("User in CandiProfile:", user);
-
-//   if (!user) {
-//     return <h2>Loading... Please login again.</h2>;
-//   }
+//   if (!user) return <h2>No user data found</h2>;
 
 //   return (
 //     <div className="candi-profile">
