@@ -130,7 +130,7 @@ const SignIn = () => {
         });
         console.log("All Users Data:", response.data);
 
-        const matchedUser = response.data
+        const matchedUser = response.data.result[0] // only taking the user object from the response object
 
         setUser(matchedUser);
 

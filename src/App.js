@@ -45,7 +45,7 @@ const App = () => {
           <Route path="/employee" element={<CandiProfile />} />
           {/* <Route path="/employee" element={<EmpProfile />} /> */}
 
-          <Route path="/employee" element={<Employee />} />
+          {/* <Route path="/employee" element={<Employee />} /> */}
           <Route path="/employer" element={<Employer />} />
 
           {/* Authentication Routes */}
