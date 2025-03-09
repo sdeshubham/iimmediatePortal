@@ -356,34 +356,33 @@ import Skills from "../../components/profileCards/Skills";
 import Education from "../../components/profileCards/Education";
 import LicensCertificates from "../../components/profileCards/LicensCertficates";
 import Awads from "../../components/profileCards/Awads";
-import aboutMeData from "./candiDetailsData/aboutMeData";
-import expCardData from "./candiDetailsData/expCardData";
 import ProfExperience from "./ProfExperience";
-import projectDetailData from "./candiDetailsData/projectDetailData";
 import ProfProject from "./ProfProject";
-import profSkillsData from "./candiDetailsData/profSkillsData";
 import ProfSkills from "./ProfSkills";
-import eduCardData from "./candiDetailsData/eduCardData";
 import ProfEducation from "./ProfEducation";
-import certiCardData from "./candiDetailsData/certiCardData";
 import ProfCertiCard from "./ProfCertiCard";
-import awardCardData from "./candiDetailsData/awardCardData";
 import ProfAwardCard from "./ProfAwardCard";
 import { RiEditBoxLine } from "react-icons/ri";
 import { FiDownload } from "react-icons/fi";
 import { IoEyeOutline } from "react-icons/io5";
 
 const CandiProfileCard = ({
-  cImg,
-  cName,
-  cHeadline,
-  cCompany,
-  cLocation,
-  cExperience,
-  cSalary,
-  cNoticePeriod,
-  cPhoneNumber,
-  cEmail,
+  headObject,
+  setHeadObject,
+  aboutDataObject,
+  setAboutDataObject,
+  expArray,
+  setExpArray,
+  projectsArray,
+  setProjectsArray,
+  skillsArray,
+  setSkillsArray,
+  educationArray,
+  setEducationArray,
+  certificationArray,
+  setCertificationArray,
+  awardsArray,
+  setAwardsArray
 }) => {
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showExperience, setShowExperience] = useState(false);
@@ -408,40 +407,41 @@ const CandiProfileCard = ({
       <div className="profile-card">
         <div className="profileCard-box">
           <div className="profile-secOne">
+            {/* Head Section */}
             <div className="profileCardHead">
-              <img src={cImg} alt="" />
+              <img src={headObject.cImg} alt="" />
               <div className="cadidate-basicInfo">
-                <h3>{cName}</h3>
-                <p>{cHeadline}</p>
-                <p>{cCompany}</p>
+                <h3>{headObject.cName}</h3>
+                <p>{headObject.cHeadline}</p>
+                <p>{headObject.cCompany}</p>
                 <div className="colOneInfoTwo">
                   <div className="candi-personalInfo">
                     <div className="personalInfo-colOne">
                       <div className="colOne-details">
                         <FaLocationDot size={20} />
-                        <p>{cLocation}</p>
+                        <p>{headObject.cLocation}</p>
                       </div>
                       <div className="colOne-details">
                         <FaLaptopCode size={20} />
-                        <p>{cExperience}</p>
+                        <p>{headObject.cExperience}</p>
                       </div>
                       <div className="colOne-details">
                         <MdOutlineCurrencyRupee size={20} />
-                        <p>{cSalary} /-Year</p>
+                        <p>{headObject.cSalary} /-Year</p>
                       </div>
                     </div>
                     <div className="personalInfo-colTwo">
                       <div className="colTwo-details">
                         <FaBusinessTime size={20} />
-                        <p>{cNoticePeriod}</p>
+                        <p>{headObject.cNoticePeriod}</p>
                       </div>
                       <div className="colTwo-details">
                         <IoCallSharp size={20} />
-                        <p>{cPhoneNumber}</p>
+                        <p>{headObject.cPhoneNumber}</p>
                       </div>
                       <div className="colTwo-details">
                         <IoIosMail size={20} />
-                        <p>{cEmail}</p>
+                        <p>{headObject.cEmail}</p>
                       </div>
                     </div>
                   </div>
@@ -451,7 +451,7 @@ const CandiProfileCard = ({
                     onMouseLeave={() => setIsHovered(false)}
                   >
                     {/* Button */}
-                    <button className="dropdown-button">Rusume</button>
+                    <button className="dropdown-button">Resume</button>
 
                     {/* Dropdown Menu */}
                     {isHovered && (
@@ -487,9 +487,7 @@ const CandiProfileCard = ({
                 {showAboutMe && <AboutMe onClose={toggleAboutMePopup} />}
                 <div className="about-card-box-details">
                   <div>
-                    {aboutMeData.map((item, index) => (
-                      <ProfAbout key={index} aboutText={item.aboutText} />
-                    ))}
+                      <ProfAbout aboutText={aboutDataObject.aboutText} />
                   </div>
 
                   <div className="prof-editBtn">
@@ -513,9 +511,9 @@ const CandiProfileCard = ({
                 )}
                 <div className="exp-card-box-details">
                   <div>
-                    {expCardData.map((item, index) => (
+                    {expArray.map((item, index) => (
                       <ProfExperience
-                        key={index}
+                        key={index} // re-think about the performance issue of this key initialization
                         expImgLogo={item.expImgLogo}
                         expRole={item.expRole}
                         expCompany={item.expCompany}
@@ -545,7 +543,7 @@ const CandiProfileCard = ({
                 {showProjects && <Projects onClose={toggleProjectsPopup} />}
                 <div className="proj-card-box-details">
                   <div>
-                    {projectDetailData.map((item, index) => (
+                    {projectsArray.map((item, index) => (
                       <ProfProject
                         key={index}
                         expImgLogo={item.expImgLogo}
@@ -576,7 +574,7 @@ const CandiProfileCard = ({
                   {showSkills && <Skills onClose={toggleSkillsPopup} />}
                   <div className="skills-card-box-details">
                     <div className="skillsbox-card">
-                      {profSkillsData.map((item, index) => (
+                      {skillsArray.map((item, index) => (
                         <ProfSkills
                           key={index}
                           skillListOne={item.skillListOne}
@@ -602,7 +600,7 @@ const CandiProfileCard = ({
                   </button>
                 </div>
                 {showEducation && <Education onClose={toggleEducationPopup} />}
-                {eduCardData.map((item, index) => (
+                {educationArray.map((item, index) => (
                   <ProfEducation
                     key={index}
                     eduImg={item.eduImg}
@@ -627,7 +625,7 @@ const CandiProfileCard = ({
                   <LicensCertificates onClose={toggleLicensCertificatesPopup} />
                 )}
                 <div>
-                  {certiCardData.map((item, index) => (
+                  {certificationArray.map((item, index) => (
                     <ProfCertiCard
                       key={index}
                       certiImg={item.certiImg}
@@ -650,7 +648,7 @@ const CandiProfileCard = ({
                 {showAwads && <Awads onClose={toggleAwadsPopup} />}
                 <div className="award-card-box-details">
                   <div>
-                    {awardCardData.map((item, index) => (
+                    {awardsArray.map((item, index) => (
                       <ProfAwardCard
                         key={index}
                         awardImgLogo={item.awardImgLogo}

@@ -4,7 +4,7 @@ const candidateProfileData = [
   {
     cImg: cProfileImg,
     cName: "Robert Downey Jr",
-    cHeadline: "Full Stach Developer | React | Python | DJango",
+    cHeadline: "Full Stack Developer | React | Python | DJango",
     cCompany: "SOV Technologies Pvt Ltd",
     cLocation: "Mumbai",
     cExperience: "1 Year 1 Months",
