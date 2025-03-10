@@ -484,7 +484,7 @@ const CandiProfileCard = ({
                     <FaPlus size={20} />
                   </button>
                 </div>
-                {showAboutMe && <AboutMe onClose={toggleAboutMePopup} />}
+                {showAboutMe && <AboutMe onClose={toggleAboutMePopup} setAboutDataObject={setAboutDataObject} aboutText={aboutDataObject.aboutText} />}
                 <div className="about-card-box-details">
                   <div>
                       <ProfAbout aboutText={aboutDataObject.aboutText} />
