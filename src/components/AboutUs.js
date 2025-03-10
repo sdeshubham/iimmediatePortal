@@ -1,6 +1,6 @@
-import React from "react"
-import "../stylesheets/AboutUs.css"
-import aboutOfferImg from '../images/aboutOfferImg.png'
+import React from "react";
+import "../stylesheets/AboutUs.css";
+import aboutOfferImg from "../images/aboutOfferImg.png";
 import OurTeam from "./cards/OurTeam";
 import { Link } from "react-router-dom";
 
@@ -60,11 +60,9 @@ const AboutUs = () => {
           <div className="aboutContentThree">
             <h2>Meet Our Team</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              ligula ante, dictum non aliquet eu, dapibus ac quam. Morbi vel
-              ante viverra orci tincidunt tempor eu id ipsum. Sed consectetur,
-              risus a blandit tempor, velit magna pellentesque risus, at congue
-              tellus dui quis nisl.
+              Our team is dedicated to connecting job seekers with employers,
+              offering seamless experiences, innovative solutions, and
+              exceptional support for both candidates and businesses.
             </p>
           </div>
         </div>

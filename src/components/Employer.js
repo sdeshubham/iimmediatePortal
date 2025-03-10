@@ -86,7 +86,7 @@ const Employer = () => {
               <p>2019</p>
             </div>
           </div>
-          <div className="prof-sectionThree">
+          {/* <div className="prof-sectionThree">
             <h2>Selected Profiles</h2>
             <div className="prof-cardbox">
               {selectedProfData.map((item, index) => (
@@ -104,7 +104,7 @@ const Employer = () => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

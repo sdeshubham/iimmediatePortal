@@ -118,6 +118,11 @@
   transform: translateY(-5px);
 }
 
+.apiformBox {
+  background-color: rgb(245, 245, 245);
+  height: 700px;
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .aboutus-top {
     margin-top: 10vh;

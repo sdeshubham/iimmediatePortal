@@ -18,7 +18,7 @@ import Privacy from "./components/Privacy";
 import Employer from "./components/Employer";
 import CandiProfile from "./components/CandiProfile";
 import EmpFilter from "./components/cards/EmpFilter";
-import { AuthProvider } from "./components/AuthContext"
+import { AuthProvider } from './components/AuthContext';
 import UserDetails from "./components/UserDetails";
 
 const App = () => {

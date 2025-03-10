@@ -15,6 +15,7 @@ import HuntExperience from "./cards/HuntExperience";
 import HomeAbout from "./cards/HomeAbout";
 import { IoIosSearch } from "react-icons/io";
 import honelocationIcon from "../images/honelocationIcons.png";
+import api from "../services/api"
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
@@ -29,8 +30,8 @@ const Home = () => {
   const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/withOutLogin/active-limited-joiner`)
+    api
+      .get("/withOutLogin/active-limited-joiner")
       .then((res) => {
         console.log("API Response:", res.data);
         if (res.data && res.data.userData) {
@@ -46,8 +47,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/withOutLogin/tech-stack-list`)
+    api
+      .get("/withOutLogin/tech-stack-list")
       .then((res) => {
         console.log("Tech Stack API Response:", res.data.result);
 
@@ -61,8 +62,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/withOutLogin/get-state-list?countryCode=IN`)
+    api
+      .get("/withOutLogin/get-state-list?countryCode=IN")
       .then((res) => {
         console.log("State List API Response:", res.data);
         if (res.data && res.data.data) {
@@ -111,8 +112,8 @@ const Home = () => {
 
   const handleViewMore = () => {
     setLoadingMore(true);
-    axios
-      .get(`${BASE_URL}/withOutLogin/all-active-joiners`)
+    api
+      .get("api/withOutLogin/all-active-joiners")
       .then((res) => {
         console.log("All Joiners API Response:", res.data);
         if (res.data && res.data.userData) {
@@ -356,7 +357,6 @@ const Home = () => {
       </div> */}
 
       <HomeAbout />
-      {/* <LearnApi /> */}
     </>
   );
 };

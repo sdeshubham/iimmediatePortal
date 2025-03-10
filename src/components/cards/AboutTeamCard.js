@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutTeamCard = ({
   teamImg,
@@ -18,21 +19,21 @@ const AboutTeamCard = ({
       <p className="team-role">{teamRole}</p>
       <p className="team-desc">{teamDesc}</p>
       <div className="team-social-media">
-        <a href="#" aria-label="Facebook">
+        <Link to="" aria-label="Facebook">
           {socialMedia.facebook}
-        </a>
-        <a href="#" aria-label="LinkedIn">
+        </Link>
+        <Link to="" aria-label="LinkedIn">
           {socialMedia.linkedIn}
-        </a>
-        <a href="#" aria-label="Instagram">
+        </Link>
+        <Link to="" aria-label="Instagram">
           {socialMedia.instagram}
-        </a>
-        <a href="#" aria-label="Twitter">
+        </Link>
+        <Link to="" aria-label="Twitter">
           {socialMedia.twitter}
-        </a>
-        <a href="#" aria-label="Call">
+        </Link>
+        <Link to="" aria-label="Call">
           {socialMedia.call}
-        </a>
+        </Link>
       </div>
     </div>
   );

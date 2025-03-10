@@ -9,9 +9,10 @@
 
 // const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api";
 
+// let token = null;
+
 // const SignIn = () => {
 //   const { setUser } = useAuth();
-
 //   const navigate = useNavigate();
 //   const [isLogin, setIsLogin] = useState(true);
 //   const [loading, setLoading] = useState(false);
@@ -35,11 +36,17 @@
 
 //     setLoading(true);
 //     try {
-//       console.log("Sending OTP to:", formData.mobileNumber);
+//       let NumberedMobile = Number(formData.mobileNumber);
+//       console.log(
+//         "Sending OTP to:",
+//         formData.mobileNumber,
+//         typeof NumberedMobile
+//       );
+
 //       const response = await axios.post(
 //         `${baseUrl}/mobileNumberVerificationSendOtp`,
 //         {
-//           mobileNumber: formData.mobileNumber,
+//           mobileNumber: NumberedMobile,
 //           isForLogin: 1,
 //         }
 //       );
@@ -49,7 +56,7 @@
 //         alert(response.data.message);
 //         setFormData((prev) => ({
 //           ...prev,
-//           userId: response.data.resp,
+//           userId: response.data.result,
 //         }));
 //       }
 //     } catch (error) {
@@ -68,14 +75,18 @@
 //     setLoading(true);
 //     try {
 //       console.log(`Checking mobile number: ${formData.mobileNumber}`);
+//       let NumberedMobile = Number(formData.mobileNumber);
 //       const response = await axios.post(`${baseUrl}/register`, {
-//         mobileNumber: formData.mobileNumber,
+//         mobileNumber: NumberedMobile,
 //       });
 
 //       console.log("Check Mobile Response:", response.data);
 
+//       token = response.data.token;
+
 //       if (response.data.message === "Registration Successfully") {
 //         console.log("Mobile is registered, verifying OTP...");
+
 //         verifyOtp();
 //       } else {
 //         alert("Number not registered, please sign up!");
@@ -98,7 +109,21 @@
 //       console.log("Verifying OTP:", formData.otp);
 //       if (formData.otp === "1234") {
 //         alert("Login Successful");
-//         setFormData((prev) => ({ ...prev, otpVerified: true }));
+
+//         const response = await axios.post(`${baseUrl}/getAllUserDetails`, {
+//           userId: formData.userId,
+//         });
+//         console.log("All Users Data:", response.data);
+
+//         let matchedUser = response.data;
+
+//         console.log(response);
+
+//         matchedUser.token = token;
+
+//         setUser(matchedUser);
+
+//         navigate("/employee");
 //       } else {
 //         alert("Wrong OTP");
 //       }
@@ -108,8 +133,6 @@
 //     }
 //     setLoading(false);
 //   };
-  
-  
 
 //   return (
 //     <div className="signinBox">
@@ -196,25 +219,18 @@
 
 // export default SignIn;
 
-
 import React, { useState } from "react";
 import "../stylesheets/SignIn.css";
 import signInEmp from "../images/signInEmp.png";
 import wavinghand from "../images/waving-hand.png";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
-
-const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api";
+import EmprSignIn from "./EmprSignIn";
+import EmpSignIn from "./EmpSignIn";
 
 let token = null;
 
 const SignIn = () => {
-  const { setUser } = useAuth(); // Get setUser from context
-
-  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
+<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     mobileNumber: "",
@@ -356,6 +372,8 @@ const SignIn = () => {
   };
   
   
+=======
+>>>>>>> 69c0523 (employer signup done)
 
   return (
     <div className="signinBox">
@@ -396,42 +414,7 @@ const SignIn = () => {
                 </button>
               </div>
 
-              <div className="form">
-                <div className="form-group">
-                  <label htmlFor="mobile">Mobile Number</label>
-                  <div className="input-otp">
-                    <input
-                      type="number"
-                      name="mobileNumber"
-                      placeholder="Enter your mobile number"
-                      maxLength={10}
-                      value={formData.mobileNumber}
-                      onChange={handleChange}
-                    />
-                    <button onClick={sendOtp}>Send OTP</button>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="otp">OTP</label>
-                  <input
-                    type="password"
-                    name="otp"
-                    placeholder="Enter OTP"
-                    maxLength={4}
-                    value={formData.otp}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="login-btn">
-                  <button onClick={checkMobileNumber}>Login</button>
-                  <p>
-                    Don't have an account?{" "}
-                    <Link to="/signup">Register Now</Link>
-                  </p>
-                </div>
-              </div>
+              {isLogin ? <EmprSignIn /> : <EmpSignIn />}
             </div>
           </div>
         </div>
