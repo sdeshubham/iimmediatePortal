@@ -54,7 +54,7 @@ const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
   const handleDelete = async () => {
     axios.post(`${baseURL}/deleteAboutMe`,{
       headers: {
-        Authorization: `Bearer ${user.token}`,
+        Authorization: `Bearer ${user?.token}`,
       },
     })
     setAboutDataObject({aboutText:""})
