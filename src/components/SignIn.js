@@ -208,6 +208,8 @@ import { useAuth } from "./AuthContext";
 
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api";
 
+let token = null;
+
 const SignIn = () => {
   const { setUser } = useAuth(); // Get setUser from context
 
@@ -276,8 +278,11 @@ const SignIn = () => {
 
       console.log("Check Mobile Response:", response.data);
 
+      token = response.data.token;
+
       if (response.data.message === "Registration Successfully") {
         console.log("Mobile is registered, verifying OTP...");
+
         verifyOtp();
       } else {
         alert("Number not registered, please sign up!");
@@ -329,7 +334,11 @@ const SignIn = () => {
         });
         console.log("All Users Data:", response.data);
 
-        const matchedUser = response.data
+        let matchedUser = response.data 
+
+        console.log(response);
+
+        matchedUser.token = token;
 
         setUser(matchedUser);
 
