@@ -86,59 +86,89 @@ const Footer = () => {
                     <li>
                       <a href="/terms&condition">Terms & Conditions</a>
                     </li>
-                    <li>
-                      <a href="/contactus">Help Center</a>
-                    </li>
-                    <li>
-                      <a href="#">FAQ's</a>
-                    </li>
                   </ul>
                 </div>
                 <div className="footer-col">
                   <h3>Hunt By Location</h3>
                   <ul>
-                    {[
-                      "Mumbai",
-                      "Pune",
-                      "Noida",
-                      "Delhi",
-                      "Bengaluru",
-                      "Hyderabad",
-                      "Ahmedabad",
-                      "Indore",
-                      "Chennai",
-                      "Surat",
-                      "Mohali",
-                      "Kochi",
-                      "Jaipur",
-                      "Kolkata",
-                    ].map((city) => (
-                      <li key={city}>
-                        <a onClick={() => handleLocationClick(city)}>{city}</a>
-                      </li>
-                    ))}
+                    <li>
+                      <a href="">Mumbai</a>
+                    </li>
+                    <li>
+                      <a href="">Pune</a>
+                    </li>
+                    <li>
+                      <a href="">Noida</a>
+                    </li>
+                    <li>
+                      <a href="">Delhi</a>
+                    </li>
+                    <li>
+                      <a href="">Bengaluru</a>
+                    </li>
+                    <li>
+                      <a href="">Hyderabad</a>
+                    </li>
+                    <li>
+                      <a href="">Ahmedabad</a>
+                    </li>
+                    <li>
+                      <a href="">Indore</a>
+                    </li>
+                    <li>
+                      <a href="">Chennai</a>
+                    </li>
+                    <li>
+                      <a href="">Surat</a>
+                    </li>
+                    <li>
+                      <a href="">Mohali</a>
+                    </li>
+                    <li>
+                      <a href="">Kochi</a>
+                    </li>
+                    <li>
+                      <a href="">Jaipur</a>
+                    </li>
+                    <li>
+                      <a href="">Kolkata</a>
+                    </li>
                   </ul>
                 </div>
 
                 <div className="footer-col">
                   <h3>Hunt By Technology Stack</h3>
                   <ul>
-                    {[
-                      "ReactJs",
-                      "Java",
-                      "JavaScript",
-                      "Angular",
-                      "TypeScript",
-                      "Python",
-                      "MySQL",
-                      "MongoDB",
-                      "NodeJs",
-                      "Flutter",
-                    ].map((stack) => (
-                      <li key={stack}>
-                        <a onClick={() => handleStackClick(stack)}>{stack}</a>
-                      </li>
-                    ))}
+                    <li>
+                      <a href="">ReactJs</a>
+                    </li>
+                    <li>
+                      <a href="">Java</a>
+                    </li>
+                    <li>
+                      <a href="">JavaScript</a>
+                    </li>
+                    <li>
+                      <a href="">Angular</a>
+                    </li>
+                    <li>
+                      <a href="">TypeScript</a>
+                    </li>
+                    <li>
+                      <a href="">Python</a>
+                    </li>
+                    <li>
+                      <a href="">MySQL</a>
+                    </li>
+                    <li>
+                      <a href="">MongoDB</a>
+                    </li>
+                    <li>
+                      <a href="">NodeJs</a>
+                    </li>
+                    <li>
+                      <a href="">Flutter</a>
+                    </li>
                   </ul>
                 </div>
                 {/* <div className="footer-col">

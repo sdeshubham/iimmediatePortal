@@ -59,7 +59,6 @@
 
 // export default AboutMe;
 
-
 import React, { useState } from "react";
 import axios from "axios";
 import { RxCross2 } from "react-icons/rx";
@@ -113,15 +112,6 @@ const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
     onClose();
   };
 
-  const handleDelete = async () => {
-    axios.post(`${baseURL}/deleteAboutMe`,{
-      headers: {
-        Authorization: `Bearer ${user?.token}`,
-      },
-    })
-    setAboutDataObject({aboutText:""})
-  }
-
   return (
     <div className="popup-overlay">
       <div className="popup-form">
@@ -149,9 +139,6 @@ const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
               ></textarea>
               <div className="expInp-btns">
                 <div>
-                  <button className="exp-deleteBtn" type="button" onClick={handleDelete}>
-                    Delete
-                  </button>
                   <button className="exp-submitBtn" type="submit">
                     Submit
                   </button>

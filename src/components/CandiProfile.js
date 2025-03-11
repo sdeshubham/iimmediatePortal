@@ -1,46 +1,3 @@
-<<<<<<< HEAD
-=======
-// import React from "react";
-// import "../stylesheets/CandiProfile.css";
-// import CandiProfileCard from "./cards/CandiProfileCard";
-// import candidateProfileData from "./cards/candidateProfileData";
-
-// import { useAuth } from "./AuthContext";
-
-// const CandiProfile = () => {
-//   const { user } = useAuth();
-
-//   console.log("User in CandiProfile:", user);
-
-//   return (
-//     <>
-//       <div className="candi-profile">
-//         <div className="profile-head">
-//           {candidateProfileData.map((item, index) => (
-//             <CandiProfileCard
-//               key={index}
-//               cImg={user?.image || item.cImg}
-//               cName={user?.name || item.cName}
-//               cHeadline={user?.currentPosition || item.cHeadline}
-//               cCompany={item.cCompany}
-//               cLocation={user?.location || item.cLocation}
-//               cExperience={item.cExperience}
-//               cSalary={user?.salary || item.cSalary}
-//               cNoticePeriod={user?.noticePeriod || item.cNoticePeriod}
-//               cPhoneNumber={user?.mobileNumber || item.mobileNumber}
-//               cEmail={user?.email || item.cEmail}
-//             />
-//           ))}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default CandiProfile;
-
-
->>>>>>> 69c0523 (employer signup done)
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../stylesheets/CandiProfile.css";
@@ -86,17 +43,17 @@ const CandiProfile = () => {
   const [awardsArray, setAwardsArray] = useState(awardCardData);
 
   useEffect(() => {
-    console.log("User in useEffect:", user.token);
-    if (user?.token) {
-      console.log("User in useEffect: inside if condition", user.token);
-      axios.get(`${baseURL}/getAboutMe`, {
-        headers: { Authorization: `Bearer ${user.token}` },
+    console.log("User in useEffect:", user.result[0]);
+    if (user) {
+      setAboutDataObject({
+        "aboutText": user.result[0].about
       })
-      .then((response) => {
-        setAboutDataObject({aboutText: response.data.result.about})
-        console.log("About me data:", response.data.result.about);
-      })
-      .catch((error) => console.log("Error in fetching about me data:", error));
+      setExpArray(user.result[0].workExperiences)
+      setProjectsArray(user.result[0].projectmodels)
+      setSkillsArray(user.result[0].skillmodels)
+      setEducationArray(user.result[0].education_details)
+      setCertificationArray(user.result[0].lic_certis)
+      setAwardsArray(user.result[0].awards)
     }
   }, [user]); 
   
@@ -129,6 +86,31 @@ const CandiProfile = () => {
 };
 
 export default CandiProfile;
+
+
+
+// import React from "react";
+// import "../stylesheets/CandiProfile.css";
+// import { useLocation } from "react-router-dom";
+
+// const CandiProfile = () => {
+//   const location = useLocation();
+//   const { user, token } = location.state || {};
+
+//   if (!user) return <h2>No user data found</h2>;
+
+//   return (
+//     <div className="candi-profile">
+//       <div className="profile-head">
+//         <p>{user.name}</p>
+//         <p>{user.email}</p>
+//         <p>{user.phoneNumber}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default CandiProfile;
 
 
 
