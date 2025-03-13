@@ -88,6 +88,8 @@ const EmpFilter = () => {
     setFilteredProfiles(filtered);
   }, [filters, profiles]);
 
+
+
   return (
     <>
       <div className="emp-filterBox">
