@@ -4,7 +4,7 @@ import axios from "axios";
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
-const EmpSignUp = () => {
+const EmpSignUp = ({ employeeSigningUp, setEmployeeSigningUp }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -100,17 +100,26 @@ const EmpSignUp = () => {
     }
   
     try {
+      console.log({
+        "name": formData.fullName,
+        "mobileNumber": Number(formData.mobileNumber),
+        "email": formData.email,
+        "gender": formData.gender,
+        "currentPosition": formData.experience,
+        "location": formData.location,
+        "isImmediateJoiner": formData.isImmediateJoiner,
+        "specialization": formData.specialization,
+      })
       const response = await axios.post(`${BASE_URL}/api/register`, {
-        name: formData.fullName,
-        mobileNumber: formData.mobileNumber,
-        email: formData.email,
-        gender: formData.gender,
-        location: formData.location,
-        specialization: formData.specialization,
-        experienceInStack: formData.experience,
-        isImmediateJoiner: formData.isImmediateJoiner,
-        mobileOtp: formData.otp,
-        role: "1",
+        "name": formData.fullName,
+        "mobileNumber": Number(formData.mobileNumber),
+        "email": formData.email,
+        "gender": formData.gender,
+        "currentPosition": formData.experience,
+        "location": formData.location,
+        "isImmediateJoiner": formData.isImmediateJoiner,
+        "specialization": formData.specialization,
+        "expYear": Number(formData.experience)
       });
   
       if (response.data.status === 200) {
@@ -158,117 +167,85 @@ const EmpSignUp = () => {
 
   return (
     <>
-      <div className="signUpform">
-        <div className="formCols">
-          <div className="formColOne">
-            <div className="signUpform-emp">
-              <div className="signUpform-group">
-                <label htmlFor="fullname">Full Name</label>
-                <input
-                  name="fullName"
-                  placeholder="Your Full Name"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="signUpform-group">
-                <label htmlFor="mobile">Mobile Number</label>
-                <div className="send-otp">
-                  <input
-                    name="mobileNumber"
-                    placeholder="Mobile Number"
-                    onChange={handleChange}
-                  />
-                  <button onClick={sendOtp}>Send OTP</button>
-                </div>
-              </div>
-              <div className="signUpform-group">
-                <label htmlFor="verify-otp">OTP</label>
-                <div className="send-otp">
-                  <input
-                    name="otp"
-                    placeholder="Enter OTP"
-                    onChange={handleChange}
-                  />
-                  <button onClick={verifyOtp}>Verify OTP</button>
-                </div>
-              </div>
-              <div className="signUpform-group">
-                <label htmlFor="currentrole">Current Position</label>
-                <input
-                  name="currentPosition"
-                  placeholder="Current Role"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="signUpform-group">
-                <label htmlFor="specialization">Specialization</label>
-                <input
-                  name="specialization"
-                  placeholder="Specialization"
-                  onChange={handleChange}
-                />
-              </div>
+    <div className="signinBox">
+      <div className="signin-container">
+          <div className="left-box">
+            <div className="signin-left">
+              <img src={signInEmp} alt="Sign In" />
+              <h3>
+                {isLogin ? "Find Immediate Joiners for You" : "Let Job Find You"}
+              </h3>
+              <p>
+                you will never know everything <br /> But you will Know more
+              </p>
             </div>
           </div>
-          <div className="formColTwo">
-            <div className="signUpform-emp">
-              <div className="signUpform-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  name="email"
-                  placeholder="Email"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="signUpform-group">
-                <label htmlFor="location">Location</label>
-                <input
-                  name="location"
-                  placeholder="Location"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="signUpform-group">
-                <label htmlFor="experience">Experience</label>
-                <input
-                  name="experience"
-                  placeholder="Experience"
-                  onChange={handleChange}
-                />
-              </div>
 
-              <div className="signUpform-emp dropdown-main">
-                <div className="dropdown">
-                  <label htmlFor="">Immediate Joiner</label> <br />
-                  <select className="form-select" onChange={handleChange}>
-                    {immediate.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
+          <div className="right-form">
+            <div className="right-form-head">
+              <img src={wavinghand} alt="Hello" className="hello-icon" />
+              <h2>Welcome back!</h2>
+              <p>Please login to access your account</p>
+            </div>
+
+            <div className="signInRight">
+              <div className="signInForm">
+                <div className="signIn-toggle">
+                  <button
+                    className={isLogin ? "active signBtn" : ""}
+                    onClick={() => setIsLogin(true)}
+                  >
+                    Employer
+                  </button>
+                  <button
+                    className={!isLogin ? "active signBtn" : ""}
+                    onClick={() => setIsLogin(false)}
+                  >
+                    Employee
+                  </button>
                 </div>
-              </div>
 
-              <div className="signUpform-emp dropdown-main dropdown-optns">
-                <div className="dropdown">
-                  <label htmlFor="">Gender</label> <br />
-                  <select className="form-select" onChange={handleChange}>
-                    {options.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
+                <div className="form">
+                  <div className="form-group">
+                    <label htmlFor="mobile">Mobile Number</label>
+                    <div className="input-otp">
+                      <input
+                        type="number"
+                        name="mobileNumber"
+                        placeholder="Enter your mobile number"
+                        maxLength={10}
+                        value={formData.mobileNumber}
+                        onChange={handleChange}
+                      />
+                      <button onClick={sendOtp}>Send OTP</button>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="otp">OTP</label>
+                    <input
+                      type="password"
+                      name="otp"
+                      placeholder="Enter OTP"
+                      maxLength={4}
+                      value={formData.otp}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="login-btn">
+                    <button onClick={checkMobileNumberAndVerifyOtp}>Login</button>
+                    <p>
+                      Don't have an account?{" "}
+                      <Link to="/signup">Register Now</Link>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="register-btn">
-          <button onClick={registerUser}>Register Now</button>
-        </div>
       </div>
+    </div>
     </>
   );
 };
