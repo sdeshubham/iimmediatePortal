@@ -61,7 +61,7 @@ const CandiProfile = () => {
     <>
       <div className="candi-profile">
         <div className="profile-head">
-            <CandiProfileCard
+           <CandiProfileCard
               headObject={headObject}
               setHeadObject={setHeadObject}
               aboutDataObject={aboutDataObject}

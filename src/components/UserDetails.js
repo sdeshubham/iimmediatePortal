@@ -1,33 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com"; // Ensure this is correct
 
 const UserDetails = () => {
-  const { userId } = useParams();  // Grab userId from URL
+  const [queryParams] = useSearchParams();
+  const [userId, setUserId] = useState(null);
   const [userDetails, setUserDetails] = useState(null);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/api/getAllUserDetails`, {
-          params: { userId },  // Pass userId as query parameter
-        });
-
-        if (response.data.status === 200) {
-          setUserDetails(response.data.result);  // Set the response data
-        } else {
-          alert("Failed to fetch user data.");
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        alert("Error fetching user data.");
-      }
-    };
-
-    fetchUserData();
-  }, [userId]);  // Re-run the effect when userId changes
+    // Re-run the effect when userId changes
 
   return (
     <div>

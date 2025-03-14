@@ -1,8 +1,10 @@
 import React from "react";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { IoMdTime } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const SelectedProfCard = ({
+  userId,
   selectprof,
   selProfname,
   role,
@@ -13,6 +15,12 @@ const SelectedProfCard = ({
   skillTwo,
   skillThree,
 }) => {
+  const navigate = useNavigate();
+
+  const navigateUser = () => {
+    navigate(`/employee?userId=${userId}`)
+  }
+
   return (
     <>
       <div className="selectedprof">
@@ -47,7 +55,7 @@ const SelectedProfCard = ({
           <p className="skills-set">{skillThree}</p>
         </div>
         <a href="/">
-          <button className="profview-more">Visit Profile</button>
+          <button className="profview-more" onClick={navigateUser}>Visit Profile</button>
         </a>
       </div>
     </>
