@@ -47,7 +47,7 @@ const App = () => {
 
           {/* <Route path="/employee" element={<Employee />} /> */}
           <Route path="/employer" element={<Employer />} />
-          <Route path="/user-details/:userId" element={<UserDetails />} />
+          {/* <Route path="/user-details/:userId" element={<UserDetails />} /> */}
 
           {/* Authentication Routes */}
           <Route path="/signin" element={<SignIn />} />

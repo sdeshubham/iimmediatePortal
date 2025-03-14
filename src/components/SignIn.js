@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import EmpSignIn from "./EmpSignIn";
-import EmprSignIn from "./EmprSignIn"; 
 
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
@@ -21,7 +19,9 @@ const SignIn = () => {
   });
   const [employeeSigningUp, setEmployeeSigningUp] = useState(true);
 
-  const {setUserToken, setUser} = useAuth();
+  const {setUserToken, setUser, setUserType} = useAuth();
+
+  const navigate = useNavigate();
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,6 +50,7 @@ const SignIn = () => {
       console.log("OTP Send Response:", response.data);
       if (response.data.status === 200) {
         alert(response.data.message);
+        sessionStorage.setItem("userId", response.data.result)
         setFormData((prev) => ({
           ...prev,
           userId: response.data.result, // result has the id to get the user details
@@ -113,53 +114,57 @@ const SignIn = () => {
 
         const response = await axios.post(`${baseUrl}/api/mobileNumberVerificationSetup`, data)
 
-        setUserToken(response.data.token);
+        sessionStorage.setItem("userType", "employee")
+        sessionStorage.setItem("userId", formData.userId)
+        setUserToken(response.data.token)
+        setUserType("employee")
 
-        
+        const userDetails = await axios.post(`${baseUrl}/api/getAllUserDetails`)
 
+        setUser(userDetails.data.result[0])
 
-//         const data = new URLSearchParams();
-// data.append("username", "JohnDoe");
-// data.append("password", "123456");
+        navigate("/employee")
 
-// axios.post("https://example.com/login", data, {
-//   headers: {
-//     "Content-Type": "application/x-www-form-urlencoded",
-//   },
-// });
-
-        // if (formData.otp === "1234") {
-        //   alert("Login Successful");
-    
-        //   // ✅ API se users ka data fetch karna
-        //   const response = await axios.post(`${baseUrl}/getAllUserDetails`, {
-        //     userId: formData.userId,
-        //   });
-        //   console.log("All Users Data:", response.data);
-  
-        //   // let matchedUser = response.data 
-  
-        //   // console.log(response);
-  
-        //   // matchedUser.token = token;
-  
-        //   // setUser(matchedUser);
-
-        //   // work on above refresh tokens 
-  
-        //   navigate("/employee");
-  
-        //   // there was a validation check below whether user exists or not but it is not needed as the user is already registered that we know for sure through checkMobileNumber function
-        // } else {
-        //   alert("Wrong OTP");
-        // }
-      } catch (error) {
-        console.error("OTP verification failed:", error);
-        alert("OTP verification failed");
       }
-      setLoading(false);
-  }
+      catch (err) {
+        console.log("error in verifying otp employee", err)
+      }
+      setLoading(false)
+  };
 
+  const verifyOtpEmployer = async () => {
+    if (!formData.otp) {
+      alert("Please enter the OTP");
+      return;
+    }
+    setLoading(true);
+    try {
+      console.log("Verifying OTP:", formData.otp);
+
+      const data = new URLSearchParams();
+
+      data.append("otp", `${formData.otp}`)
+      data.append("id", `${formData.userId}`)
+
+      const response = await axios.post(`${baseUrl}/employer/mobileNumberVerificationSetup`, data)
+
+      sessionStorage.setItem("userType", "employer")
+      sessionStorage.setItem("userId", formData.userId)
+      setUserToken(response.data.token)
+      setUserType("employer")
+
+      const employerDetails = await axios.post(`${baseUrl}/employer/getEmployerAllDetails`)
+
+      setUser(employerDetails.data.res)
+
+      navigate("/employer")
+    }
+    catch (err) {
+      console.log("error in verifying otp employee", err)
+    }
+
+    setLoading(false)
+  } 
 
   return (
     <>
@@ -235,6 +240,11 @@ const SignIn = () => {
 
                     <div className="login-btn">
                       <button onClick={checkMobileNumberAndVerifyOtp}>Login</button>
+                      {employeeSigningUp ? 
+                          <button onClick={verifyOtpEmployee}>Login</button>
+                          :
+                          <button onClick={verifyOtpEmployer}>Login</button>
+                      }
                       <p>
                         Don't have an account?{" "}
                         <Link to="/signup">Register Now</Link>
@@ -251,8 +261,6 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-// const navigate = useNavigate();
   // const [isLogin, setIsLogin] = useState(true);
 
   

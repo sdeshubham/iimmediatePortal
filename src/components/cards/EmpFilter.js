@@ -242,7 +242,8 @@ const EmpFilter = () => {
               ) : (
                 currentCards.map((profile) => (
                   <SelectedProfCard
-                    key={profile.id}
+                    key={profile._id}
+                    userId={profile._id}
                     selectprof={
                       profile.image ||
                       "https://img.freepik.com/free-photo/asian-woman-posing-looking-camera_23-2148255359.jpg?ga=GA1.1.1365218698.1716962795&semt=ais_hybrid"
