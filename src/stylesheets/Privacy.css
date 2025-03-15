@@ -24,3 +24,10 @@
 .terms-text {
     margin-bottom: 70px;
 }
+
+.privacy-text ul {
+    text-decoration: none;
+    list-style-type: square;
+    color: #727272;
+    margin-left: 40px;
+}

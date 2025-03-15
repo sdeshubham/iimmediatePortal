@@ -19,9 +19,20 @@
   color: #fff;
 }
 
+.footer-col ul {
+  background: none;
+  text-decoration: none;
+  list-style: none;
+}
+
 .footer-col ul li {
   list-style: none;
   padding: 5px 0;
+  color: #ffffff;
+}
+
+.footer-col ul li p {
+  color: #ffffff;
 }
 
 .footer-col ul li a {

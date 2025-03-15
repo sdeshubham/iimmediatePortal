@@ -121,7 +121,7 @@
 .selectedprof {
   border: 1px solid #ddd;
   border-radius: 10px;
-  height: 40vh;
+  height: 270px;
   padding: 20px;
 }
 
@@ -164,6 +164,7 @@
 .box {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 0;
 }
 
@@ -171,24 +172,29 @@
 .selectprof-desc p,
 .skills p {
   color: #727272;
-  font-size: 0.8rem;
+  font-size: 12px;
 }
 
 .box p.box-p {
-  font-size: 0.8rem;
+  font-size: 12px;
 }
 
 .box-pNotice {
   padding-left: 10px;
+  font-size: 9.66px;
+}
+
+.box-pnotice {
+  margin-left: 10px;
 }
 
 .selecprof-detail h5 {
-  font-size: 1.3rem;
+  font-size: 15.46px;
   font-weight: 400;
 }
 
 .selecprof-detail p {
-  font-size: 0.9rem;
+  font-size: 11.59px;
   color: #2c2a2a;
 }
 
@@ -216,7 +222,7 @@
 }
 
 .profview-more {
-  margin: 40px 0;
+  margin: 20px 0;
   width: 100%;
   border-radius: 10px;
   border: none;

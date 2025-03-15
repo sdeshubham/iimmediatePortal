@@ -42,10 +42,9 @@ const App = () => {
           <Route path="/terms&condition" element={<Terms />} />
 
           {/* Profile Pages */}
-          <Route path="/employee" element={<CandiProfile />} />
-          {/* <Route path="/employee" element={<EmpProfile />} /> */}
+          {/* <Route path="/employee" element={<CandiProfile />} /> */}
+          <Route path="/employee/:id" element={<CandiProfile />} />
 
-          {/* <Route path="/employee" element={<Employee />} /> */}
           <Route path="/employer" element={<Employer />} />
           <Route path="/user-details/:userId" element={<UserDetails />} />
 

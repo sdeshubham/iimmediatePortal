@@ -17,28 +17,32 @@ const EmpSignUp = () => {
     location: "",
     experience: "",
     gender: "",
-    isImmediateJoiner: false,
+    isImmediateJoiner: "",
     otpVerified: false,
     userId: "",
+    noticePeriod: "",
   });
 
   const immediate = [
-    { label: "Yes", value: true },
-    { label: "No", value: false },
+    { label: "Within 7 Days", value: 1 },
+    { label: "Within 15 Days", value: 2 },
+    { label: "Within 30 Days", value: 3 },
+    { label: "Within 45 Days", value: 4 },
+    { label: "Within 60 Days", value: 5 },
+    { label: "Within 60+ Days", value: 6 },
   ];
 
   const options = [
     { label: "Select Gender", value: "" },
-    { label: "Male", value: "male" },
-    { label: "Female", value: "female" },
-    { label: "Other", value: "other" },
+    { label: "Male", value: 1 },
+    { label: "Female", value: 2 },
   ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: name === "isImmediateJoiner" ? value === "true" : value,
+      [name]: value,
     });
   };
 
@@ -49,10 +53,13 @@ const EmpSignUp = () => {
     }
     setLoading(true);
     try {
-      const response = await axios.post(`${BASE_URL}/api/mobileNumberVerificationSendOtp`, {
-        mobileNumber: formData.mobileNumber,
-        isForLogin: 0,
-      });
+      const response = await axios.post(
+        `${BASE_URL}/api/mobileNumberVerificationSendOtp`,
+        {
+          mobileNumber: formData.mobileNumber,
+          isForLogin: 0,
+        }
+      );
 
       if (response.data.status === 200) {
         alert(response.data.message);
@@ -76,11 +83,14 @@ const EmpSignUp = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${BASE_URL}/api/mobileNumberVerificationSetup`, {
-        mobileNumber: formData.mobileNumber,
-        otp: formData.otp,
-        id: formData.userId,
-      });
+      const response = await axios.post(
+        `${BASE_URL}/api/mobileNumberVerificationSetup`,
+        {
+          mobileNumber: formData.mobileNumber,
+          otp: formData.otp,
+          id: formData.userId,
+        }
+      );
 
       if (response.data.status === 200) {
         alert("OTP Verified Successfully");
@@ -98,7 +108,7 @@ const EmpSignUp = () => {
       alert("Please verify OTP first");
       return;
     }
-  
+
     try {
       const response = await axios.post(`${BASE_URL}/api/register`, {
         name: formData.fullName,
@@ -107,19 +117,20 @@ const EmpSignUp = () => {
         gender: formData.gender,
         location: formData.location,
         specialization: formData.specialization,
+        currentPosition: formData.currentPosition,
         experienceInStack: formData.experience,
-        isImmediateJoiner: formData.isImmediateJoiner,
-        mobileOtp: formData.otp,
-        role: "1",
+        noticePeriod: formData.isImmediateJoiner,
+        // isImmediateJoiner: formData.isImmediateJoiner,
+        noticePeriod: formData.noticePeriod,
       });
-  
+
       if (response.data.status === 200) {
         alert("Registration successful!");
-  
+
         console.log(response.data.result);
-  
+
         const userId = response.data.result._id;
-  
+
         navigate(`/signin/${userId}`);
       } else {
         alert(`Error: ${response.data.message}`);
@@ -129,7 +140,7 @@ const EmpSignUp = () => {
       alert("Registration failed. Please try again.");
     }
   };
-    
+
   const fetchUserData = async (userId) => {
     try {
       const response = await axios.get(`${BASE_URL}/api/getAllUserDetails`, {
@@ -239,8 +250,16 @@ const EmpSignUp = () => {
 
               <div className="signUpform-emp dropdown-main">
                 <div className="dropdown">
-                  <label htmlFor="">Immediate Joiner</label> <br />
-                  <select className="form-select" onChange={handleChange}>
+                  <label htmlFor="isImmediateJoiner">
+                    How soon can you join
+                  </label>{" "}
+                  <br />
+                  <select
+                    className="form-select"
+                    name="noticePeriod"
+                    onChange={handleChange}
+                    value={formData.noticePeriod}
+                  >
                     {immediate.map((option) => (
                       <option key={option.value} value={option.value}>
                         {option.label}
@@ -253,7 +272,12 @@ const EmpSignUp = () => {
               <div className="signUpform-emp dropdown-main dropdown-optns">
                 <div className="dropdown">
                   <label htmlFor="">Gender</label> <br />
-                  <select className="form-select" onChange={handleChange}>
+                  <select
+                    className="form-select"
+                    name="gender"
+                    onChange={handleChange}
+                    value={formData.gender}
+                  >
                     {options.map((option) => (
                       <option key={option.value} value={option.value}>
                         {option.label}

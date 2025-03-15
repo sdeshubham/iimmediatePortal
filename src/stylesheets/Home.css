@@ -138,58 +138,77 @@
   width: 90%;
   margin: 70px 70px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
   justify-content: space-between;
+
+  /* background-color: greenyellow; */
 }
 
 .avtivejoinerBox a {
   text-decoration: none;
+  list-style: none;
 }
 
 .activeCard {
   border: 1px solid #ea4232;
-  border-radius: 40px;
+  border-radius: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 8px 0;
+  padding: 7px 0;
+  position: relative;
+  transition: transform 0.3s ease;
+  /* background-color: yellow; */
 }
 
-.activejoiner-details {
+.activeCard:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.avctivejoiner-details {
   display: flex;
   flex-direction: column;
+  gap: 3px;
+  margin-left: 3px;
   /* background-color: #b8e7ad; */
 }
 
 .activejoiner-details-one {
-  /* margin-left: 10px; */
-  width: 220px;
-  /* background-color: #e7e7ad; */
+  width: 180px;
   display: flex;
   justify-content: space-between;
+
+  /* background-color: #e7e7ad; */
 }
 
 .stack-details-one img {
-  height: 30px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 
 .activejoiner-details-one h4 {
   margin: 0;
-  width: 50%;
-  font-size: 0.7rem;
+  width: 60%;
+  font-size: 12px;
   text-align: left;
   color: #012970;
   font-weight: 600;
+  /* background-color: greenyellow; */
 }
 
 .activejoiner-details-one p {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   margin: 0;
-  width: 50%;
-  font-size: 0.7rem;
+  width: 40%;
+  font-size: 10px;
   text-align: left;
   color: #727272;
+
+  /* background-color: yellow; */
 }
 
 .activeCardImg {
@@ -248,9 +267,18 @@
   width: 91%;
   margin: 50px 70px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px 15px;
   justify-content: space-between;
+  list-style: none;
+  text-decoration: none;
+}
+
+.huntlocationBox a,
+.huntstackBox a,
+.huntExperiemceBox a {
+  list-style: none;
+  text-decoration: none;
 }
 
 .huntlocationCard {
@@ -260,9 +288,12 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
 .huntlocationCard:hover {
+  transform: translateY(-5px);
   cursor: pointer;
 }
 
@@ -298,6 +329,8 @@
   justify-content: center;
   align-items: center;
   margin: 15px 8px;
+
+  /* background-color: green; */
 }
 
 .stack-details-one p {
@@ -307,6 +340,11 @@
   color: #012970;
   margin-left: 10px;
   text-align: left;
+  height: 35px;
+  display: flex;
+  align-items: center;
+
+  /* background-color: greenyellow; */
 }
 
 .huntlocation-details-one p {
@@ -335,10 +373,14 @@
   align-items: center;
   /* padding: 8px 5px; */
   width: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+  
 }
 
 .stackCard:hover {
   cursor: pointer;
+  transform: translateY(-5px);
 }
 
 /* ----------------------------------------------------------- */
@@ -453,7 +495,7 @@
 }
 
 .jobseekerBtn {
-  padding: 5px 20px;
+  padding: 6px 20px;
   background-color: #fff;
   color: #ea4232;
   border: none;
@@ -529,5 +571,3 @@
   left: 84%;
   transform: translateX(-70%);
 }
-
-
