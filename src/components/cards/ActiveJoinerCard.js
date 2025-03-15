@@ -1,8 +1,12 @@
-import React from "react";
-import { LuIndianRupee } from "react-icons/lu";
-import { PiBag } from "react-icons/pi";
+import React, { useState, useEffect } from "react";
 
 const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => {
+  const [activeSalary, setActiveSalary] = useState(salary)
+  useEffect(() => {
+    let stringifiedSalary = ""
+    stringifiedSalary = activeSalary.toLocaleString("en-IN")
+    setActiveSalary(stringifiedSalary);
+  }, [salary])
   return (
     <>
       <div className="activeCard">
@@ -13,6 +17,7 @@ const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => 
           <div className="activejoiner-details-one">
             <h4 className="activejoiner-name">{name}</h4>
             <p className="activejoiner-name"><LuIndianRupee />{salary} LPA</p>
+            <p className="activejoiner-name">{activeSalary}</p>
           </div>
           <div className="activejoiner-details-one">
             <p className="activejoiner-role">{currentPosition}</p>
