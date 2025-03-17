@@ -165,7 +165,6 @@ const EmpFilter = () => {
 
         let validFilters = {};
 
-        // Add filters to API request
         if (filters.workMode.length) {
           validFilters.workMode = filters.workMode.join(",");
         }

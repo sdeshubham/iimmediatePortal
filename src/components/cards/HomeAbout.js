@@ -20,7 +20,7 @@ const HomeAbout = () => {
             mission, we're creating an environment where current and future
             generations can thrive.
           </p>
-          <Link to="/employee">
+          <Link to="/employee-profile">
             <button className="empBtn">Employee</button>
           </Link>
           <Link to="/employer">

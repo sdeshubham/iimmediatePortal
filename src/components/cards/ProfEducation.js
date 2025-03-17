@@ -21,7 +21,7 @@ const ProfEducation = ({
           </div>
           <div className="edu-boxthree">
             <p className="edu-year">{eduYear}</p>
-            <p className="edu-cgpa">{eduCgpa}</p>
+            <p className="edu-cgpa">Grade {eduCgpa}</p>
           </div>
         </div>
       </div>

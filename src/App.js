@@ -21,6 +21,7 @@ import EmpFilter from "./components/cards/EmpFilter";
 import { AuthProvider } from './components/AuthContext';
 import UserDetails from "./components/UserDetails";
 import ScrollToTop from "./components/ScrollToTop";
+import EmployeeProfile from "./components/EmployeeProfile";
 
 const App = () => {
   return (
@@ -45,7 +46,10 @@ const App = () => {
 
           {/* Profile Pages */}
           {/* <Route path="/employee" element={<CandiProfile />} /> */}
-          <Route path="/employee/:id" element={<CandiProfile />} />
+          {/* <Route path="/employee/:id" element={<CandiProfile />} /> */}
+
+
+          <Route path="/employee-profile/:id" element={<EmployeeProfile />} />
 
           <Route path="/employer" element={<Employer />} />
           <Route path="/user-details/:userId" element={<UserDetails />} />
