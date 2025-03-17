@@ -153,13 +153,71 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../stylesheets/Footer.css";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const [locations, setLocations] = useState([]);
+  const [techStacks, setTechStacks] = useState([]);
+
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const response = await axios.get(
+          "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/withOutLogin/get-state-list",
+          {
+            params: { countryCode: "IN" },
+          }
+        );
+
+        if (response.data && response.data.data) {
+          setLocations(response.data.data.slice(0, 14));
+        } else {
+          console.error("Invalid response format:", response);
+        }
+      } catch (error) {
+        console.error("Error fetching locations:", error);
+      }
+    };
+
+    fetchLocations();
+  }, []);
+
+  useEffect(() => {
+    const fetchTechStacks = async () => {
+      try {
+        const response = await axios.get(
+          "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/withOutLogin/tech-stack-list"
+        );
+
+        if (response.data && response.data.result) {
+          setTechStacks(response.data.result.slice(0, 14)); // Extract only the first 14 tech stacks
+        } else {
+          console.error("Invalid response format:", response);
+        }
+      } catch (error) {
+        console.error("Error fetching tech stacks:", error);
+      }
+    };
+
+    fetchTechStacks();
+  }, []);
 
   const handleFilterClick = (type, value) => {
     navigate(`/Empfilter?${type}=${encodeURIComponent(value)}`);
+  };
+
+  const handleLocationClick = (location) => {
+    navigate(`/empfilter?location=${encodeURIComponent(location)}`);
+    window.scrollTo(0, 0);
+  };
+
+  const handleTechStackClick = (techStack) => {
+    navigate(`/empfilter?expertTecStack=${encodeURIComponent(techStack)}`);
+  };
+  const handleExpTechClick = (experienceInStack) => {
+    navigate(`/empfilter?experienceInStack=${encodeURIComponent(experienceInStack)}`);
   };
 
   return (
@@ -181,22 +239,39 @@ const Footer = () => {
               <div className="footer-col">
                 <h3>Hunt By Location</h3>
                 <ul>
-                  {["Mumbai", "Pune", "Noida", "Delhi", "Bengaluru", "Hyderabad", "Ahmedabad", "Indore", "Chennai", "Surat", "Mohali", "Kochi", "Jaipur", "Kolkata"].map((city) => (
-                    <li key={city}>
-                      <Link onClick={() => handleFilterClick("location", city)}>{city}</Link>
-                    </li>
-                  ))}
+                  {locations.length > 0 ? (
+                    locations.map((location) => (
+                      <li key={location._id}>
+                        <a onClick={() => handleLocationClick(location.name)}>
+                          {location.name}
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li>Loading locations...</li>
+                  )}
                 </ul>
               </div>
 
               <div className="footer-col">
                 <h3>Hunt By Technology Stack</h3>
                 <ul>
-                  {["ReactJs", "Java", "JavaScript", "Angular", "TypeScript", "Python", "MySQL", "MongoDB", "NodeJs", "Flutter"].map((stack) => (
-                    <li key={stack}>
-                      <Link onClick={() => handleFilterClick("stack", stack)}>{stack}</Link>
-                    </li>
-                  ))}
+                  {techStacks.length > 0 ? (
+                    techStacks.map((stack) => (
+                      <li key={stack._id}>
+                        <a onClick={() => handleTechStackClick(stack.tecStackName)}>
+                          {/* <img 
+                            src={stack.techStacklogo} 
+                            alt={stack.tecStackName} 
+                            style={{ width: "20px", height: "20px", marginRight: "8px" }} 
+                          /> */}
+                          {stack.tecStackName}
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li>Loading tech stacks...</li>
+                  )}
                 </ul>
               </div>
 
@@ -211,7 +286,7 @@ const Footer = () => {
                     { label: "Senior (10+ years experience)", min: 10, max: null },
                   ].map(({ label, min, max }) => (
                     <li key={label}>
-                      <Link onClick={() => handleFilterClick("experience", `${min}-${max ? max : "above"}`)}>{label}</Link>
+                      <Link onClick={() => handleExpTechClick("experience", `${min}-${max ? max : "above"}`)}>{label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -246,64 +321,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-// import React, { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
-
-// const Empfilter = () => {
-//   const location = useLocation();
-//   const [filteredData, setFilteredData] = useState([]);
-
-//   const allEmployees = [
-//     { id: 1, name: "Amit", location: "Mumbai", stack: "ReactJs", experience: 3 },
-//     { id: 2, name: "Priya", location: "Pune", stack: "Java", experience: 5 },
-//     { id: 3, name: "Ravi", location: "Noida", stack: "Angular", experience: 2 },
-//     { id: 4, name: "Neha", location: "Delhi", stack: "Python", experience: 1 },
-//     { id: 5, name: "Vikram", location: "Mumbai", stack: "NodeJs", experience: 7 },
-//   ];
-
-//   useEffect(() => {
-//     const searchParams = new URLSearchParams(location.search);
-    
-//     let filtered = allEmployees;
-
-//     if (searchParams.has("location")) {
-//       const locationFilter = searchParams.get("location");
-//       filtered = filtered.filter(emp => emp.location === locationFilter);
-//     }
-
-//     if (searchParams.has("stack")) {
-//       const stackFilter = searchParams.get("stack");
-//       filtered = filtered.filter(emp => emp.stack === stackFilter);
-//     }
-
-//     if (searchParams.has("experience")) {
-//       const expFilter = searchParams.get("experience").split("-");
-//       const minExp = parseInt(expFilter[0], 10);
-//       const maxExp = expFilter[1] === "above" ? Infinity : parseInt(expFilter[1], 10);
-
-//       filtered = filtered.filter(emp => emp.experience >= minExp && emp.experience <= maxExp);
-//     }
-
-//     setFilteredData(filtered);
-//   }, [location.search]);
-
-//   return (
-//     <div>
-//       <h2>Filtered Employees</h2>
-//       <ul>
-//         {filteredData.length > 0 ? (
-//           filteredData.map(emp => (
-//             <li key={emp.id}>{emp.name} - {emp.location} - {emp.stack} - {emp.experience} years</li>
-//           ))
-//         ) : (
-//           <p>No results found</p>
-//         )}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Empfilter;

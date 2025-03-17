@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { LuIndianRupee } from "react-icons/lu";
+import { PiBag } from "react-icons/pi";
 
 const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => {
   const [activeSalary, setActiveSalary] = useState(salary)
@@ -17,11 +19,10 @@ const ActiveJoinerCard = ({ image, name, currentPosition, salary, expYear }) => 
           <div className="activejoiner-details-one">
             <h4 className="activejoiner-name">{name}</h4>
             <p className="activejoiner-name"><LuIndianRupee />{salary} LPA</p>
-            <p className="activejoiner-name">{activeSalary}</p>
           </div>
-          <div className="activejoiner-details-one">
+          <div className="activejoiner-details-two">
             <p className="activejoiner-role">{currentPosition}</p>
-            <p className="activejoiner-role"><PiBag />{expYear} Years Exp</p>
+            <p className="activejoiner-expyear"><PiBag className="piBag-icon" />{expYear} Years Exp</p>
           </div>
         </div>
       </div>

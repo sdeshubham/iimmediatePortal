@@ -142,21 +142,17 @@ const CandiProfile = () => {
     } catch (error) {
       console.error("Error in fetching about me data:", error);
 
-      // If token is expired, refresh it
       if (error.response?.status === 401) {
         try {
           const refreshResponse = await axios.post(`${baseURL}/v1/token/refreshToken`, {
-            refreshToken: user?.refreshToken, // Send refresh token to get a new one
+            refreshToken: user?.refreshToken,
           });
 
-          // Assuming you get a new token here, update the user context or state
           const newToken = refreshResponse.data.token;
           console.log("New Token:", newToken);
 
-          // Refresh user token in your context
           refreshUserToken(newToken);
 
-          // Retry fetching the about me data with the new token
           fetchAboutMeData();
         } catch (refreshError) {
           console.error("Error refreshing token:", refreshError);

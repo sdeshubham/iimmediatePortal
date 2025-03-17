@@ -25,10 +25,17 @@ const Home = () => {
 
   const handleLocationClick = (location) => {
     navigate(`/empfilter?location=${encodeURIComponent(location)}`);
+    window.scrollTo(0, 0);
   };
 
   const handleTechStackClick = (techStack) => {
-    navigate(`/empfilter?techStack=${encodeURIComponent(techStack)}`);
+    navigate(`/empfilter?expertTecStack=${encodeURIComponent(techStack)}`);
+    window.scrollTo(0, 0);
+  };
+
+  const handleExpClick = (experienceInStack) => {
+    navigate(`/empfilter?experienceInStack=${encodeURIComponent(experienceInStack)}`);
+    window.scrollTo(0, 0);
   };
 
   const [activeJoiners, setActiveJoiners] = useState([]);
@@ -87,40 +94,6 @@ const Home = () => {
       .finally(() => setLoadingStates(false));
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${BASE_URL}/withOutLogin/get-state-list?countryCode=IN`)
-  //     .then((res) => {
-  //       console.log("State List API Response:", res.data);
-  //       if (res.data && res.data.data) {
-  //         setStatesList(res.data.data);
-  //       } else {
-  //         setStatesList([]);
-  //       }
-  //     })
-  //     .catch((err) => console.error("Error fetching states list:", err))
-  //     .finally(() => setLoadingStates(false));
-  // }, []);
-
-  // const handleLocationClick = async (city) => {
-  //   const apiUrl = `${BASE_URL}/api/userFilter?location=${encodeURIComponent(
-  //     city
-  //   )}`;
-
-  //   try {
-  //     const response = await fetch(apiUrl);
-  //     const data = await response.json();
-
-  //     if (data.status === 200 && data.result.length > 0) {
-  //       console.log(`Users in ${city}:`, data.result);
-  //     } else {
-  //       console.log(`No users found in ${city}`);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching users:", error);
-  //   }
-  // };
-
   const handleViewMore = () => {
     setLoadingMore(true);
     api
@@ -152,7 +125,7 @@ const Home = () => {
 
   const filterByExperience = (min, max) => {
     const filteredUsers = users.filter((user) => {
-      const exp = user.experienceInStack;
+      const exp = user.activeJoiners;
       return max ? exp >= min && exp < max : exp > min;
     });
     console.log(
@@ -239,7 +212,11 @@ const Home = () => {
               <a href="/empfilter" key={item._id}>
                 <ActiveJoinerCard
                   // image={item.image ? item.image : "profile.png"}
-                  image={item.image ? item.image : require("../images/cProfileImg.png")}
+                  image={
+                    item.image
+                      ? item.image
+                      : require("../images/cProfileImg.png")
+                  }
                   name={item.name ? item.name : "Name NA"}
                   currentPosition={
                     item.currentPosition
@@ -284,7 +261,7 @@ const Home = () => {
         </div>
       </div> */}
 
-<div className="huntByLocation">
+      <div className="huntByLocation">
         <div className="huntHeadBox">
           <h2>
             <span>Hunt By</span> Location
@@ -303,7 +280,10 @@ const Home = () => {
                 onClick={() => handleLocationClick(item.name)}
                 style={{ cursor: "pointer" }}
               >
-                <HuntLocationCard honelocationIcons={honelocationIcon} name={item.name} />
+                <HuntLocationCard
+                  honelocationIcons={honelocationIcon}
+                  name={item.name}
+                />
               </a>
             ))
           ) : (
@@ -312,36 +292,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="huntByLocation">
-        <div className="huntHeadBox">
-          <h2>
-            <span>Hunt By</span> Technology Stack
-          </h2>
-          <div className="active-viewmore">
-            <a href="/empfilter">View More</a>
-          </div>
-        </div>
-        <div className="huntstackBox">
-          {loading ? (
-            <p>Loading tech stacks...</p>
-          ) : techStacks.length > 0 ? (
-            techStacks.slice(0, 10).map((item, index) => (
-              <a href="/empfilter" key={item._id}>
-                <StackCard
-                  key={index}
-                  // techStacklogo={item.techStacklogo}
-                  techStacklogo={item.techStacklogo ?? ("/images/cProfileImg.png")}
-                  tecStackName={item.tecStackName}
-                />
-              </a>
-            ))
-          ) : (
-            <p>No tech stacks found</p>
-          )}
-        </div>
-      </div> */}
-
-<div className="huntByLocation">
+      <div className="huntByLocation">
         <div className="huntHeadBox">
           <h2>
             <span>Hunt By</span> Technology Stack
@@ -361,7 +312,9 @@ const Home = () => {
                 style={{ cursor: "pointer" }}
               >
                 <StackCard
-                  techStacklogo={item.techStacklogo ?? "/images/cProfileImg.png"}
+                  techStacklogo={
+                    item.techStacklogo ?? "/images/cProfileImg.png"
+                  }
                   tecStackName={item.tecStackName}
                 />
               </a>
@@ -371,7 +324,6 @@ const Home = () => {
           )}
         </div>
       </div>
-
 
       <div className="huntByExperience">
         <div className="experienceHeadBox">
@@ -383,7 +335,8 @@ const Home = () => {
           {experienceData.map((item, index) => (
             <div
               key={index}
-              onClick={() => filterByExperience(item.min, item.max)}
+              // onClick={() => filterByExperience(item.min, item.max)}
+              onClick={() => handleExpClick(item.experienceInStack)}
             >
               <a href="empfilter">
                 <HuntExperience

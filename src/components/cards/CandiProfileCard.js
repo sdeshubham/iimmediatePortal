@@ -682,7 +682,7 @@
 
 // ______________________________________------------------_________________-
 
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import "../../stylesheets/CandiProfile.css";
 import "../../stylesheets/EmpProfile.css";
 import { FaLocationDot } from "react-icons/fa6";
@@ -730,8 +730,6 @@ const CandiProfileCard = ({
   awardsArray,
   setAwardsArray
 }) => {
-  
-
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showExperience, setShowExperience] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
@@ -741,23 +739,22 @@ const CandiProfileCard = ({
   const [showAwads, setShowAwads] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const toggleAboutMePopup = () => setShowAboutMe(!showAboutMe);
-  const toggleExperiencePopup = () => setShowExperience(!showExperience);
-  const toggleProjectsPopup = () => setShowProjects(!showProjects);
-  const toggleSkillsPopup = () => setShowSkills(!showSkills);
-  const toggleEducationPopup = () => setShowEducation(!showEducation);
+  const toggleAboutMePopup = () => setShowAboutMe((prev) => !prev);
+  const toggleExperiencePopup = () => setShowExperience((prev) => !prev);
+  const toggleProjectsPopup = () => setShowProjects((prev) => !prev);
+  const toggleSkillsPopup = () => setShowSkills((prev) => !prev);
+  const toggleEducationPopup = () => setShowEducation((prev) => !prev);
   const toggleLicensCertificatesPopup = () =>
-    setShowLicensCertificates(!showLicensCertificates);
-  const toggleAwadsPopup = () => setShowAwads(!showAwads);
+    setShowLicensCertificates((prev) => !prev);
+  const toggleAwadsPopup = () => setShowAwads((prev) => !prev);
 
   return (
     <div>
       <div className="profile-card">
         <div className="profileCard-box">
           <div className="profile-secOne">
-            {/* Head Section */}
             <div className="profileCardHead">
-              <img src={headObject.cImg} alt="" />
+              <img src={headObject.cImg} alt="Profile" />
               <div className="cadidate-basicInfo">
                 <h3>{headObject.cName}</h3>
                 <p>{headObject.cHeadline}</p>
@@ -798,10 +795,7 @@ const CandiProfileCard = ({
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                   >
-                    {/* Button */}
                     <button className="dropdown-button">Resume</button>
-
-                    {/* Dropdown Menu */}
                     {isHovered && (
                       <div className="dropdown-menu">
                         <ul>
@@ -824,7 +818,6 @@ const CandiProfileCard = ({
 
           <div className="profile-secTwo">
             <div className="profile-contentBox">
-              {/* About Me Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>About Me</h2>
@@ -832,15 +825,18 @@ const CandiProfileCard = ({
                     <RiEditBoxLine size={20} />
                   </button>
                 </div>
-                {showAboutMe && <AboutMe onClose={toggleAboutMePopup} setAboutDataObject={setAboutDataObject} aboutText={aboutDataObject.aboutText} />}
+                {showAboutMe && (
+                  <AboutMe
+                    onClose={toggleAboutMePopup}
+                    setAboutDataObject={setAboutDataObject}
+                    aboutText={aboutDataObject.aboutText}
+                  />
+                )}
                 <div className="about-card-box-details">
-                  <div>
-                      <ProfAbout aboutText={aboutDataObject.aboutText} />
-                  </div>
+                  <ProfAbout aboutText={aboutDataObject.aboutText} />
                 </div>
               </div>
 
-              {/* Experience Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Experience</h2>
@@ -852,22 +848,19 @@ const CandiProfileCard = ({
                   <Experience onClose={toggleExperiencePopup} setExpArray={setExpArray} />
                 )}
                 <div className="exp-card-box-details">
-                  <div>
-                    {expArray.map((item) => (
-                      <ProfExperience
-                        key={item._id} // re-think about the performance issue of this key initialization
-                        experience_id={item._id}
-                        expImgLogo={expImgLogo}
-                        expRole={item.title}
-                        expCompany={item.company_Name}
-                        expLocation={item.location}
-                        expDuration={item.startDate || item.joiningDate}
-                        expDesc={item.description}
-                        setExpArray={setExpArray}
-                      />
-                    ))}
-                  </div>
-
+                  {expArray.map((item) => (
+                    <ProfExperience
+                      key={item._id}
+                      experience_id={item._id}
+                      expImgLogo={expImgLogo}
+                      expRole={item.title}
+                      expCompany={item.company_Name}
+                      expLocation={item.location}
+                      expDuration={item.startDate || item.joiningDate}
+                      expDesc={item.description}
+                      setExpArray={setExpArray}
+                    />
+                  ))}
                   <div className="prof-editBtn">
                     <button>
                       <RiEditBoxLine size={20} />
@@ -876,7 +869,6 @@ const CandiProfileCard = ({
                 </div>
               </div>
 
-              {/* Projects Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Projects</h2>
@@ -886,18 +878,16 @@ const CandiProfileCard = ({
                 </div>
                 {showProjects && <Projects onClose={toggleProjectsPopup} />}
                 <div className="proj-card-box-details">
-                  <div>
-                    {projectsArray.map((item, index) => (
-                      <ProfProject
-                        key={index}
-                        expImgLogo={item.expImgLogo}
-                        projRole={item.projRole}
-                        projDuration={item.projDuration}
-                        projOrg={item.projOrg}
-                        projDesc={item.projDesc}
-                      />
-                    ))}
-                  </div>
+                  {projectsArray.map((item, index) => (
+                    <ProfProject
+                      key={index}
+                      expImgLogo={item.expImgLogo}
+                      projRole={item.projRole}
+                      projDuration={item.projDuration}
+                      projOrg={item.projOrg}
+                      projDesc={item.projDesc}
+                    />
+                  ))}
                   <div className="prof-editBtn">
                     <button>
                       <RiEditBoxLine size={20} />
@@ -906,7 +896,6 @@ const CandiProfileCard = ({
                 </div>
               </div>
 
-              {/* Skills Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Skills</h2>
@@ -914,28 +903,19 @@ const CandiProfileCard = ({
                     <FaPlus size={20} />
                   </button>
                 </div>
-                <div>
-                  {showSkills && <Skills onClose={toggleSkillsPopup} />}
-                  <div className="skills-card-box-details">
-                    <div className="skillsbox-card">
-                      {skillsArray.map((item, index) => (
-                        <ProfSkills
-                          key={index}
-                          skillListOne={item.skillListOne}
-                        />
-                      ))}
-                    </div>
-
-                    <div className="prof-editBtn">
-                      <button>
-                        <RiEditBoxLine size={20} />
-                      </button>
-                    </div>
+                {showSkills && <Skills onClose={toggleSkillsPopup} />}
+                <div className="skills-card-box-details">
+                  {skillsArray.map((item, index) => (
+                    <ProfSkills key={index} skillListOne={item.skillListOne} />
+                  ))}
+                  <div className="prof-editBtn">
+                    <button>
+                      <RiEditBoxLine size={20} />
+                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* Education Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Education</h2>
@@ -957,7 +937,6 @@ const CandiProfileCard = ({
                 ))}
               </div>
 
-              {/* Licenses & Certifications Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Licenses & Certifications</h2>
@@ -981,7 +960,6 @@ const CandiProfileCard = ({
                 </div>
               </div>
 
-              {/* Honors & Awards Section */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Honors & Awards</h2>
@@ -990,24 +968,16 @@ const CandiProfileCard = ({
                   </button>
                 </div>
                 {showAwads && <Awads onClose={toggleAwadsPopup} />}
-                <div className="award-card-box-details">
-                  <div>
-                    {awardsArray.map((item, index) => (
-                      <ProfAwardCard
-                        key={index}
-                        awardImgLogo={item.awardImgLogo}
-                        awardName={item.awardName}
-                        awardIssuedBy={item.awardIssuedBy}
-                        awardIssueDate={item.awardIssueDate}
-                        assosiate={item.assosiate}
-                      />
-                    ))}
-                  </div>
-                  <div className="prof-editBtn">
-                    <button>
-                      <RiEditBoxLine size={20} />
-                    </button>
-                  </div>
+                <div>
+                  {awardsArray.map((item, index) => (
+                    <ProfAwardCard
+                      key={index}
+                      awardImg={item.awardImg}
+                      awardName={item.awardName}
+                      awardOrg={item.awardOrg}
+                      awardDate={item.awardDate}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

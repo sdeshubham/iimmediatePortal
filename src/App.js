@@ -20,11 +20,13 @@ import CandiProfile from "./components/CandiProfile";
 import EmpFilter from "./components/cards/EmpFilter";
 import { AuthProvider } from './components/AuthContext';
 import UserDetails from "./components/UserDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
+      <ScrollToTop />
         <Header />
 
         <Routes>
@@ -54,6 +56,7 @@ const App = () => {
         </Routes>
 
         <Footer />
+        <ScrollToTop />
       </Router>
     </AuthProvider >
   );

@@ -72,7 +72,7 @@ import { IoMdTime } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 const SelectedProfCard = ({
-  id,  // Employee ID is coming as a prop
+  id,
   selectprof,
   selProfname,
   role,
@@ -88,8 +88,8 @@ const SelectedProfCard = ({
   const navigate = useNavigate();
   
   const handleViewProfile = (id) => {
-    navigate(`/employee/${id}`); // Navigate using ID
-  };
+    navigate(`/employee?id=${id}`);
+  };  
 
   return (
     <div className="selectedprof">
@@ -118,7 +118,6 @@ const SelectedProfCard = ({
         </p>
       </div>
       <div className="skills">
-        {/* <p className="skills-heaad">Skills: </p> */}
         <p className="skills-set">{skillOne}</p>
         <p className="skills-set">{skillTwo}</p>
         <p className="skills-set">{skillThree}</p>

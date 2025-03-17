@@ -15,23 +15,6 @@
   overflow-y: auto;
 }
 
-/* .filter-top {
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 10;
-  } */
-
-/* .filter-top input {
-    padding: 15px 25px;
-    width: 320px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-  } */
-
 .stact-hunt input {
   padding: 8px 10px;
   width: 250px;
@@ -39,36 +22,6 @@
   border-radius: 8px;
   border: 1px solid #ddd;
 }
-
-/* .filter-top button {
-    padding: 0 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: #ea4232;
-    color: #fff;
-    transition: all 0.3s ease;
-  } */
-
-/* .filter-top button:hover {
-    cursor: pointer;
-    background-color: #ad291d;
-  } */
-
-/* .input-with-icon {
-    position: relative;
-  } */
-
-/* .search-icon {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #888;
-  } */
-
-/* .input-with-icon input {
-    padding-left: 40px;
-  } */
 
 .filter-top {
   display: flex;
@@ -200,6 +153,45 @@
   font-size: 0.9rem;
   color: #727272;
 }
+
+
+
+
+
+
+
+
+/* Style the checkboxes */
+.empTypeOne input[type="checkbox"] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1.4px solid #ddd;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Style for checked checkboxes */
+.empTypeOne input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+/* Style for the checkmark inside the checkbox */
+.empTypeOne input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
 
 .employment-filter {
   display: flex;

@@ -138,11 +138,14 @@
 }
 
 .selecprof-detail {
-  padding-left: 20px;
+  margin-left: 20px;
+  height: 110px;
+  width: 150px;
+  /* background-color: greenyellow; */
 }
 
 .selecprof-role {
-  margin-top: 5px;
+  margin: 7px 0;
 }
 
 .selecprof-role,
@@ -158,14 +161,17 @@
 
 .locat {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  /* width: 150px; */
+  /* background-color: yellow; */
 }
 
 .box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  /* padding: 10px 0; */
+  margin: 8px 0;
 }
 
 .locat p,
@@ -180,11 +186,13 @@
 }
 
 .box-pNotice {
-  padding-left: 10px;
+  padding-left: 4px;
   font-size: 9.66px;
 }
 
 .box-pnotice {
+  display: flex;
+  align-items: center;
   margin-left: 10px;
 }
 
