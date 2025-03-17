@@ -1,5 +1,6 @@
 import React from "react";
 import "../../stylesheets/EmpProfile.css";
+import expLogo from "../../images/expLogo.png"
 
 const ProfExperience = ({
   expImgLogo,
@@ -12,7 +13,7 @@ const ProfExperience = ({
   return (
     <>
       <div className="expBox-card">
-        <img src={expImgLogo} alt="" />
+        <img src={expImgLogo || expLogo}alt="" />
         <div className="exp-boxTwo">
           <div className="exp-boxThree">
             <div className="exp-boxfour">

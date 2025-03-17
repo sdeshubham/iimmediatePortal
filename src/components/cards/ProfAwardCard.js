@@ -14,10 +14,10 @@ const ProfAwardCard = ({
         <div className="award-boxTwo">
           <p className="awardName">{awardName}</p>
           <div className="award-subbox">
-            <p className="issuedBy">Issued by {awardIssuedBy}</p>{" • "}
+            <p className="issuedBy">Issued by: {awardIssuedBy}</p>{" • "}
             <p className="issueDate">{awardIssueDate}</p>
           </div>
-          <p className="assosiate">Associated with {assosiate}</p>
+          <p className="assosiate">Associated with: {assosiate}</p>
         </div>
       </div>
     </>

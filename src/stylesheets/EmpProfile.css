@@ -29,6 +29,9 @@
   display: flex;
   justify-content: flex-start;
   padding: 20px;
+  width: 1250px;
+
+  /* background-color: pink; */
 }
 
 .expBox-card img {
@@ -41,6 +44,9 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 100%;
+
+  /* background-color: green; */
 }
 
 .expRole,
@@ -69,6 +75,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* width: 100%; */
+
+  /* background-color: greenyellow; */
 }
 
 .exp-boxfour {
@@ -296,5 +305,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px 0;
+    width: 230px;
+
+    /* background-color: greenyellow; */
 }

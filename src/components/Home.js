@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "../stylesheets/Home.css";
 import k5Img from "../images/Group 2.png";
 import amazon from "../images/Amazon.png";
@@ -20,8 +19,12 @@ import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
-const Home = () => {
+const Home = ({user, id}) => {
   const navigate = useNavigate();
+
+  const handleActiveClick = () => {
+    navigate(`/employee-profile/${id}`);
+  };
 
   const handleLocationClick = (location) => {
     navigate(`/empfilter?location=${encodeURIComponent(location)}`);
@@ -34,7 +37,9 @@ const Home = () => {
   };
 
   const handleExpClick = (experienceInStack) => {
-    navigate(`/empfilter?experienceInStack=${encodeURIComponent(experienceInStack)}`);
+    navigate(
+      `/empfilter?experienceInStack=${encodeURIComponent(experienceInStack)}`
+    );
     window.scrollTo(0, 0);
   };
 
@@ -209,7 +214,7 @@ const Home = () => {
         <div className="activejoiner-cardbox">
           {activeJoiners && activeJoiners.length > 0 ? (
             [...activeJoiners, ...allJoiners].map((item) => (
-              <a href="/empfilter" key={item._id}>
+              <a href={`/employee-profile/${user._id}`} onClick={handleActiveClick} key={item._id}>
                 <ActiveJoinerCard
                   // image={item.image ? item.image : "profile.png"}
                   image={
@@ -233,33 +238,6 @@ const Home = () => {
           )}
         </div>
       </div>
-      {/* <div className="huntByLocation">
-        <div className="huntHeadBox">
-          <h2>
-            <span>Hunt By</span> Location
-          </h2>
-          <div className="active-viewmore">
-            <a href="/empfilter">View More</a>
-          </div>
-        </div>
-        <div className="huntlocationBox">
-          {loadingStates ? (
-            <p>Loading locations...</p>
-          ) : statesList.length > 0 ? (
-            statesList.slice(0, 10).map((item, index) => (
-              <a href="/empfilter" key={item._id}>
-                <HuntLocationCard
-                  key={index}
-                  honelocationIcons={honelocationIcon}
-                  name={item.name}
-                />
-              </a>
-            ))
-          ) : (
-            <p>No locations found</p>
-          )}
-        </div>
-      </div> */}
 
       <div className="huntByLocation">
         <div className="huntHeadBox">

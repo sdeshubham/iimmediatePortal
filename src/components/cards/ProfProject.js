@@ -1,11 +1,12 @@
 import React from "react";
+import projLogo from "../../images/profInstitueLogo.svg"
 
 const ProfProject = ({ expImgLogo, projRole, projDuration, projOrg, projDesc }) => {
   return (
     <>
       <div className="proj-boxesOne">
         <div className="profproj-content">
-          <img src={expImgLogo} alt="" />
+          <img src={expImgLogo || projLogo} alt="" />
           <div className="project-boxTwo">
             <p className="projrole">{projRole}</p>
             <p className="projDuration">{projDuration}</p>

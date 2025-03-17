@@ -1,11 +1,12 @@
 import React from "react";
+import certiLogo from "../../images/simplilearnLogo.jpg"
 
 const ProfCertiCard = ({ certiImg, certName, certOrg, certIssueDate }) => {
   return (
     <>
       <div className="certif-boxes">
         <div className="certi-boxOne">
-          <img src={certiImg} alt="" />
+          <img src={certiImg || certiLogo} alt="" />
           <div className="certi-box-content">
             <div className="certif-boxTwo">
               <p className="certiName">{certName}</p>

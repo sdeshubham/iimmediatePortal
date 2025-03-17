@@ -1,5 +1,6 @@
 import React from "react";
 import "../../stylesheets/EmpProfile.css"
+import projLogo from "../../images/profInstitueLogo.svg"
 
 const ProfEducation = ({
   eduImg,
@@ -12,7 +13,7 @@ const ProfEducation = ({
   return (
     <>
       <div className="edu-boxes">
-        <img src={eduImg} alt="" />
+        <img src={eduImg || projLogo} alt="" />
         <div className="edu-boxtwo">
           <div className="edu-boxTwohead">
             <p className="instituteName">{instituteName}</p>

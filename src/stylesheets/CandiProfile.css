@@ -1,9 +1,10 @@
 .empprofile-card {
-  width: 90%;
+  width: 100%;
   margin-top: 100px;
-  padding: 0 70px;
   display: flex;
   justify-content: center;
+
+  /* background-color: green; */
 }
 
 .profile-head {
@@ -27,6 +28,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
+  margin: 0 75px;
+
+  /* background-color: greenyellow; */
 }
 
 .profileCardHead img {

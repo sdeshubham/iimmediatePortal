@@ -28,6 +28,7 @@ import ProfCertiCard from "./cards/ProfCertiCard";
 import awardCardData from "./cards/candiDetailsData/awardCardData";
 import ProfAwardCard from "./cards/ProfAwardCard";
 import amitabhbachchan from "../images/amitabh-bachchan.jpg";
+import expLogo from "../images/expLogo.png";
 
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
@@ -144,7 +145,7 @@ const EmployeeProfile = () => {
                     <div className="personalInfo-colTwo">
                       <div className="colTwo-details">
                         <FaBusinessTime size={20} />
-                        <p>{userData.noticePeriod} Days</p>
+                        <p>{userData.noticePeriod} Days (Notice period)</p>
                       </div>
                       <div className="colTwo-details">
                         <IoCallSharp size={20} />
@@ -238,6 +239,7 @@ const EmployeeProfile = () => {
                     {userData.workExperiences.map((item, index) => (
                       <ProfExperience
                         key={index}
+                        image={item.image}
                         expRole={item.title}
                         expCompany={item.company_Name}
                         expLocation={item.location}
@@ -393,12 +395,12 @@ const EmployeeProfile = () => {
                   {userData.lic_certis.map((item, index) => (
                     <ProfCertiCard
                       key={index}
-                      certiImg={item.certificateUrl} // Assuming certiImg is the URL for the certificate image or logo
-                      certName={item.courses} // Mapping courses to certName
-                      certOrg={item.company_Name} // Mapping company_Name to certOrg
+                      certiImg={item.certificateUrl}
+                      certName={item.courses}
+                      certOrg={item.company_Name}
                       certIssueDate={new Date(
                         item.issued_Date
-                      ).toLocaleDateString()} // Format the issue date
+                      ).toLocaleDateString()}
                     />
                   ))}
                 </div>
@@ -432,18 +434,19 @@ const EmployeeProfile = () => {
                     {userData.awards.map((item, index) => (
                       <ProfAwardCard
                         key={index}
-                        awardImgLogo={item.awardImgLogo} // Assuming the image/logo is part of award data
-                        awardName={item.title} // Mapping title to awardName
-                        awardIssuedBy={item.issuedBy} // Mapping issuedBy directly to awardIssuedBy
+                        // awardImgLogo={item.awardImgLogo}
+                        awardName={item.title}
+                        awardIssuedBy={item.issuedBy}
                         awardIssueDate={new Date(
                           item.issuedDate
-                        ).toLocaleDateString()} // Formatting the issuedDate
-                        assosiate={item.assosiatedWith} // Mapping assosiatedWith to assosiate
+                        ).toLocaleDateString()}
+                        assosiate={item.assosiatedWith}
                       />
                     ))}
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
