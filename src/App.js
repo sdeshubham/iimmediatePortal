@@ -25,6 +25,8 @@ import EmployeeProfile from "./components/EmployeeProfile";
 import EmployerProfile from "./components/EmployerProfile";
 import EmprProf from "./components/EmprProf";
 import Dashboard from "./components/Dashboard";
+import EmpProfileShow from "./components/EmpProfileShow";
+import EmpProfileNew from "./components/EmpProfileNew";
 
 const App = () => {
   return (
@@ -61,6 +63,7 @@ const App = () => {
           <Route path="/employer-profile/:id" element={<EmprProf />} />
 
           <Route path="/employer" element={<Employer />} />
+          <Route path="/employeesprofile" element={<EmpProfileNew />} />
           <Route path="/user-details/:userId" element={<UserDetails />} />
 
           {/* Authentication Routes */}

@@ -175,3 +175,73 @@ nav {
   text-decoration: none;
   color: #012970;
 }
+
+.headerLoginProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ea4232;
+  border-radius: 10px;
+  padding: 7px 15px;
+}
+
+.headerLoginProfile {
+  position: relative;
+  cursor: pointer;
+}
+
+.headerLoginProfile p {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.headerLoginProfile img {
+  display: inline-block;
+}
+
+.headerProfDropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-start;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px 10px 10px 20px;
+  display: none;
+  height: 90px;
+  width: 150px;
+}
+
+.headerLoginProfile:hover .headerProfDropdown {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.headerProfDropdown p {
+  margin: 5px 0;
+  cursor: pointer;
+  color: #012970;
+}
+
+.headerProfDropdown p:hover {
+  color: #ea4232;
+}
+
+.emprSignOut-btn {
+  border: none;
+  background: none;
+  color: #012970;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.emprSignOut-btn:hover {
+  color: #ea4232;
+  cursor: pointer;
+}

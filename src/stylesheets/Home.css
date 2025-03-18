@@ -162,8 +162,9 @@
 
 .emprhomeCardDetails {
   display: flex;
-  flex-direction: column;
-  /* gap: 2px; */
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
 }
 
 .emprhomeCardDetails h6 {

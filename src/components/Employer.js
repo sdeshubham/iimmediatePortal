@@ -172,11 +172,10 @@ import empImg from "../images/cProfileImg.png";
 import { IoCallSharp } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
 import { IoShare } from "react-icons/io5";
-import selectedProfData from "../components/profileCards/selectedProfData";
-import SelectedProfCard from "./profileCards/SelectedProfCard";
 import { FaPlus } from "react-icons/fa6";
 import EmployerPopupCard from "../components/profileCards/EmployerPopupCard";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../components/AuthContext";
 
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
@@ -184,6 +183,7 @@ const Employer = () => {
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
   const { token } = useParams();
+  const { login } = useAuth();
 
   useEffect(() => {
     fetchUserData();
@@ -206,6 +206,7 @@ const Employer = () => {
         }
       );
       setUserData(response.data.res);
+      login(response.data.res);
     } catch (error) {
       console.error("Error fetching user data:", error);
       if (error.response?.status === 401) {
@@ -217,7 +218,7 @@ const Employer = () => {
   const refreshToken = async () => {
     try {
       const response = await axios.post(`${baseUrl}/api/v1/token/refreshToken`);
-      Cookies.set("authToken", response.data.token, { expires: 1 });
+      Cookies.set("authToken", response.data.token, { expires: 1 }); // 1 din tak valid
       fetchUserData();
     } catch (error) {
       console.error("Error refreshing token:", error);
@@ -250,7 +251,7 @@ const Employer = () => {
                   <h4>{userData.name} | {userData.designationName}</h4>
                   <div className="comp-call">
                     <IoCallSharp size={20} />
-                    {userData.contactNumber}
+                    +91 {userData.contactNumber}
                   </div>
                   <div className="comp-mail">
                     <IoIosMail size={20} />
