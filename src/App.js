@@ -22,6 +22,9 @@ import { AuthProvider } from './components/AuthContext';
 import UserDetails from "./components/UserDetails";
 import ScrollToTop from "./components/ScrollToTop";
 import EmployeeProfile from "./components/EmployeeProfile";
+import EmployerProfile from "./components/EmployerProfile";
+import EmprProf from "./components/EmprProf";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   return (
@@ -44,12 +47,18 @@ const App = () => {
           <Route path="/privacy&policy" element={<Privacy />} />
           <Route path="/terms&condition" element={<Terms />} />
 
+          <Route path="/dashboard" element={<Dashboard />} />
+
           {/* Profile Pages */}
           {/* <Route path="/employee" element={<CandiProfile />} /> */}
           {/* <Route path="/employee/:id" element={<CandiProfile />} /> */}
 
 
           <Route path="/employee-profile/:id" element={<EmployeeProfile />} />
+          <Route path="/employer-profile/:id" element={<EmployerProfile />} />
+          {/* <Route path="/employer-profile" element={<EmployerProfile />} /> */}
+
+          <Route path="/employer-profile/:id" element={<EmprProf />} />
 
           <Route path="/employer" element={<Employer />} />
           <Route path="/user-details/:userId" element={<UserDetails />} />

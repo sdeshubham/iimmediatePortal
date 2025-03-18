@@ -1,6 +1,6 @@
 import React from "react";
 import "../../stylesheets/EmpProfile.css"
-import projLogo from "../../images/profInstitueLogo.svg"
+import projLogo from "../../images/defaultImg.png"
 
 const ProfEducation = ({
   eduImg,

@@ -6,9 +6,6 @@ const ProfSkills = ({
   skillListTwo,
   skillListThree,
   skillListFour,
-  skillListFive,
-  skillListSix,
-  skillListSeven,
 }) => {
   return (
     <>

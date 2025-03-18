@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
 import "../stylesheets/CandiProfile.css";
 import "../stylesheets/EmpProfile.css";
 import { FaLocationDot } from "react-icons/fa6";
@@ -17,18 +16,10 @@ import ProfAbout from "./cards/ProfAbout";
 import ProfExperience from "./cards/ProfExperience";
 import ProfProject from "./cards/ProfProject";
 import ProfSkills from "./cards/ProfSkills";
-import profSkillsData from "./cards/candiDetailsData/profSkillsData";
-import projectDetailData from "./cards/candiDetailsData/projectDetailData";
-import expCardData from "./cards/candiDetailsData/expCardData";
-import aboutMeData from "./cards/candiDetailsData/aboutMeData";
-import eduCardData from "./cards/candiDetailsData/eduCardData";
 import ProfEducation from "./cards/ProfEducation";
-import certiCardData from "./cards/candiDetailsData/certiCardData";
 import ProfCertiCard from "./cards/ProfCertiCard";
-import awardCardData from "./cards/candiDetailsData/awardCardData";
 import ProfAwardCard from "./cards/ProfAwardCard";
-import amitabhbachchan from "../images/amitabh-bachchan.jpg";
-import expLogo from "../images/expLogo.png";
+import amitabhbachchan from "../images/employeeDefaultProfile.jpg";
 
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
@@ -36,36 +27,6 @@ const EmployeeProfile = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     try {
-  //       console.log("Fetching user data for ID:", id);
-  //       const response = await axios.post(
-  //         `${baseUrl}/api/getAllUserDetails`,
-  //         { userId: id },
-  //         { headers: { "Content-Type": "application/json" } }
-  //       );
-
-  //       console.log("API Response:", response.data);
-
-  //       if (response.data.status === 200 && response.data.result.length > 0) {
-  //         const userData = response.data.result[0];
-  //         setUserData({ ...userData, id: userData._id });
-  //       } else {
-  //         console.error("User data not found");
-  //         setUserData(null);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching user data:", error);
-  //       setUserData(null);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchUserData();
-  // }, [id]);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -179,20 +140,6 @@ const EmployeeProfile = () => {
 
           <div className="profile-secTwo">
             <div className="profile-contentBox">
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>About Me</h2>
-                </div>
-                <div className="about-card-box-details">
-                  <div>
-                    <div>
-                      {aboutMeData.map((item, index) => (
-                        <ProfAbout key={index} aboutText={item.aboutText} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>About Me</h2>
@@ -203,33 +150,13 @@ const EmployeeProfile = () => {
                       {userData && userData.about ? (
                         <ProfAbout aboutText={userData.about} />
                       ) : (
-                        <p>No information available</p>
+                        <p></p>
                       )}
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>Experience</h2>
-                </div>
-                <div className="exp-card-box-details">
-                  <div>
-                    {expCardData.map((item, index) => (
-                      <ProfExperience
-                        key={index}
-                        expImgLogo={item.expImgLogo}
-                        expRole={item.expRole}
-                        expCompany={item.expCompany}
-                        expLocation={item.expLocation}
-                        expDuration={item.expDuration}
-                        expDesc={item.expDesc}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Experience</h2>
@@ -257,25 +184,6 @@ const EmployeeProfile = () => {
                 </div>
               </div>
 
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>Projects</h2>
-                </div>
-                <div className="proj-card-box-details">
-                  <div>
-                    {projectDetailData.map((item, index) => (
-                      <ProfProject
-                        key={index}
-                        expImgLogo={item.expImgLogo}
-                        projRole={item.projRole}
-                        projDuration={item.projDuration}
-                        projOrg={item.projOrg}
-                        projDesc={item.projDesc}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Projects</h2>
@@ -301,23 +209,6 @@ const EmployeeProfile = () => {
                 </div>
               </div>
 
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>Skills</h2>
-                </div>
-                <div>
-                  <div className="skills-card-box-details">
-                    <div className="skillsbox-card">
-                      {profSkillsData.map((item, index) => (
-                        <ProfSkills
-                          key={index}
-                          skillListOne={item.skillListOne}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Skills</h2>
@@ -336,22 +227,6 @@ const EmployeeProfile = () => {
                 </div>
               </div>
 
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>Education</h2>
-                </div>
-                {eduCardData.map((item, index) => (
-                  <ProfEducation
-                    key={index}
-                    eduImg={item.eduImg}
-                    instituteName={item.instituteName}
-                    graduation={item.graduation}
-                    eduLocation={item.eduLocation}
-                    eduYear={item.eduYear}
-                    eduCgpa={item.eduCgpa}
-                  />
-                ))}
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Education</h2>
@@ -371,22 +246,6 @@ const EmployeeProfile = () => {
                 ))}
               </div>
 
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>Licenses & Certifications</h2>
-                </div>
-                <div>
-                  {certiCardData.map((item, index) => (
-                    <ProfCertiCard
-                      key={index}
-                      certiImg={item.certiImg}
-                      certName={item.certName}
-                      certOrg={item.certOrg}
-                      certIssueDate={item.certIssueDate}
-                    />
-                  ))}
-                </div>
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Licenses & Certifications</h2>
@@ -395,7 +254,6 @@ const EmployeeProfile = () => {
                   {userData.lic_certis.map((item, index) => (
                     <ProfCertiCard
                       key={index}
-                      certiImg={item.certificateUrl}
                       certName={item.courses}
                       certOrg={item.company_Name}
                       certIssueDate={new Date(
@@ -406,25 +264,6 @@ const EmployeeProfile = () => {
                 </div>
               </div>
 
-              {/* <div className="content-boxes">
-                <div className="content-boxes-head">
-                  <h2>Honors & Awards</h2>
-                </div>
-                <div className="award-card-box-details">
-                  <div>
-                    {awardCardData.map((item, index) => (
-                      <ProfAwardCard
-                        key={index}
-                        awardImgLogo={item.awardImgLogo}
-                        awardName={item.awardName}
-                        awardIssuedBy={item.awardIssuedBy}
-                        awardIssueDate={item.awardIssueDate}
-                        assosiate={item.assosiate}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div> */}
               <div className="content-boxes">
                 <div className="content-boxes-head">
                   <h2>Honors & Awards</h2>
@@ -434,7 +273,6 @@ const EmployeeProfile = () => {
                     {userData.awards.map((item, index) => (
                       <ProfAwardCard
                         key={index}
-                        // awardImgLogo={item.awardImgLogo}
                         awardName={item.title}
                         awardIssuedBy={item.issuedBy}
                         awardIssueDate={new Date(
@@ -446,7 +284,6 @@ const EmployeeProfile = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

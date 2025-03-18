@@ -3,6 +3,14 @@
   height: 100%;
 }
 
+.emprProfBox {
+  margin-top: 300px;
+}
+
+.employerProfileBox {
+  margin-top: 300px;
+}
+
 .prof-sectionOne {
   background-color: #ea4232;
   color: #fff;

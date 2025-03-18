@@ -66,12 +66,6 @@
 
 // export default SelectedProfCard;
 
-
-
-
-
-
-
 // import React from "react";
 // import { MdOutlineLocationOn } from "react-icons/md";
 // import { IoMdTime } from "react-icons/io";
@@ -92,10 +86,10 @@
 //   about,
 // }) => {
 //   const navigate = useNavigate();
-  
+
 //   const handleViewProfile = (id) => {
 //     navigate(`/employee-profile?_id=${_id}`);
-//   };  
+//   };
 
 //   return (
 //     <div className="selectedprof">
@@ -137,7 +131,6 @@
 
 // export default SelectedProfCard;
 
-
 import React from "react";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { IoMdTime } from "react-icons/io";
@@ -156,6 +149,7 @@ const SelectedProfCard = ({
   skillThree,
   gender,
   about,
+  skills = [],
 }) => {
   const navigate = useNavigate();
 
@@ -188,9 +182,15 @@ const SelectedProfCard = ({
         <p>{about}</p>
       </div>
       <div className="skills">
-        <p className="skills-set">{skillOne}</p>
-        <p className="skills-set">{skillTwo}</p>
-        <p className="skills-set">{skillThree}</p>
+        {skills.length > 0 ? (
+          skills.map((skill, index) => (
+            <p key={index} className="skills-set">
+              {skill}
+            </p>
+          ))
+        ) : (
+          <p></p>
+        )}
       </div>
       <button className="profview-more" onClick={handleViewProfile}>
         View Profile

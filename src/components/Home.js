@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../stylesheets/Home.css";
+import axios from "axios";
 import k5Img from "../images/Group 2.png";
 import amazon from "../images/Amazon.png";
 import paytm from "../images/Paytm.png";
@@ -16,15 +17,12 @@ import { IoIosSearch } from "react-icons/io";
 import honelocationIcon from "../images/honelocationIcons.png";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
+import EmployerHomeCard from "./cards/EmployerHomeCard";
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
-const Home = ({user, id}) => {
+const Home = () => {
   const navigate = useNavigate();
-
-  const handleActiveClick = () => {
-    navigate(`/employee-profile/${id}`);
-  };
 
   const handleLocationClick = (location) => {
     navigate(`/empfilter?location=${encodeURIComponent(location)}`);
@@ -43,6 +41,7 @@ const Home = ({user, id}) => {
     window.scrollTo(0, 0);
   };
 
+  const [companies, setCompanies] = useState([]);
   const [activeJoiners, setActiveJoiners] = useState([]);
   const [loading, setLoading] = useState(true);
   const [techStacks, setTechStacks] = useState([]);
@@ -51,6 +50,23 @@ const Home = ({user, id}) => {
   const [users, setUsers] = useState([]);
   const [allJoiners, setAllJoiners] = useState([]);
   const [loadingMore, setLoadingMore] = useState(false);
+
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_URL}/withOutLogin/getAllCompanyHomePage`
+        );
+        if (response.data.status === 200) {
+          setCompanies(response.data.result.slice(0, 5)); // Set companies data
+        }
+      } catch (error) {
+        console.error("Error fetching companies:", error);
+      }
+    };
+
+    fetchCompanies();
+  }, []);
 
   useEffect(() => {
     api
@@ -177,18 +193,34 @@ const Home = ({user, id}) => {
             </form>
             <img src={k5Img} alt="" />
           </div>
+
           <div className="home-second-box">
             <h5>
               Brands you Admire and Dream of working with are <span>here!</span>
             </h5>
-            <div className="main-sec-brands">
+            {/* <div className="main-sec-brands">
               <img src={amazon} alt="amazon image" />
               <img src={paytm} alt="paytm image" />
               <img src={uber} alt="uber image" />
               <img src={adani} alt="adani image" />
               <img src={airbnb} alt="airbnb image" />
               <img src={spotify} alt="spotify image" />
+            </div> */}
+            <div className="main-sec-brands">
+              {companies.length > 0 ? (
+                companies.map((company) => (
+                  <EmployerHomeCard
+                    key={company._id}
+                    id={company.id}
+                    companyName={company.companyName}
+                    logo={company.logo}
+                  />
+                ))
+              ) : (
+                <p>Loading companies...</p>
+              )}
             </div>
+            
           </div>
         </div>
       </div>
@@ -214,7 +246,7 @@ const Home = ({user, id}) => {
         <div className="activejoiner-cardbox">
           {activeJoiners && activeJoiners.length > 0 ? (
             [...activeJoiners, ...allJoiners].map((item) => (
-              <a href={`/employee-profile/${user._id}`} onClick={handleActiveClick} key={item._id}>
+              <a href="" key={item._id}>
                 <ActiveJoinerCard
                   // image={item.image ? item.image : "profile.png"}
                   image={

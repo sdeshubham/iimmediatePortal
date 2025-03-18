@@ -23,7 +23,7 @@ const HomeAbout = () => {
           <Link to="/employee-profile">
             <button className="empBtn">Employee</button>
           </Link>
-          <Link to="/employer">
+          <Link to="/employer-profile">
             <button className="jobseekerBtn">Employer</button>
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "../../stylesheets/EmpProfile.css";
-import expLogo from "../../images/expLogo.png"
+import expLogo from "../../images/defaultImg.png"
 
 const ProfExperience = ({
   expImgLogo,

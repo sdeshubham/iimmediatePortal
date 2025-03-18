@@ -1,4 +1,5 @@
 import React from "react";
+import awardLogo from "../../images/defaultImg.png"
 
 const ProfAwardCard = ({
   awardImgLogo,
@@ -10,7 +11,7 @@ const ProfAwardCard = ({
   return (
     <>
       <div className="award-boxes">
-        <img src={awardImgLogo} alt="" />
+        <img src={awardImgLogo || awardLogo} alt="" />
         <div className="award-boxTwo">
           <p className="awardName">{awardName}</p>
           <div className="award-subbox">

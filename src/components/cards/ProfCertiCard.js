@@ -1,5 +1,5 @@
 import React from "react";
-import certiLogo from "../../images/simplilearnLogo.jpg"
+import certiLogo from "../../images/defaultImg.png"
 
 const ProfCertiCard = ({ certiImg, certName, certOrg, certIssueDate }) => {
   return (

@@ -75,7 +75,7 @@ const EmpSignIn = () => {
       try {
         console.log(`Checking mobile number: ${formData.mobileNumber}`);
         let NumberedMobile = Number(formData.mobileNumber);
-        const response = await axios.post(`${baseUrl}/register`, {
+        const response = await axios.post(`${baseUrl}/mobileNumberVerificationSetup`, {
           mobileNumber: NumberedMobile,
         });
   

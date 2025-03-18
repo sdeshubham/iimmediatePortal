@@ -1,5 +1,5 @@
 import React from "react";
-import projLogo from "../../images/profInstitueLogo.svg"
+import projLogo from "../../images/defaultImg.png"
 
 const ProfProject = ({ expImgLogo, projRole, projDuration, projOrg, projDesc }) => {
   return (

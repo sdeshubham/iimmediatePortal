@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../stylesheets/EmpFilter.css";
-import SalaryFilterCard from "./SalaryFilterCard"
+import SalaryFilterCard from "./SalaryFilterCard";
 import SelectedProfCard from "../profileCards/SelectedProfCard";
 import { TbMinusVertical } from "react-icons/tb";
 import { FaAngleDown } from "react-icons/fa6";
@@ -220,12 +220,11 @@ const EmpFilter = () => {
       }
     };
 
-    // API Call debounce
     const timeoutId = setTimeout(() => {
       fetchProfiles();
     }, 500);
 
-    return () => clearTimeout(timeoutId); // Cleanup on dependency change
+    return () => clearTimeout(timeoutId);
   }, [filters]);
 
   return (
@@ -309,7 +308,13 @@ const EmpFilter = () => {
             <div className="filter-top">
               <div className="top-filters">
                 <div className="input-with-icon">
-                  <input type="text" name="jobType" placeholder="Job type" />
+                  <input
+                    type="text"
+                    name="jobType"
+                    placeholder="Tech Stack/Skill"
+                    value={filters.expertTecStack}
+                    onChange={handleStackChange}
+                  />
                 </div>
                 <div className="filter-topverti-icon">
                   <TbMinusVertical size={30} color="#ddd" />
@@ -318,8 +323,8 @@ const EmpFilter = () => {
                   <input
                     type="text"
                     name="designation"
-                    value={filters.expertTecStack}
-                    placeholder="Tech Stack/Designation"
+                    value={filters.designation}
+                    placeholder="Role/Designation"
                     onChange={handleStackChange}
                     onKeyDown={handleStackChange}
                   />
@@ -371,9 +376,10 @@ const EmpFilter = () => {
                     noticePeriod={profile.noticePeriod}
                     gender={profile.gender}
                     about={profile.about}
-                    skillOne={profile.skillName?.[0]}
-                    skillTwo={profile.skillName?.[1]}
-                    skillThree={profile.skillName?.[2]}
+                    skills={profile.skillName}
+                    // skillOne={profile.skillName?.[0]}
+                    // skillTwo={profile.skillName?.[1]}
+                    // skillThree={profile.skillName?.[2]}
                   />
                 ))
               )}
