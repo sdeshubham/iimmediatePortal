@@ -75,21 +75,98 @@
 
 // export default EmpProfileShow;
 
+// import React, { useEffect, useState } from "react";
+// import Cookies from "js-cookie";
+// import { useNavigate } from "react-router-dom";
+
+// const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
+
+// const EmpProfileShow = () => {
+//   const [userData, setUserData] = useState(null);
+//   const [error, setError] = useState(null);
+//   const authToken = Cookies.get("authToken");
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchUserData = async () => {
+//       if (!authToken) return;
+//       try {
+//         const response = await fetch(`${baseUrl}/api/getAllUserDetails`, {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${authToken}`,
+//           },
+//           body: JSON.stringify({ userId: "67d17c41535a0159eedc457a" }),
+//         });
+//         const data = await response.json();
+//         if (data.status === 200) {
+//           setUserData(data.result[0]);
+//         } else {
+//           setError(data.message);
+//         }
+//       } catch (error) {
+//         setError("Failed to fetch user data");
+//       }
+//     };
+
+//     fetchUserData();
+//   }, [authToken]);
+
+//   const handleLogout = () => {
+//     Cookies.remove("authToken");
+//     navigate("/signin");
+//   };
+
+//   if (!authToken) {
+//     return <p>Please log in to view your profile.</p>;
+//   }
+
+//   return (
+//     <div>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       {userData ? (
+//         <div>
+//           <h2>{userData.name}</h2>
+//           <img src={userData.image} alt="Profile" width={100} />
+//           <p>Email: {userData.email}</p>
+//           <p>Mobile: {userData.mobileNumber}</p>
+//           <p>Position: {userData.currentPosition}</p>
+//           <p>Location: {userData.location}</p>
+//           <button onClick={handleLogout}>Logout</button>
+//         </div>
+//       ) : (
+//         <p>Loading...</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default EmpProfileShow;
+
+
+
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
+// You can replace baseUrl if needed
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
 const EmpProfileShow = () => {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
-  const authToken = Cookies.get("authToken");
+  const authToken = Cookies.get("authToken"); // Get token from cookies
+  const userId = Cookies.get("userId"); // Get user ID from cookies
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!authToken || !userId) {
+      navigate("/signin"); // If no token or user ID, redirect to login
+      return;
+    }
+
     const fetchUserData = async () => {
-      if (!authToken) return;
       try {
         const response = await fetch(`${baseUrl}/api/getAllUserDetails`, {
           method: "POST",
@@ -97,28 +174,31 @@ const EmpProfileShow = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${authToken}`,
           },
-          body: JSON.stringify({ userId: "67d17c41535a0159eedc457a" }),
+          body: JSON.stringify({ userId: userId }),
         });
+
         const data = await response.json();
+
         if (data.status === 200) {
           setUserData(data.result[0]);
         } else {
           setError(data.message);
         }
       } catch (error) {
-        setError("Failed to fetch user data");
+        setError("Error fetching data");
       }
     };
 
     fetchUserData();
-  }, [authToken]);
+  }, [authToken, userId, navigate]);
 
   const handleLogout = () => {
     Cookies.remove("authToken");
-    navigate("/signin"); // Navigate to signin page after logout
+    Cookies.remove("userId");
+    navigate("/signin");
   };
 
-  if (!authToken) {
+  if (!authToken || !userId) {
     return <p>Please log in to view your profile.</p>;
   }
 
@@ -128,7 +208,7 @@ const EmpProfileShow = () => {
       {userData ? (
         <div>
           <h2>{userData.name}</h2>
-          <img src={userData.image} alt="Profile" width={100} />
+          <img src={userData.image || "default-image-url.jpg"} alt="Profile" width={100} />
           <p>Email: {userData.email}</p>
           <p>Mobile: {userData.mobileNumber}</p>
           <p>Position: {userData.currentPosition}</p>

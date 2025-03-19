@@ -129,9 +129,9 @@ const EmpSignUp = () => {
 
         console.log(response.data.result);
 
-        const userId = response.data.result._id;
+        // const userId = response.data.result._id;
 
-        navigate(`/signin/${userId}`);
+        navigate(`/signin`);
       } else {
         alert(`Error: ${response.data.message}`);
       }

@@ -23,6 +23,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import EmployeeProfile from "./components/EmployeeProfile";
 import EmployerProfile from "./components/EmployerProfile";
 import EmpProfileShow from "./components/EmpProfileShow";
+import Employee from "./components/EmployeePage";
+import EmployeePage from "./components/EmployeePage";
 
 const App = () => {
   return (
@@ -47,6 +49,7 @@ const App = () => {
 
           {/* Profile Pages */}
           <Route path="/employer" element={<Employer />} />
+          <Route path="/employee-page" element={<EmployeePage />} />
           
           <Route path="/employee-profile/:id" element={<EmployeeProfile />} />
           <Route path="/employer-profile/:id" element={<EmployerProfile />} />
@@ -54,7 +57,7 @@ const App = () => {
           <Route path="/active-joiner-profile/:id" element={<EmployeeProfile />} />
           {/* <Route path="/employer-profile/:id" element={<EmployerProfile />} /> */}
 
-          <Route path="/employeesprofile" element={<EmpProfileShow />} />
+          {/* <Route path="/employeesprofile" element={<EmpProfileShow />} /> */}
           <Route path="/user-details/:userId" element={<UserDetails />} />
 
           {/* Authentication Routes */}
