@@ -223,10 +223,15 @@ nav {
   cursor: pointer;
 }
 
-.headerProfDropdown p {
-  margin: 5px 0;
+.headerProfDropdown a {
+  /* margin: 5px 0; */
+  font-weight: 400;
   cursor: pointer;
   color: #012970;
+  text-align: left;
+  padding: 0;
+
+  /* background-color: greenyellow; */
 }
 
 .headerProfDropdown p:hover {
@@ -239,6 +244,8 @@ nav {
   color: #012970;
   font-weight: 500;
   font-size: 14px;
+
+  /* background-color: greenyellow; */
 }
 
 .emprSignOut-btn:hover {

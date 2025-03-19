@@ -135,6 +135,7 @@ import React from "react";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { IoMdTime } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import "../../stylesheets/Employer.css"
 
 const SelectedProfCard = ({
   id,

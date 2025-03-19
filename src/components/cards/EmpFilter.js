@@ -377,9 +377,6 @@ const EmpFilter = () => {
                     gender={profile.gender}
                     about={profile.about}
                     skills={profile.skillName}
-                    // skillOne={profile.skillName?.[0]}
-                    // skillTwo={profile.skillName?.[1]}
-                    // skillThree={profile.skillName?.[2]}
                   />
                 ))
               )}

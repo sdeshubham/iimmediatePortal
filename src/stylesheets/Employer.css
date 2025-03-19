@@ -4,7 +4,7 @@
 }
 
 .emprProfBox {
-  margin-top: 300px;
+  padding: 300px 0;
 }
 
 .employerProfileBox {
@@ -163,6 +163,7 @@
 
 .selectedprof-card img {
   height: 80px;
+  width: 80px;
   object-fit: cover;
   border-radius: 50%;
 }

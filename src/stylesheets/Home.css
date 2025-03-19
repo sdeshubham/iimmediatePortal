@@ -219,6 +219,7 @@
 
 .avctivejoiner-details {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   gap: 3px;
   margin-left: 3px;
@@ -228,15 +229,24 @@
 .activejoiner-details-one {
   width: 180px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 
   /* background-color: #e7e7ad; */
+}
+
+.rupeeIcons {
+  margin: 0;
+  padding: 0;
 }
 
 .activejoiner-details-two {
   width: 180px;
   display: flex;
-  justify-content: space-between;
+  justify-content:left;
+
+  /* background-color: yellow; */
 }
 
 .stack-details-one img {
@@ -244,13 +254,20 @@
   width: 35px;
 }
 
+.activejoiner-name {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
 .activejoiner-details-one h4 {
   margin: 0;
-  width: 60%;
+  width: 57%;
   font-size: 12px;
   text-align: left;
   color: #012970;
   font-weight: 600;
+
   /* background-color: greenyellow; */
 }
 
@@ -259,7 +276,7 @@
   align-items: center;
   gap: 3px;
   margin: 0;
-  width: 40%;
+  width: 41%;
   font-size: 10px;
   text-align: left;
   color: #727272;
@@ -271,7 +288,7 @@
   font-size: 10px;
   text-align: left;
   color: #727272;
-  width: 135px;
+  width: 120px;
 }
 
 .activejoiner-expyear {
@@ -286,8 +303,8 @@
 }
 
 .activeCardImg {
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   object-fit: cover;
   border-radius: 50%;
 }

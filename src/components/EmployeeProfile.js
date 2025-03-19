@@ -9,7 +9,6 @@ import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { FaBusinessTime } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
-import { RiEditBoxLine } from "react-icons/ri";
 import { FiDownload } from "react-icons/fi";
 import { IoEyeOutline } from "react-icons/io5";
 import ProfAbout from "./cards/ProfAbout";
@@ -82,7 +81,7 @@ const EmployeeProfile = () => {
         <div className="profileCard-box">
           <div className="profile-secOne">
             <div className="profileCardHead">
-              <img src={amitabhbachchan} alt="" />
+              <img src={userData.image} alt="" />
               <div className="cadidate-basicInfo">
                 <h3>{userData.name}</h3>
                 <p>{userData.currentPosition}</p>

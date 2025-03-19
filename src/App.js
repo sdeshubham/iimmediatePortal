@@ -16,23 +16,19 @@ import SignUp from "./components/SignUp";
 import Terms from "./components/Terms";
 import Privacy from "./components/Privacy";
 import Employer from "./components/Employer";
-import CandiProfile from "./components/CandiProfile";
 import EmpFilter from "./components/cards/EmpFilter";
 import { AuthProvider } from './components/AuthContext';
 import UserDetails from "./components/UserDetails";
 import ScrollToTop from "./components/ScrollToTop";
 import EmployeeProfile from "./components/EmployeeProfile";
 import EmployerProfile from "./components/EmployerProfile";
-import EmprProf from "./components/EmprProf";
-import Dashboard from "./components/Dashboard";
 import EmpProfileShow from "./components/EmpProfileShow";
-import EmpProfileNew from "./components/EmpProfileNew";
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
-      <ScrollToTop />
+        <ScrollToTop />
         <Header />
 
         <Routes>
@@ -49,21 +45,16 @@ const App = () => {
           <Route path="/privacy&policy" element={<Privacy />} />
           <Route path="/terms&condition" element={<Terms />} />
 
-          <Route path="/dashboard" element={<Dashboard />} />
-
           {/* Profile Pages */}
-          {/* <Route path="/employee" element={<CandiProfile />} /> */}
-          {/* <Route path="/employee/:id" element={<CandiProfile />} /> */}
-
-
+          <Route path="/employer" element={<Employer />} />
+          
           <Route path="/employee-profile/:id" element={<EmployeeProfile />} />
           <Route path="/employer-profile/:id" element={<EmployerProfile />} />
-          {/* <Route path="/employer-profile" element={<EmployerProfile />} /> */}
+          
+          <Route path="/active-joiner-profile/:id" element={<EmployeeProfile />} />
+          {/* <Route path="/employer-profile/:id" element={<EmployerProfile />} /> */}
 
-          <Route path="/employer-profile/:id" element={<EmprProf />} />
-
-          <Route path="/employer" element={<Employer />} />
-          <Route path="/employeesprofile" element={<EmpProfileNew />} />
+          <Route path="/employeesprofile" element={<EmpProfileShow />} />
           <Route path="/user-details/:userId" element={<UserDetails />} />
 
           {/* Authentication Routes */}
@@ -74,7 +65,7 @@ const App = () => {
         <Footer />
         <ScrollToTop />
       </Router>
-    </AuthProvider >
+    </AuthProvider>
   );
 };
 

@@ -2,12 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../stylesheets/Home.css";
 import axios from "axios";
 import k5Img from "../images/Group 2.png";
-import amazon from "../images/Amazon.png";
-import paytm from "../images/Paytm.png";
-import uber from "../images/Uber.png";
-import adani from "../images/Adani.png";
-import airbnb from "../images/Airbnb.png";
-import spotify from "../images/Spotify.png";
 import ActiveJoinerCard from "./cards/ActiveJoinerCard";
 import HuntLocationCard from "./cards/HuntLocationCard";
 import StackCard from "./cards/StackCard";
@@ -16,7 +10,7 @@ import HomeAbout from "./cards/HomeAbout";
 import { IoIosSearch } from "react-icons/io";
 import honelocationIcon from "../images/honelocationIcons.png";
 import api from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EmployerHomeCard from "./cards/EmployerHomeCard";
 
 const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
@@ -198,20 +192,12 @@ const Home = () => {
             <h5>
               Brands you Admire and Dream of working with are <span>here!</span>
             </h5>
-            {/* <div className="main-sec-brands">
-              <img src={amazon} alt="amazon image" />
-              <img src={paytm} alt="paytm image" />
-              <img src={uber} alt="uber image" />
-              <img src={adani} alt="adani image" />
-              <img src={airbnb} alt="airbnb image" />
-              <img src={spotify} alt="spotify image" />
-            </div> */}
             <div className="main-sec-brands">
               {companies.length > 0 ? (
                 companies.map((company) => (
                   <EmployerHomeCard
                     key={company._id}
-                    id={company.id}
+                    id={company._id}
                     companyName={company.companyName}
                     logo={company.logo}
                   />
@@ -220,7 +206,6 @@ const Home = () => {
                 <p>Loading companies...</p>
               )}
             </div>
-            
           </div>
         </div>
       </div>
@@ -234,21 +219,25 @@ const Home = () => {
             <p>(Can join within 30 days)</p>
           </div>
           <div className="active-viewmore">
-            <a
-              href="/empfilter"
+            <Link
+              to="/empfilter"
               onClick={handleViewMore}
               disabled={loadingMore}
             >
               {loadingMore ? "Loading..." : "View More"}
-            </a>
+            </Link>
           </div>
         </div>
+
         <div className="activejoiner-cardbox">
           {activeJoiners && activeJoiners.length > 0 ? (
             [...activeJoiners, ...allJoiners].map((item) => (
-              <a href="" key={item._id}>
+              <a
+                href=""
+                key={item._id}
+                onClick={() => navigate(`/active-joiner-profile/${item._id}`)} // Navigate to the new page with user id
+              >
                 <ActiveJoinerCard
-                  // image={item.image ? item.image : "profile.png"}
                   image={
                     item.image
                       ? item.image

@@ -35,8 +35,8 @@
 }
 
 .profileCardHead img {
-  height: 24vh;
-  width: 13vw;
+  height: 180px;
+  width: 180px;
   background-color: #fff;
   border-radius: 50%;
 }

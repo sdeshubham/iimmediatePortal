@@ -1,68 +1,143 @@
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import Cookies from "js-cookie";
+
+// const BASE_URL = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
+
+// const EmpProfileShow = () => {
+//   const [userData, setUserData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   const fetchUserData = async (token) => {
+//     try {
+//       const response = await axios.post(
+//         `${BASE_URL}/api/getAllUserDetails`,
+//         { userId: "67d17c41535a0159eedc457a" },
+//         { headers: { Authorization: `Bearer ${token}` } }
+//       );
+
+//       if (response.data.status === 200) {
+//         setUserData(response.data.result[0]);
+//         setLoading(false);
+//       } else {
+//         throw new Error("Failed to fetch user data");
+//       }
+//     } catch (err) {
+//       if (err.response && err.response.status === 401) {
+//         refreshAuthToken();
+//       } else {
+//         setError("Error fetching data");
+//         setLoading(false);
+//       }
+//     }
+//   };
+
+//   const refreshAuthToken = async () => {
+//     try {
+//       const response = await axios.get(`${BASE_URL}/api/v1/token/refreshToken`);
+//       if (response.data.status === 200) {
+//         Cookies.set("authToken", response.data.token);
+//         fetchUserData(response.data.token);
+//       } else {
+//         throw new Error("Token refresh failed");
+//       }
+//     } catch (err) {
+//       setError("Session expired. Please log in again.");
+//       setLoading(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     const token = Cookies.get("authToken");
+//     if (token) {
+//       fetchUserData(token);
+//     } else {
+//       setError("No token found. Please log in.");
+//       setLoading(false);
+//     }
+//   }, []);
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p style={{ color: "red" }}>{error}</p>;
+
+//   return (
+//     <div>
+//       <h2>{userData.name}</h2>
+//       <p><strong>Email:</strong> {userData.email}</p>
+//       <p><strong>Mobile:</strong> {userData.mobileNumber}</p>
+//       <p><strong>Position:</strong> {userData.currentPosition}</p>
+//       <p><strong>Location:</strong> {userData.location}</p>
+//       <img src={userData.image} alt={userData.name} style={{ width: "150px", borderRadius: "10px" }} />
+//     </div>
+//   );
+// };
+
+// export default EmpProfileShow;
+
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
 const EmpProfileShow = () => {
-  const [profile, setProfile] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+  const authToken = Cookies.get("authToken");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProfile = async () => {
-        const token = Cookies.get("authToken");
-        console.log("Token:", token);
-        
-        if (!token) {
-          navigate("/signin");
-          return;
+    const fetchUserData = async () => {
+      if (!authToken) return;
+      try {
+        const response = await fetch(`${baseUrl}/api/getAllUserDetails`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: JSON.stringify({ userId: "67d17c41535a0159eedc457a" }),
+        });
+        const data = await response.json();
+        if (data.status === 200) {
+          setUserData(data.result[0]);
+        } else {
+          setError(data.message);
         }
-      
-        try {
-          const response = await fetch(`${baseUrl}/getAllUserDetails`, {
-            method: "GET",
-            headers: { Authorization: `Bearer ${token}` },
-          });
-      
-          if (!response.ok) {
-            throw new Error('Failed to fetch profile: ' + response.statusText);
-          }
-      
-          // Check if response is JSON
-          const contentType = response.headers.get("content-type");
-          if (contentType && contentType.includes("application/json")) {
-            const data = await response.json();
-            if (data.status === 200) {
-              setProfile(data.result);
-            } else {
-              alert("Failed to fetch profile");
-            }
-          } else {
-            console.error("Received non-JSON response");
-          }
-        } catch (error) {
-          console.error("Error fetching profile:", error);
-        }
-      };
-      
+      } catch (error) {
+        setError("Failed to fetch user data");
+      }
+    };
 
-    fetchProfile();
-  }, [navigate]);
+    fetchUserData();
+  }, [authToken]);
 
-  // Display loading text until profile data is fetched
-  if (!profile) return <p>Loading...</p>;
+  const handleLogout = () => {
+    Cookies.remove("authToken");
+    navigate("/signin"); // Navigate to signin page after logout
+  };
 
-  // Display the profile details after they are fetched
+  if (!authToken) {
+    return <p>Please log in to view your profile.</p>;
+  }
+
   return (
-    <div className="profile-card">
-      <h2>{profile.name}</h2>
-      <p><strong>Mobile:</strong> {profile.mobileNumber}</p>
-      <p><strong>Email:</strong> {profile.email}</p>
-      <p><strong>Gender:</strong> {profile.gender}</p>
-      <p><strong>About:</strong> {profile.about}</p>
-      <p><strong>Current Position:</strong> {profile.currentPosition}</p>
-      <p><strong>Company:</strong> {profile.companyName}</p>
-      <p><strong>Location:</strong> {profile.location}</p>
+    <div>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {userData ? (
+        <div>
+          <h2>{userData.name}</h2>
+          <img src={userData.image} alt="Profile" width={100} />
+          <p>Email: {userData.email}</p>
+          <p>Mobile: {userData.mobileNumber}</p>
+          <p>Position: {userData.currentPosition}</p>
+          <p>Location: {userData.location}</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };

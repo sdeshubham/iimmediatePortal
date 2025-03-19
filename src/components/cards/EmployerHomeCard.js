@@ -9,6 +9,7 @@ const EmployerHomeCard = ({ id, companyName }) => {
   const handleViewEmprProfile = () => {
     navigate(`/employer-profile/${id}`);
   };
+  
 
   return (
     <div className="emprCardBox">

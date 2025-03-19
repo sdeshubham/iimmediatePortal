@@ -111,7 +111,7 @@ const EmpSignIn = () => {
 
         if (data.token) {
           Cookies.set("authToken", data.token, { expires: 1 }); // Store token in cookies
-          navigate("/employer"); // Redirect to employer page after successful login
+          navigate("/employeesprofile"); // Redirect to employer page after successful login
         }
       } else {
         setError(data.message);
