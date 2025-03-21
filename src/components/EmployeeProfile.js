@@ -75,6 +75,7 @@ const EmployeeProfile = () => {
   if (!userData) {
     return <h2>User data not found</h2>;
   }
+  
   return (
     <div>
       <div className="empprofile-card">

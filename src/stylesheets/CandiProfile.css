@@ -3,7 +3,6 @@
   margin-top: 100px;
   display: flex;
   justify-content: center;
-
   /* background-color: green; */
 }
 
@@ -177,6 +176,12 @@
 }
 
 /* ------------------------- */
+
+.editIconEmpTop button {
+  background-color: #ea4232;
+  color: #fff;
+  border: none;
+}
 
 .profile-secTwo {
   min-height: 80vh;

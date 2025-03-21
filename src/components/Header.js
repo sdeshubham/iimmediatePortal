@@ -34,6 +34,7 @@ const Header = () => {
           },
           body: JSON.stringify({ userId }),
         });
+        
         const data = await response.json();
         if (data.status === 200) {
           setEmployerName(data.result[0]?.name || "Employer");
@@ -102,7 +103,7 @@ const Header = () => {
       <img src={defaultLogo} alt="" height={25} />
       {menuOpen && (
         <div className="headerProfDropdown">
-          <Link to="/employer">View Profile</Link>
+          <Link to="/employee-page">View Profile</Link>
           <button onClick={handleLogout} className="emprSignOut-btn">
             Log Out
           </button>

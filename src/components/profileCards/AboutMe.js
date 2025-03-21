@@ -59,20 +59,22 @@
 
 // export default AboutMe;
 
+
+
+
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { RxCross2 } from "react-icons/rx";
 import "../../stylesheets/InputFields.css";
 
-import { useAuth } from "../AuthContext";
+const baseUrl = "https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com";
 
-const baseURL = 'https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api'
-
-
-const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
+const AboutMe = ({ onClose, fetchUserData }) => {
   const [message, setMessage] = useState("");
-
-  const { user } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -80,36 +82,40 @@ const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (aboutText === "" || aboutText === null || aboutText === undefined) {
-      const response = await axios.post(`${baseURL}/addAboutMe`, 
-        {
-          "about": message
-        },
-        {
-        headers: {
-          Authorization: `Bearer ${user.token}`, // Passing the token
-        },
-      })
-      setAboutDataObject({aboutText:message})
-      console.log('inside about me',response.data.result.about)
-    }
-    else {
-      const response = await axios.post(`${baseURL}/editAboutMe`, 
-        {
-          "about": message
-        },
-        {
-        headers: {
-          Authorization: `Bearer ${user.token}`, // Passing the token
-        },
-      })
-      setAboutDataObject({aboutText:message})
-      console.log('inside about me',response.data.result.about)
-    }
-    
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
 
-    
-    onClose();
+    const authToken = Cookies.get("authToken"); // Get token from cookies
+
+    if (!authToken) {
+      setError("Session expired! Please login again.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/api/addAboutMe`,
+        { about: message },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+
+      if (response.data.status === 200) {
+        setSuccess("About me updated successfully!");
+        onClose(); // Close the popup on success
+        fetchUserData(); // Fetch updated user data after submit
+      } else {
+        setError(response.data.msg || "Failed to update about me.");
+      }
+    } catch (error) {
+      setError(error.response ? error.response.data.message : "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -128,7 +134,6 @@ const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
               </p>
             </div>
             <form className="about-text-inp" onSubmit={handleSubmit}>
-              {/* <input type="text" /> */}
               <textarea
                 id="message"
                 name="message"
@@ -136,11 +141,14 @@ const AboutMe = ({ onClose, setAboutDataObject, aboutText }) => {
                 cols="50"
                 value={message}
                 onChange={handleInputChange}
-              ></textarea>
+                placeholder="Write something about yourself"
+              />
               <div className="expInp-btns">
                 <div>
-                  <button className="exp-submitBtn" type="submit">
-                    Submit
+                  {error && <p style={{ color: "red" }}>{error}</p>}
+                  {success && <p style={{ color: "green" }}>{success}</p>}
+                  <button className="exp-submitBtn" type="submit" disabled={loading}>
+                    {loading ? "Submitting..." : "Submit"}
                   </button>
                 </div>
               </div>

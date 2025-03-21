@@ -28,10 +28,8 @@
 .expBox-card {
   display: flex;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   width: 1250px;
-
-  /* background-color: pink; */
 }
 
 .expBox-card img {
@@ -40,13 +38,11 @@
 }
 
 .exp-boxTwo {
-  padding-left: 30px;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   width: 100%;
-
-  /* background-color: green; */
 }
 
 .expRole,
@@ -64,6 +60,23 @@
 .projOrg {
   font-size: 0.9rem;
   color: #727272;
+}
+
+.project-editBtn {
+  /* background-color: yellow; */
+}
+
+.project-editBtn button {
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+  color: #ea4232;
+  margin: 0 0 0 0;
+  transition: all 0.3s ease-in;
+}
+
+.project-editBtn button:hover {
+  cursor: pointer;
 }
 
 .expLoact {
@@ -103,6 +116,7 @@
 /* --------------------------- */
 
 .proj-boxesOne {
+  display: flex;
   padding: 0 20px 20px 20px;
 }
 
@@ -111,6 +125,9 @@
   justify-content: flex-start;
   padding: 20px 0;
   gap: 20px;
+  width: 1220px;
+
+  /* background-color: greenyellow; */
 }
 
 .profproj-content img {
@@ -240,7 +257,7 @@
 
 .certi-box-content button {
   padding: 10px 20px;
-  margin-right: 30px;
+  margin-right: 0;
   background-color: #ea4232;
   border: none;
   color: #fff;
@@ -275,13 +292,22 @@
 
 .award-boxes {
   display: flex;
+  justify-content: space-between;
   gap: 20px;
   padding: 20px 20px 50px 20px;
+  width: 1250px;
 }
 
 .award-boxes img {
   height: 10vh;
   border-radius: 50%;
+}
+
+.awardsBocxNew {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 330px;
 }
 
 .awardName {
@@ -302,11 +328,11 @@
 }
 
 .award-subbox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    width: 230px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  width: 230px;
 
-    /* background-color: greenyellow; */
+  /* background-color: greenyellow; */
 }

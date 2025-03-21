@@ -22,8 +22,6 @@ import UserDetails from "./components/UserDetails";
 import ScrollToTop from "./components/ScrollToTop";
 import EmployeeProfile from "./components/EmployeeProfile";
 import EmployerProfile from "./components/EmployerProfile";
-import EmpProfileShow from "./components/EmpProfileShow";
-import Employee from "./components/EmployeePage";
 import EmployeePage from "./components/EmployeePage";
 
 const App = () => {

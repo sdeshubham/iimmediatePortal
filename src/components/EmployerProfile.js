@@ -53,93 +53,64 @@ const EmployerProfile = () => {
 
   return (
     <>
-      {/* <div className="emprProfBox">
-        <h2>{employer.companyName || "N/A"}</h2>
-        <p>
-          <strong>Name:</strong> {employer.name || "N/A"}
-        </p>
-        <p>
-          <strong>Contact Number:</strong> {employer.contactNumber || "N/A"}
-        </p>
-        <p>
-          <strong>Company Name:</strong> {employer.companyName || "N/A"}
-        </p>
-        <p>
-          <strong>Designation:</strong> {employer.designationName || "N/A"}
-        </p>
-        <p>
-          <strong>Email:</strong> {employer.email || "N/A"}
-        </p>
-        <p>
-          <strong>Website:</strong>{" "}
-          <a
-            href={`https://${employer.website}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {employer.website || "N/A"}
-          </a>
-        </p>
-      </div> */}
-
       <div className="employer-box">
-          <div className="emp-container">
-            <div className="empyr-boxtop">
-              <div className="prof-sectionOne">
-                <div className="empyr-profImg">
-                  <img src={empImg} alt="" />
+        <div className="emp-container">
+          <div className="empyr-boxtop">
+            <div className="prof-sectionOne">
+              <div className="empyr-profImg">
+                <img src={empImg} alt="" />
+              </div>
+              <div className="emp-details">
+                <h2>{employer.companyName}</h2>
+                <h4>
+                  {employer.name} | {employer.designationName}
+                </h4>
+                <div className="comp-call">
+                  <IoCallSharp size={20} />
+                  +91 {employer.contactNumber}
                 </div>
-                <div className="emp-details">
-                  <h2>{employer.companyName}</h2>
-                  <h4>
-                    {employer.name} | {employer.designationName}
-                  </h4>
-                  <div className="comp-call">
-                    <IoCallSharp size={20} />
-                    +91 {employer.contactNumber}
-                  </div>
-                  <div className="comp-mail">
-                    <IoIosMail size={20} />
-                    {employer.email}
-                  </div>
-                  <p>{employer.location}</p>
-                  <button>
-                    <a href="https://arnnima.com/">
-                      Visit Website <IoShare />
-                    </a>
-                  </button>
+                <div className="comp-mail">
+                  <IoIosMail size={20} />
+                  {employer.email}
                 </div>
-              </div>
-            </div>
-            <div className="prof-sectionTwo">
-              <h2>About the Company</h2>
-              <p>{employer.description}</p>
-              <div className="company-site emp-subheading">
-                <h5>Website:</h5>
-                <a href="https://sovtechnologies.com">{employer.website}</a>
-              </div>
-              <div className="company-industry emp-subheading">
-                <h5>Industry:</h5>
-                <p>{employer.industry}</p>
-              </div>
-              <div className="company-found emp-subheading">
-                <h5>Company size:</h5>
-                <p>{employer.company_SizeMin} employees</p>
-              </div>
-              <div className="company-contact emp-subheading">
-                <h5>Contact:</h5>
-                <p>+91 {employer.contactNumber}</p>
-              </div>
-              <div className="company-address emp-subheading">
-                <h5>Address:</h5>
-                <p>{employer.companyFullAddress}</p>
-              </div>
-              <div className="company-found emp-subheading">
-                <h5>Founded:</h5>
-                <p>{employer.founded}</p>
+                <p>{employer.location}</p>
+                <button>
+                  <a href="https://arnnima.com/">
+                    Visit Website <IoShare />
+                  </a>
+                </button>
               </div>
             </div>
           </div>
+          <div className="prof-sectionTwo">
+            <h2>About the Company</h2>
+            <p>{employer.description}</p>
+            <div className="company-site emp-subheading">
+              <h5>Website:</h5>
+              <a href="https://sovtechnologies.com">{employer.website}</a>
+            </div>
+            <div className="company-industry emp-subheading">
+              <h5>Industry:</h5>
+              <p>{employer.industry}</p>
+            </div>
+            <div className="company-found emp-subheading">
+              <h5>Company size:</h5>
+              <p>{employer.company_SizeMin} employees</p>
+            </div>
+            <div className="company-contact emp-subheading">
+              <h5>Contact:</h5>
+              <p>+91 {employer.contactNumber}</p>
+            </div>
+            <div className="company-address emp-subheading">
+              <h5>Address:</h5>
+              <p>{employer.companyFullAddress}</p>
+            </div>
+            <div className="company-found emp-subheading">
+              <h5>Founded:</h5>
+              <p>{employer.founded}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -225,16 +225,282 @@
 
 
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
+// import axios from "axios";
+// import { useAuth } from "../AuthContext";
+// import "../../stylesheets/InputFields.css";
+// import { IoMdClose } from "react-icons/io";
+
+// const baseURL = 'https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api'
+
+// const Experience = ({ onClose, setExpArray }) => {
+//   const  { user } = useAuth();
+
+//   const [selectedMonth, setSelectedMonth] = useState("");
+//   const [selectedYear, setSelectedYear] = useState("");
+//   const [endMonth, setEndMonth] = useState("");
+//   const [endYear, setEndYear] = useState("");
+//   const [location, setLocation] = useState("");
+//   const [jobTitle, setJobTitle] = useState("");
+//   const [companyName, setCompanyName] = useState("");
+//   const [workDescription, setWorkDescription] = useState("");
+//   const [selectedOption, setSelectedOption] = useState(1); // 1 corresponds to Yes, 0 corresponds to No
+
+//   const handleChange = (event) => {
+//     setSelectedOption(Number(event.target.value));
+//   };
+
+//   const months = [
+//     "January",
+//     "February",
+//     "March",
+//     "April",
+//     "May",
+//     "June",
+//     "July",
+//     "August",
+//     "September",
+//     "October",
+//     "November",
+//     "December",
+//   ];
+
+//   const years = [];
+//   for (let year = 2000; year <= 2024; year++) {
+//     years.push(year);
+//   }
+
+//   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
+//   const handleYearChange = (e) => setSelectedYear(e.target.value);
+//   const handleEndMonthChange = (e) => setEndMonth(e.target.value);
+//   const handleEndYearChange = (e) => setEndYear(e.target.value);
+//   const handleLocationChange = (e) => setLocation(e.target.value);
+//   const handleJobTitleChange = (e) => setJobTitle(e.target.value);
+//   const handleCompanyNameChange = (e) => setCompanyName(e.target.value);
+//   const handleDescriptionChange = (e) => setWorkDescription(e.target.value);
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log("Job Title:", jobTitle);
+//     console.log("Company Name:", companyName);
+//     console.log("Work Description:", workDescription)
+//     console.log("Location:", location);
+//     console.log("Start Month:", selectedMonth);
+//     console.log("Start Year:", selectedYear);
+//     if (selectedOption === 0) {
+//       console.log("End Month:", endMonth);
+//       console.log("End Year:", endYear);
+//     }
+
+//     let JoiningDateFormatted = `${selectedYear}-${(months.indexOf(selectedMonth))+1}-1`
+
+//     if (user) {
+//       axios.post(`${baseURL}/addExperience`,
+//         {
+//           "isCurrentEmployment": Boolean(selectedOption),
+//           "title": jobTitle,
+//           "company_Name": companyName,
+//           "location": location,
+//           "description": workDescription,
+//           "JoiningDate": JoiningDateFormatted,
+//         },
+//         {
+//         headers: {
+//           Authorization: `Bearer ${user.token}`,
+//           "Content-Type": "application/json", // Optional but recommended
+//         },
+//       }).then((response) => {
+//         setExpArray((prev) => [...prev, response.data.result] )
+//       }).catch((error) => {
+//         console.log(error, "error adding experience")
+//       })
+
+//     }
+//     onClose();
+//   };
+
+//   return (
+//     <div className="popup-overlay">
+//       <div className="popup-form">
+//         <div className="exp-inp-box">
+//           <button className="close-btn" onClick={onClose}>
+//             <IoMdClose size={24} />
+//           </button>
+//           <form onSubmit={handleSubmit}>
+//             <div className="experience-box">
+//               <div className="exp-fields">
+//                 <div className="exp-inphead">
+//                   <h3>Employment</h3>
+//                   <p>
+//                     Details like job title, company name, etc, help employers
+//                     understand your work
+//                   </p>
+//                 </div>
+//                 <div className="inp-fieldbox">
+//                   <label htmlFor="">Is this your current employment ?</label>
+//                   <div className="exp-radio-inp">
+//                     <label>
+//                       <input
+//                         name="Yes"
+//                         type="radio"
+//                         value="1"
+//                         checked={Boolean(selectedOption)}
+//                         onChange={handleChange}
+//                       />{" "}
+//                       Yes
+//                     </label>
+//                     <label>
+//                       <input
+//                         name="No"
+//                         type="radio"
+//                         value="0"
+//                         checked={Boolean(!selectedOption)}
+//                         onChange={handleChange}
+//                       />{" "}
+//                       No
+//                     </label>
+//                   </div>
+//                 </div>
+//                 <div className="inp-fieldbox">
+//                   <label htmlFor="">Current job title</label>
+//                   <input
+//                     className="exp-inp-fileds"
+//                     type="text"
+//                     placeholder="Job Title"
+//                     value={jobTitle}
+//                     onChange={handleJobTitleChange}
+//                   />
+//                 </div>
+//                 <div className="inp-fieldbox">
+//                   <label htmlFor="">Company name</label>
+//                   <input
+//                     className="exp-inp-fileds"
+//                     type="text"
+//                     placeholder="Company Name"
+//                     value={companyName}
+//                     onChange={handleCompanyNameChange}
+//                   />
+//                 </div>
+//                 <div className="inp-fieldbox">
+//                   <label htmlFor="">Work location</label>
+//                   <input
+//                     className="exp-inp-fileds"
+//                     type="text"
+//                     placeholder="Location (e.g., Mumbai, Maharashtra, India)"
+//                     value={location}
+//                     onChange={handleLocationChange}
+//                   />
+//                 </div>
+//                 <div className="exp-durationBox">
+//                   <div className="expjoining-date">
+//                     <label htmlFor="Totalexperience">Joining date</label>
+//                     <div className="year-month-inp" id="date-line">
+//                       <select
+//                         id="year"
+//                         value={selectedYear}
+//                         onChange={handleYearChange}
+//                       >
+//                         <option value="">Select Year</option>
+//                         {years.map((year) => (
+//                           <option key={year} value={year}>
+//                             {year}
+//                           </option>
+//                         ))}
+//                       </select>
+//                       <select
+//                         id="month"
+//                         value={selectedMonth}
+//                         onChange={handleMonthChange}
+//                       >
+//                         <option value="">Select Month</option>
+//                         {months.map((month, index) => (
+//                           <option key={index} value={month}>
+//                             {month}
+//                           </option>
+//                         ))}
+//                       </select>
+//                     </div>
+//                   </div>
+//                   {selectedOption === 0 && (
+//                     <div className="exptotal-date">
+//                       <label htmlFor="Totalexperience">Worked till</label>
+//                       <div className="year-month-inp">
+//                         <select
+//                           id="year"
+//                           value={endYear}
+//                           onChange={handleEndYearChange}
+//                         >
+//                           <option value="">Select Year</option>
+//                           {years.map((year) => (
+//                             <option key={year} value={year}>
+//                               {year}
+//                             </option>
+//                           ))}
+//                         </select>
+//                         <select
+//                           id="month"
+//                           value={endMonth}
+//                           onChange={handleEndMonthChange}
+//                         >
+//                           <option value="">Select Month</option>
+//                           {months.map((month, index) => (
+//                             <option key={index} value={month}>
+//                               {month}
+//                             </option>
+//                           ))}
+//                         </select>
+//                       </div>
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="inp-fieldbox-desc">
+//                   <div className="exp-desc-inp">
+//                     <label htmlFor="message">Description</label>
+//                     {/* <input type="text" /> */}
+//                     <textarea
+//                       id="message"
+//                       name="message"
+//                       rows="4"
+//                       cols="50"
+//                       onChange={handleDescriptionChange}
+//                     ></textarea>
+//                   </div>
+//                 </div>
+//               </div>
+//               <div className="expInp-btns">
+//                 <div>
+//                   <button className="exp-deleteBtn" type="button">
+//                     Delete
+//                   </button>
+//                   <button className="exp-submitBtn" type="submit">
+//                     Submit
+//                   </button>
+//                 </div>
+//               </div>
+//             </div>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Experience;
+
+//  YE UPAR WALA MAIN CODE HAI=============+++++++++++=====++++++++=====
+
+
+
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { IoMdClose } from "react-icons/io";
 import { useAuth } from "../AuthContext";
 import "../../stylesheets/InputFields.css";
-import { IoMdClose } from "react-icons/io";
 
-const baseURL = 'https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api'
+const baseURL = 'https://qi0vvbzcmg.execute-api.ap-south-1.amazonaws.com/api';
 
-const Experience = ({ onClose, setExpArray }) => {
-  const  { user } = useAuth();
+const Experience = ({ onClose, experienceToEdit, isEditing }) => {
+  const { user } = useAuth();
 
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
@@ -244,25 +510,10 @@ const Experience = ({ onClose, setExpArray }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [workDescription, setWorkDescription] = useState("");
-  const [selectedOption, setSelectedOption] = useState(1); // 1 corresponds to Yes, 0 corresponds to No
-
-  const handleChange = (event) => {
-    setSelectedOption(Number(event.target.value));
-  };
+  const [selectedOption, setSelectedOption] = useState(1);
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
   ];
 
   const years = [];
@@ -279,45 +530,82 @@ const Experience = ({ onClose, setExpArray }) => {
   const handleCompanyNameChange = (e) => setCompanyName(e.target.value);
   const handleDescriptionChange = (e) => setWorkDescription(e.target.value);
 
+
+  useEffect(() => {
+    if (isEditing && experienceToEdit) {
+      setJobTitle(experienceToEdit.role);
+      setCompanyName(experienceToEdit.company);
+      setLocation(experienceToEdit.location);
+      setWorkDescription(experienceToEdit.description);
+      setSelectedOption(1);
+      const startDate = new Date(experienceToEdit.duration.split("-")[0]);
+      setSelectedYear(startDate.getFullYear());
+      setSelectedMonth(months[startDate.getMonth()]);
+    }
+  }, [isEditing, experienceToEdit]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Job Title:", jobTitle);
-    console.log("Company Name:", companyName);
-    console.log("Work Description:", workDescription)
-    console.log("Location:", location);
-    console.log("Start Month:", selectedMonth);
-    console.log("Start Year:", selectedYear);
-    if (selectedOption === 0) {
-      console.log("End Month:", endMonth);
-      console.log("End Year:", endYear);
-    }
 
-    let JoiningDateFormatted = `${selectedYear}-${(months.indexOf(selectedMonth))+1}-1`
+    let JoiningDateFormatted = `${selectedYear}-${(months.indexOf(selectedMonth)) + 1}-1`;
+
+    const experienceData = {
+      isCurrentEmployment: Boolean(selectedOption),
+      title: jobTitle,
+      company_Name: companyName,
+      location: location,
+      description: workDescription,
+      JoiningDate: JoiningDateFormatted,
+    };
 
     if (user) {
-      axios.post(`${baseURL}/addExperience`,
-        {
-          "isCurrentEmployment": Boolean(selectedOption),
-          "title": jobTitle,
-          "company_Name": companyName,
-          "location": location,
-          "description": workDescription,
-          "JoiningDate": JoiningDateFormatted,
-        },
-        {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-          "Content-Type": "application/json", // Optional but recommended
-        },
-      }).then((response) => {
-        setExpArray((prev) => [...prev, response.data.result] )
-      }).catch((error) => {
-        console.log(error, "error adding experience")
-      })
-
+      if (isEditing && experienceToEdit) {
+        axios.post(`${baseURL}/api/editWorkExprience`, {
+          _id: experienceToEdit.id,
+          ...experienceData,
+        }, {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-Type": "application/json",
+          },
+        }).then((response) => {
+          console.log("Experience edited successfully:", response.data);
+        }).catch((error) => {
+          console.log("Error editing experience:", error);
+        });
+      }
     }
     onClose();
   };
+  
+  const handleDelete = async () => {
+    console.log("🔵 Delete button clicked!"); // Check if function is called
+  
+    if (user && experienceToEdit) {
+      try {
+        console.log("🟢 Sending Delete API request...");
+  
+        const response = await axios.delete(`${baseURL}/api/deletedExperience`, {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+          data: {
+            _id: experienceToEdit._id,  // Use _id from experienceToEdit for deletion
+          },
+        });
+  
+        console.log("✅ Experience deleted successfully:", response.data);
+        onClose();
+      } catch (error) {
+        console.error("❌ Error deleting experience:", error.response ? error.response.data : error);
+      }
+    } else {
+      console.log("🔴 User not found or experience ID missing");
+    }
+  };
+  
+  
+  
 
   return (
     <div className="popup-overlay">
@@ -332,12 +620,12 @@ const Experience = ({ onClose, setExpArray }) => {
                 <div className="exp-inphead">
                   <h3>Employment</h3>
                   <p>
-                    Details like job title, company name, etc, help employers
-                    understand your work
+                    Details like job title, company name, etc., help employers
+                    understand your work.
                   </p>
                 </div>
                 <div className="inp-fieldbox">
-                  <label htmlFor="">Is this your current employment ?</label>
+                  <label>Is this your current employment?</label>
                   <div className="exp-radio-inp">
                     <label>
                       <input
@@ -345,7 +633,7 @@ const Experience = ({ onClose, setExpArray }) => {
                         type="radio"
                         value="1"
                         checked={Boolean(selectedOption)}
-                        onChange={handleChange}
+                        onChange={(e) => setSelectedOption(1)}
                       />{" "}
                       Yes
                     </label>
@@ -355,14 +643,14 @@ const Experience = ({ onClose, setExpArray }) => {
                         type="radio"
                         value="0"
                         checked={Boolean(!selectedOption)}
-                        onChange={handleChange}
+                        onChange={(e) => setSelectedOption(0)}
                       />{" "}
                       No
                     </label>
                   </div>
                 </div>
                 <div className="inp-fieldbox">
-                  <label htmlFor="">Current job title</label>
+                  <label>Current job title</label>
                   <input
                     className="exp-inp-fileds"
                     type="text"
@@ -372,7 +660,7 @@ const Experience = ({ onClose, setExpArray }) => {
                   />
                 </div>
                 <div className="inp-fieldbox">
-                  <label htmlFor="">Company name</label>
+                  <label>Company name</label>
                   <input
                     className="exp-inp-fileds"
                     type="text"
@@ -382,19 +670,19 @@ const Experience = ({ onClose, setExpArray }) => {
                   />
                 </div>
                 <div className="inp-fieldbox">
-                  <label htmlFor="">Work location</label>
+                  <label>Work location</label>
                   <input
                     className="exp-inp-fileds"
                     type="text"
-                    placeholder="Location (e.g., Mumbai, Maharashtra, India)"
+                    placeholder="Location"
                     value={location}
                     onChange={handleLocationChange}
                   />
                 </div>
                 <div className="exp-durationBox">
                   <div className="expjoining-date">
-                    <label htmlFor="Totalexperience">Joining date</label>
-                    <div className="year-month-inp" id="date-line">
+                    <label>Joining date</label>
+                    <div className="year-month-inp">
                       <select
                         id="year"
                         value={selectedYear}
@@ -421,62 +709,30 @@ const Experience = ({ onClose, setExpArray }) => {
                       </select>
                     </div>
                   </div>
-                  {selectedOption === 0 && (
-                    <div className="exptotal-date">
-                      <label htmlFor="Totalexperience">Worked till</label>
-                      <div className="year-month-inp">
-                        <select
-                          id="year"
-                          value={endYear}
-                          onChange={handleEndYearChange}
-                        >
-                          <option value="">Select Year</option>
-                          {years.map((year) => (
-                            <option key={year} value={year}>
-                              {year}
-                            </option>
-                          ))}
-                        </select>
-                        <select
-                          id="month"
-                          value={endMonth}
-                          onChange={handleEndMonthChange}
-                        >
-                          <option value="">Select Month</option>
-                          {months.map((month, index) => (
-                            <option key={index} value={month}>
-                              {month}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                  )}
                 </div>
-                <div className="inp-fieldbox-desc">
-                  <div className="exp-desc-inp">
-                    <label htmlFor="message">Description</label>
-                    {/* <input type="text" /> */}
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      cols="50"
-                      onChange={handleDescriptionChange}
-                    ></textarea>
-                  </div>
+                <div className="inp-fieldbox">
+                  <label>Describe your work</label>
+                  <textarea
+                    value={workDescription}
+                    onChange={handleDescriptionChange}
+                    placeholder="Describe your role and responsibilities"
+                  />
                 </div>
               </div>
-              <div className="expInp-btns">
-                <div>
-                  <button className="exp-deleteBtn" type="button">
-                    Delete
-                  </button>
-                  <button className="exp-submitBtn" type="submit">
-                    Submit
-                  </button>
-                </div>
-              </div>
+            </div>
+            <div className="btnbox">
+              {isEditing && experienceToEdit && (
+                <button
+                  type="button"
+                  onClick={handleDelete}
+                  className="delete-btn"
+                >
+                  Delete
+                </button>
+              )}
+              <button type="submit" className="submit-btn">
+                {isEditing ? "Save Changes" : "Add Experience"}
+              </button>
             </div>
           </form>
         </div>

@@ -52,7 +52,7 @@ const Home = () => {
           `${BASE_URL}/withOutLogin/getAllCompanyHomePage`
         );
         if (response.data.status === 200) {
-          setCompanies(response.data.result.slice(0, 5)); // Set companies data
+          setCompanies(response.data.result.slice(0, 5));
         }
       } catch (error) {
         console.error("Error fetching companies:", error);

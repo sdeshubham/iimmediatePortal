@@ -125,13 +125,11 @@ const EmpSignUp = () => {
       });
 
       if (response.data.status === 200) {
-        alert("Registration successful!");
+        alert("Registration successful! You can login now...");
+        navigate("/signin");
 
         console.log(response.data.result);
 
-        // const userId = response.data.result._id;
-
-        navigate(`/signin`);
       } else {
         alert(`Error: ${response.data.message}`);
       }

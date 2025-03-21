@@ -186,6 +186,18 @@
   outline: none;
 }
 
+.about-deleteBtn {
+  color: #ea4232;
+  border: none;
+  background: none;
+  margin-right: 20px;
+}
+
+.about-deleteBtn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .exp-deleteBtn {
   /* border: 1px solid #ea4232; */
   border: none;
